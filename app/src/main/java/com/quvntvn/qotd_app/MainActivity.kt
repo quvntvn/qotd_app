@@ -3,58 +3,48 @@ package com.quvntvn.qotd_app
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
+import android.widget.Button
+import android.widget.ProgressBar
+import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.quvntvn.qotd_app.ui.theme.Qotd_appTheme
 
 // 9. MainActivity.kt (Activité principale)
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
     private val viewModel: QuoteViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        setContentView(R.layout.activity_main)
+
+        val btnRandom = findViewById<Button>(R.id.btnRandom)
+        val btnSettings = findViewById<Button>(R.id.btn_settings)
+        val progressBar = findViewById<ProgressBar>(R.id.progressBar)
+        val tvQuote = findViewById<TextView>(R.id.tvQuote)
+        val tvAuthor = findViewById<TextView>(R.id.tvAuthor)
+        val tvYear = findViewById<TextView>(R.id.tvYear)
 
         // Initialisation WorkManager
         val (enabled, hour) = SharedPrefManager.getNotificationSettings(this)
         if (enabled) QuoteWorker.scheduleDailyQuote(this, hour)
 
-        setupUI()
-        setupObservers()
-        viewModel.loadDailyQuote()
-    }
-
-    private fun setupUI() {
-        binding.apply {
-            btnRandom.setOnClickListener { viewModel.loadRandomQuote() }
-            btnSettings.setOnClickListener {
-                startActivity(Intent(this@MainActivity, SettingsActivity::class.java))
-            }
+        btnRandom.setOnClickListener { viewModel.loadRandomQuote() }
+        btnSettings.setOnClickListener {
+            startActivity(Intent(this@MainActivity, SettingsActivity::class.java))
         }
-    }
 
-    private fun setupObservers() {
         viewModel.quote.observe(this) { quote ->
             quote?.let {
-                binding.tvQuote.text = it.citation
-                binding.tvAuthor.text = it.auteur
-                binding.tvYear.text = it.dateCreation.substring(0, 4)
+                tvQuote.text = it.citation
+                tvAuthor.text = it.auteur
+                tvYear.text = it.dateCreation.substring(0, 4)
             }
         }
 
         viewModel.isLoading.observe(this) { loading ->
-            binding.progressBar.visibility = if (loading) View.VISIBLE else View.GONE
+            progressBar.visibility = if (loading) View.VISIBLE else View.GONE
         }
+
+        viewModel.loadDailyQuote()
     }
 }
