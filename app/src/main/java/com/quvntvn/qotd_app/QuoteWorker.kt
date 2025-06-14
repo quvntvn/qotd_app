@@ -8,8 +8,8 @@ import androidx.work.NetworkType
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
-import java.time.Duration
 import java.util.Calendar
+import java.util.concurrent.TimeUnit
 
 // 6. QuoteWorker.kt (Tâche de fond)
 class QuoteWorker(
@@ -44,7 +44,7 @@ class QuoteWorker(
                 .build()
 
             val dailyRequest = PeriodicWorkRequestBuilder<QuoteWorker>(1, TimeUnit.DAYS)
-                .setInitialDelay(calculateDelay(hour))
+                .setInitialDelay(calculateDelay(hour), TimeUnit.MILLISECONDS)
                 .setConstraints(constraints)
                 .build()
 
