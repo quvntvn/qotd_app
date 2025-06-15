@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val btnRandom = findViewById<Button>(R.id.btnRandom)
+        val btnDaily = findViewById<Button>(R.id.btnDaily)
         val btnSettings = findViewById<Button>(R.id.btn_settings)
         val progressBar = findViewById<ProgressBar>(R.id.progressBar)
         val tvQuote = findViewById<TextView>(R.id.tvQuote)
@@ -40,7 +41,15 @@ class MainActivity : AppCompatActivity() {
         val (enabled, hour) = SharedPrefManager.getNotificationSettings(this)
         if (enabled) QuoteWorker.scheduleDailyQuote(this, hour)
 
-        btnRandom.setOnClickListener { viewModel.loadRandomQuote() }
+        btnRandom.setOnClickListener {
+            viewModel.loadRandomQuote()
+            btnDaily.visibility = View.VISIBLE
+        }
+
+        btnDaily.setOnClickListener {
+            viewModel.loadDailyQuote()
+            btnDaily.visibility = View.GONE
+        }
         btnSettings.setOnClickListener {
             startActivity(Intent(this@MainActivity, SettingsActivity::class.java))
         }
