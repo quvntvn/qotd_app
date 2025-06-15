@@ -9,11 +9,16 @@ object SharedPrefManager {
     private const val NOTIFICATION_HOUR = "notif_hour"
 
     fun saveSettings(context: Context, enabled: Boolean, hour: Int) {
-        context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE).edit().apply {
-            putBoolean(NOTIFICATION_ENABLED, enabled)
-            putInt(NOTIFICATION_HOUR, hour)
-            apply()
-        }
+        // Persist settings synchronously to guarantee they are immediately
+        // available when returning to the settings screen
+        context
+            .getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+            .edit()
+            .apply {
+                putBoolean(NOTIFICATION_ENABLED, enabled)
+                putInt(NOTIFICATION_HOUR, hour)
+                commit() // ensure value is written before we finish the activity
+            }
     }
 
     fun getNotificationSettings(context: Context): Pair<Boolean, Int> {
