@@ -34,11 +34,15 @@ class NotificationHelper(private val context: Context) {
     }
 
     fun showNotification(quote: Quote) {
-        val year = try {
-            SimpleDateFormat("yyyy", Locale.getDefault()).format(
-                SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(quote.dateCreation)!!
-            )
-        } catch (e: Exception) { "N/A" }
+        val year = quote.dateCreation?.let {
+            try {
+                SimpleDateFormat("yyyy", Locale.getDefault()).format(
+                    SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(it)!!
+                )
+            } catch (e: Exception) {
+                "N/A"
+            }
+        } ?: "N/A"
 
         val notification = NotificationCompat.Builder(context, channelId)
             .setSmallIcon(android.R.drawable.ic_dialog_info)

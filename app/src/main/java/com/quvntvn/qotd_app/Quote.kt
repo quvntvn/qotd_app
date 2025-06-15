@@ -6,5 +6,5 @@ import com.google.gson.annotations.SerializedName
 data class Quote(
     val citation: String,
     val auteur: String,
-    @SerializedName("date_creation") val dateCreation: String
+    @SerializedName("date_creation") val dateCreation: String?
 )

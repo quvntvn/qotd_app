@@ -49,7 +49,12 @@ class MainActivity : AppCompatActivity() {
             quote?.let {
                 tvQuote.text = it.citation
                 tvAuthor.text = it.auteur
-                tvYear.text = it.dateCreation.substring(0, 4)
+                val date = it.dateCreation
+                tvYear.text = if (date != null && date.length >= 4) {
+                    date.substring(0, 4)
+                } else {
+                    "N/A"
+                }
             }
         }
 
