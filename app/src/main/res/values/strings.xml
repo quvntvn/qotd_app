@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">qotd_app</string>
+    <string name="notification_permission_rationale">Pour afficher les notifications quotidiennes de citations, l'application a besoin de la permission d'envoi de notifications.</string>
+    <string name="notification_permission_denied">Permission de notification refusée. Les citations quotidiennes ne seront pas affichées.</string>
 </resources>
