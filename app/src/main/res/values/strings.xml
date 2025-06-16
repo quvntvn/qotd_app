@@ -3,4 +3,10 @@
     <!-- Simple English text avoids parsing issues on some build tools -->
     <string name="notification_permission_rationale">To display daily quote notifications, the app requires notification permission.</string>
     <string name="notification_permission_denied">Permission de notification refusée. Les citations quotidiennes ne seront pas affichées.</string>
+    <string name="action_settings">Paramètres</string>
+    <string name="random_quote">Citation aléatoire</string>
+    <string name="daily_quote">Citation du jour</string>
+    <string name="save">Enregistrer</string>
+    <string name="notifications_enabled">Notifications activées</string>
+    <string name="notification_time">Heure de notification</string>
 </resources>
