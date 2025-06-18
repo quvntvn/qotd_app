@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">qotd_app</string>
+    <string name="app_name">Citation du jour</string>
     <!-- Simple English text avoids parsing issues on some build tools -->
-    <string name="notification_permission_rationale">To display daily quote notifications, the app requires notification permission.</string>
+    <string name="notification_channel_name">Citations</string>
+    <string name="notification_channel_description">Notifications pour les citations quotidiennes</string>
+    <string name="notification_permission_rationale">Pour afficher les citations quotidiennes, l\'application demande la permission de notifications.</string>
     <string name="notification_permission_denied">Permission de notification refusée. Les citations quotidiennes ne seront pas affichées.</string>
 </resources>

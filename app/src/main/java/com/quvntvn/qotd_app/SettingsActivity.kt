@@ -7,38 +7,55 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import androidx.work.WorkManager
+import java.util.Locale
 
-// 8. SettingsActivity.kt (Configuration)
 class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
-        val (enabled, hour) = SharedPrefManager.getNotificationSettings(this)
-        val switch = findViewById<SwitchCompat>(R.id.switch_notifications)
+        // Récupérer l'heure ET les minutes depuis SharedPreferences
+        // Assurez-vous que SharedPrefManager.getNotificationSettings est adapté
+        // pour retourner également les minutes.
+        val (enabled, savedHour, savedMinute) = SharedPrefManager.getNotificationSettings(this)
+
+        val switchNotifications = findViewById<SwitchCompat>(R.id.switch_notifications)
         val timePicker = findViewById<TimePicker>(R.id.timePicker)
         timePicker.setIs24HourView(true)
 
-        switch.isChecked = enabled
-        timePicker.hour = hour
-        timePicker.minute = 0
+        switchNotifications.isChecked = enabled
+        timePicker.hour = savedHour
+        timePicker.minute = savedMinute // Utiliser la minute sauvegardée
         timePicker.isEnabled = enabled
 
-        switch.setOnCheckedChangeListener { _, isChecked ->
+        switchNotifications.setOnCheckedChangeListener { _, isChecked ->
             timePicker.isEnabled = isChecked
         }
 
         findViewById<Button>(R.id.btn_save).setOnClickListener {
             val newHour = timePicker.hour
-            SharedPrefManager.saveSettings(this, switch.isChecked, newHour)
+            val newMinute = timePicker.minute // <--- RÉCUPÉRER LES MINUTES
+            val notificationsAreEnabled = switchNotifications.isChecked
 
-            if (switch.isChecked) {
-                QuoteWorker.scheduleDailyQuote(this, newHour)
+            // Adapter SharedPrefManager pour sauvegarder aussi les minutes
+            SharedPrefManager.saveSettings(this, notificationsAreEnabled, newHour, newMinute) // <--- PASSER LES MINUTES ICI
+
+            val workManager = WorkManager.getInstance(this)
+            workManager.cancelUniqueWork("daily_quote")
+
+            if (notificationsAreEnabled) {
+                // Passer l'heure ET les minutes
+                QuoteWorker.scheduleDailyQuote(this, newHour, newMinute) // <--- PASSER LES MINUTES
+                val message = String.format(
+                    Locale.getDefault(),
+                    "Notifications programmées pour %02dh%02d",
+                    newHour,
+                    newMinute
+                )
+                Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
             } else {
-                WorkManager.getInstance(this).cancelUniqueWork("daily_quote")
+                Toast.makeText(this, "Notifications désactivées", Toast.LENGTH_SHORT).show()
             }
-
-            Toast.makeText(this, "Paramètres sauvegardés", Toast.LENGTH_SHORT).show()
             finish()
         }
     }

@@ -5,19 +5,22 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.util.Log // Import pour le logging si besoin
 import android.view.View
 import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.viewModels
+import androidx.activity.viewModels // Correction de l'import pour viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.ui.semantics.text
 import androidx.core.content.ContextCompat
+import androidx.glance.visibility
 
 // 9. MainActivity.kt (Activité principale)
 class MainActivity : AppCompatActivity() {
-    private val viewModel: QuoteViewModel by viewModels()
+    private val viewModel: QuoteViewModel by viewModels() // Utilisation correcte de viewModels
     private val requestPermissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
             if (!isGranted) {
@@ -38,8 +41,15 @@ class MainActivity : AppCompatActivity() {
         val tvYear = findViewById<TextView>(R.id.tvYear)
 
         // Initialisation WorkManager
-        val (enabled, hour) = SharedPrefManager.getNotificationSettings(this)
-        if (enabled) QuoteWorker.scheduleDailyQuote(this, hour)
+        // Récupérer enabled, hour, ET minute depuis SharedPrefManager
+        val (enabled, hour, minute) = SharedPrefManager.getNotificationSettings(this)
+        if (enabled) {
+            Log.d("MainActivity", "Planification de la notification quotidienne depuis onCreate pour ${hour}h${String.format("%02d", minute)}.")
+            // Passer l'heure ET la minute à scheduleDailyQuote
+            QuoteWorker.scheduleDailyQuote(this, hour, minute)
+        } else {
+            Log.d("MainActivity", "Notifications désactivées, aucune planification depuis onCreate.")
+        }
 
         btnRandom.setOnClickListener {
             viewModel.loadRandomQuote()
@@ -71,29 +81,40 @@ class MainActivity : AppCompatActivity() {
             progressBar.visibility = if (loading) View.VISIBLE else View.GONE
         }
 
-        viewModel.loadDailyQuote()
+        viewModel.loadDailyQuote() // Charger la citation quotidienne au démarrage
         requestNotificationPermissionIfNeeded()
     }
 
     private fun requestNotificationPermissionIfNeeded() {
+        // Uniquement pour Android 13 (TIRAMISU) et versions ultérieures
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
             when {
                 ContextCompat.checkSelfPermission(
                     this,
                     Manifest.permission.POST_NOTIFICATIONS
                 ) == PackageManager.PERMISSION_GRANTED -> {
-                    // Permission already granted
+                    // La permission est déjà accordée
+                    Log.d("MainActivity", "Permission POST_NOTIFICATIONS déjà accordée.")
                 }
 
                 shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS) -> {
+                    // Expliquer à l'utilisateur pourquoi la permission est nécessaire
+                    // Vous pourriez afficher une boîte de dialogue ici avant de redemander
+                    Log.d("MainActivity", "Affichage de la justification pour POST_NOTIFICATIONS.")
                     Toast.makeText(this, R.string.notification_permission_rationale, Toast.LENGTH_LONG).show()
+                    // Puis demander la permission
                     requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
                 }
 
                 else -> {
+                    // Demander directement la permission
+                    Log.d("MainActivity", "Demande de la permission POST_NOTIFICATIONS.")
                     requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
                 }
             }
+        } else {
+            // Pas besoin de demander la permission pour les versions antérieures à Android 13
+            Log.d("MainActivity", "Pas besoin de demander la permission POST_NOTIFICATIONS pour API ${Build.VERSION.SDK_INT}.")
         }
     }
 }
