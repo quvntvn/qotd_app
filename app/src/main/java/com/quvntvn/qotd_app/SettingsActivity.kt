@@ -17,6 +17,7 @@ class SettingsActivity : AppCompatActivity() {
         val (enabled, hour) = SharedPrefManager.getNotificationSettings(this)
         val switch = findViewById<SwitchCompat>(R.id.switch_notifications)
         val timePicker = findViewById<TimePicker>(R.id.timePicker)
+        timePicker.setIs24HourView(true)
 
         switch.isChecked = enabled
         timePicker.hour = hour

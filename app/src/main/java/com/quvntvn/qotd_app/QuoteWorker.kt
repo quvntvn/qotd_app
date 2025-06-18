@@ -9,6 +9,7 @@ import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
 import java.util.Calendar
+import java.util.TimeZone
 import java.util.concurrent.TimeUnit
 
 // 6. QuoteWorker.kt (Tâche de fond)
@@ -56,8 +57,9 @@ class QuoteWorker(
         }
 
         private fun calculateDelay(targetHour: Int): Long {
-            val current = Calendar.getInstance()
-            val dueDate = Calendar.getInstance().apply {
+            val tz = TimeZone.getTimeZone("Europe/Paris")
+            val current = Calendar.getInstance(tz)
+            val dueDate = Calendar.getInstance(tz).apply {
                 set(Calendar.HOUR_OF_DAY, targetHour)
                 set(Calendar.MINUTE, 0)
                 set(Calendar.SECOND, 0)
