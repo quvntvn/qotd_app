@@ -10,13 +10,13 @@
     <!-- Bouton Paramètres en haut -->
     <ImageButton
         android:id="@+id/btn_settings"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:background="@drawable/ic_settings_dark"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/ic_settings_dark"
+        android:background="?attr/selectableItemBackground"
+        android:contentDescription="Paramètres"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
-
 <!-- ProgressBar, également centrée pour le moment -->
     <ProgressBar
         android:id="@+id/progressBar"
