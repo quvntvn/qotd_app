@@ -11,12 +11,11 @@ import android.widget.Button
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import android.widget.ImageButton
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels // Correction de l'import pour viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.ui.semantics.text
 import androidx.core.content.ContextCompat
-import androidx.glance.visibility
 
 // 9. MainActivity.kt (Activité principale)
 class MainActivity : AppCompatActivity() {
@@ -34,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
         val btnRandom = findViewById<Button>(R.id.btnRandom)
         val btnDaily = findViewById<Button>(R.id.btnDaily)
-        val btnSettings = findViewById<Button>(R.id.btn_settings)
+        val btnSettings = findViewById<ImageButton>(R.id.btn_settings)
         val progressBar = findViewById<ProgressBar>(R.id.progressBar)
         val tvQuote = findViewById<TextView>(R.id.tvQuote)
         val tvAuthor = findViewById<TextView>(R.id.tvAuthor)
