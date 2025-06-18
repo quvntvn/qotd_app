@@ -4,20 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:padding="30dp"
     tools:context=".MainActivity">
 
     <!-- Bouton Paramètres en haut -->
-    <Button
+    <ImageButton
         android:id="@+id/btn_settings"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="Paramètres"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/ic_settings_dark"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- ProgressBar, également centrée pour le moment -->
+<!-- ProgressBar, également centrée pour le moment -->
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
@@ -35,6 +35,7 @@
         android:layout_height="wrap_content"
         android:padding="16dp"
         android:textSize="20sp"
+        android:textStyle="italic"
         android:gravity="center"
         app:layout_constrainedHeight="true"
         app:layout_constraintTop_toTopOf="parent"
@@ -98,7 +99,7 @@
         android:layout_height="wrap_content"
         android:text="Citation aléatoire"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
