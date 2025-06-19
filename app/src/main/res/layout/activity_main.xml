@@ -51,6 +51,7 @@
         android:padding="16dp"
         android:textSize="20sp"
         android:textStyle="italic"
+        android:fontFamily="@font/dancingscript"
         android:gravity="center"
         app:layout_constrainedHeight="true"
         app:layout_constraintTop_toTopOf="parent"
