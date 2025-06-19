@@ -32,6 +32,10 @@ class SettingsActivity : AppCompatActivity() {
             timePicker.isEnabled = isChecked
         }
 
+        findViewById<Button>(R.id.btn_back).setOnClickListener {
+            finish()
+        }
+
         findViewById<Button>(R.id.btn_save).setOnClickListener {
             val newHour = timePicker.hour
             val newMinute = timePicker.minute // <--- RÉCUPÉRER LES MINUTES
