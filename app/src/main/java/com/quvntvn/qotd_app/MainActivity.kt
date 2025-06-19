@@ -1,6 +1,7 @@
 package com.quvntvn.qotd_app
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -65,7 +67,7 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.quote.observe(this) { quote ->
             quote?.let {
-                tvQuote.text = it.citation
+                tvQuote.text = "\"${it.citation}\""
                 tvAuthor.text = it.auteur
                 val date = it.dateCreation
                 tvYear.text = if (date != null && date.length >= 4) {
