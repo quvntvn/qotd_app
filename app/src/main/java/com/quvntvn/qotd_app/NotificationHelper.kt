@@ -58,20 +58,7 @@ class NotificationHelper(private val context: Context) {
 
     @RequiresPermission(Manifest.permission.POST_NOTIFICATIONS)
     fun showNotification(quote: Quote) {
-        // La logique de parsing de la date peut rester ici ou être déplacée dans le modèle Quote si besoin
-        val year = quote.dateCreation?.let { dateString ->
-            try {
-                val inputFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-                val date = inputFormat.parse(dateString)
-                date?.let {
-                    val outputFormat = SimpleDateFormat("yyyy", Locale.getDefault())
-                    outputFormat.format(it)
-                } ?: "N/A"
-            } catch (e: Exception) {
-                // Log.e("NotificationHelper", "Erreur de parsing de date", e)
-                "N/A"
-            }
-        } ?: "N/A"
+
 
         // Intent pour lancer MainActivity lorsque la notification est cliquée
         val intent = Intent(context, MainActivity::class.java).apply {
