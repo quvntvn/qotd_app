@@ -22,6 +22,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textSize="20dp"
+            android:fontFamily="@font/ptsans"
             android:textColor="@color/black"
             android:text="Notifications activées"
             android:textAppearance="?attr/textAppearanceSubtitle1" />
@@ -40,6 +41,7 @@
         android:layout_height="wrap_content"
         android:text="Heure de notification"
         android:textSize="20dp"
+        android:fontFamily="@font/ptsans"
         android:textColor="@color/black"
         android:textAppearance="?attr/textAppearanceSubtitle1"
         android:layout_marginTop="24dp"
@@ -68,6 +70,7 @@
         android:textStyle="bold"
         android:textColor="@color/white"
         android:background="@color/black"
+        android:fontFamily="@font/ptsans"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -79,6 +82,7 @@
         android:layout_height="wrap_content"
         android:text="Retour"
         android:textStyle="bold"
+        android:fontFamily="@font/ptsans"
         android:textColor="@color/white"
         android:background="@color/black"
         android:layout_marginBottom="8dp"

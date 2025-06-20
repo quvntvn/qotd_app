@@ -2,7 +2,5 @@
 <resources>
 
     <style name="Theme.Qotd_app" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="android:fontFamily">@font/ptsans</item>
-        <item name="fontFamily">@font/ptsans</item>
     </style>
 </resources>
