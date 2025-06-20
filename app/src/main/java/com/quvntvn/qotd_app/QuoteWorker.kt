@@ -7,11 +7,12 @@ import android.os.Build
 import androidx.core.content.ContextCompat
 import androidx.work.Constraints
 import androidx.work.CoroutineWorker
-import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.ExistingWorkPolicy
 import androidx.work.NetworkType
-import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
+import com.quvntvn.qotd_app.SharedPrefManager
 import java.util.Calendar
 // import java.util.TimeZone // Décommentez si vous voulez un fuseau horaire spécifique comme "Europe/Paris"
 import java.util.concurrent.TimeUnit
@@ -42,6 +43,10 @@ class QuoteWorker(
             if (response.isSuccessful) {
                 response.body()?.let {
                     NotificationHelper(appContext).showNotification(it)
+                }
+                val (enabled, hour, minute) = SharedPrefManager.getNotificationSettings(appContext)
+                if (enabled) {
+                    scheduleDailyQuote(appContext, hour, minute)
                 }
                 Result.success()
             } else {
@@ -81,24 +86,17 @@ class QuoteWorker(
             val calculatedDelay = calculateDelay(hour, minute)
             Log.d(TAG, "Délai calculé: $calculatedDelay ms (environ ${TimeUnit.MILLISECONDS.toMinutes(calculatedDelay)} minutes)")
 
-            val dailyRequest = PeriodicWorkRequestBuilder<QuoteWorker>(1, TimeUnit.DAYS)
+            val dailyRequest = OneTimeWorkRequestBuilder<QuoteWorker>()
                 .setInitialDelay(calculatedDelay, TimeUnit.MILLISECONDS)
                 .setConstraints(constraints)
                 .build()
 
-            // Utiliser REPLACE si vous voulez que toute modification (heure, contraintes)
-            // annule et remplace immédiatement l'ancien travail. UPDATE essaie de garder le
-            // travail existant et de mettre à jour ses paramètres, ce qui peut ne pas
-            // changer l'heure de la prochaine exécution comme attendu pour les travaux périodiques.
-            // Pour un changement d'heure, il est généralement plus sûr d'annuler explicitement
-            // puis de ré-enfiler, ou d'utiliser REPLACE.
-            // (La logique d'annulation explicite est dans SettingsActivity dans ce cas)
-            workManager.enqueueUniquePeriodicWork(
+            workManager.enqueueUniqueWork(
                 "daily_quote",
-                ExistingPeriodicWorkPolicy.UPDATE, // Ou .REPLACE
+                ExistingWorkPolicy.REPLACE,
                 dailyRequest
             )
-            Log.d(TAG, "Travail 'daily_quote' mis en file d'attente/mis à jour.")
+            Log.d(TAG, "Travail 'daily_quote' planifié.")
         }
 
         /**
