@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Quote of the Day</string>
+    <string name="notification_channel_name">Quotes</string>
+    <string name="notification_channel_description">Daily quote notifications</string>
+    <string name="notification_permission_rationale">To display daily quotes, the app requests notification permission.</string>
+    <string name="notification_permission_denied">Notification permission denied. Daily quotes will not be shown.</string>
+    <string-array name="languages">
+        <item>French</item>
+        <item>English</item>
+    </string-array>
+    <string name="settings_description">Settings</string>
+    <string name="button_daily_quote">Daily quote</string>
+    <string name="button_random_quote">Random quote</string>
+    <string name="notifications_enabled">Notifications enabled</string>
+    <string name="notification_time">Notification time</string>
+    <string name="language_label">Language</string>
+    <string name="save">Save</string>
+    <string name="back">Back</string>
+    <string name="notifications_scheduled">Notifications scheduled for %1$02dh%2$02d</string>
+    <string name="notifications_disabled">Notifications disabled</string>
+</resources>

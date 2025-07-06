@@ -13,7 +13,7 @@
         android:layout_height="40dp"
         android:src="@drawable/ic_settings_dark"
         android:background="?attr/selectableItemBackground"
-        android:contentDescription="Paramètres"
+        android:contentDescription="@string/settings_description"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -100,7 +100,7 @@
             android:id="@+id/btnDaily"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Citation du jour"
+            android:text="@string/button_daily_quote"
             android:textStyle="bold"
             android:visibility="gone" />
 
@@ -108,7 +108,7 @@
             android:id="@+id/btnRandom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Citation aléatoire"
+            android:text="@string/button_random_quote"
             android:textColor="@color/white"
             android:fontFamily="@font/ptsans"
             android:background="@color/black"

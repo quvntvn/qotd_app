@@ -2,6 +2,7 @@ package com.quvntvn.qotd_app
 
 import android.os.Bundle
 import android.widget.Button
+import android.content.Context
 import android.widget.TimePicker
 import android.widget.Spinner
 import android.widget.ArrayAdapter
@@ -12,6 +13,10 @@ import androidx.work.WorkManager
 import java.util.Locale
 
 class SettingsActivity : AppCompatActivity() {
+    override fun attachBaseContext(newBase: Context) {
+        val context = LocaleHelper.wrapContext(newBase)
+        super.attachBaseContext(context)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
@@ -65,15 +70,10 @@ class SettingsActivity : AppCompatActivity() {
             if (notificationsAreEnabled) {
                 // Passer l'heure ET les minutes
                 QuoteWorker.scheduleDailyQuote(this, newHour, newMinute) // <--- PASSER LES MINUTES
-                val message = String.format(
-                    Locale.getDefault(),
-                    "Notifications programmées pour %02dh%02d",
-                    newHour,
-                    newMinute
-                )
+                val message = getString(R.string.notifications_scheduled, newHour, newMinute)
                 Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "Notifications désactivées", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, R.string.notifications_disabled, Toast.LENGTH_SHORT).show()
             }
             finish()
         }
