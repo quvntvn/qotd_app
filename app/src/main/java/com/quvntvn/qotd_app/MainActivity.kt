@@ -13,6 +13,7 @@ import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import android.widget.ImageButton
+import android.content.Context
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels // Correction de l'import pour viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -22,6 +23,10 @@ import kotlinx.coroutines.launch
 
 // 9. MainActivity.kt (Activité principale)
 class MainActivity : AppCompatActivity() {
+    override fun attachBaseContext(newBase: Context) {
+        val context = LocaleHelper.wrapContext(newBase)
+        super.attachBaseContext(context)
+    }
     private val viewModel: QuoteViewModel by viewModels() // Utilisation correcte de viewModels
     private val requestPermissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->

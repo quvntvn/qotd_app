@@ -9,4 +9,14 @@
         <item>Français</item>
         <item>English</item>
     </string-array>
+    <string name="settings_description">Paramètres</string>
+    <string name="button_daily_quote">Citation du jour</string>
+    <string name="button_random_quote">Citation aléatoire</string>
+    <string name="notifications_enabled">Notifications activées</string>
+    <string name="notification_time">Heure de notification</string>
+    <string name="language_label">Langue</string>
+    <string name="save">Enregistrer</string>
+    <string name="back">Retour</string>
+    <string name="notifications_scheduled">Notifications programmées pour %1$02dh%2$02d</string>
+    <string name="notifications_disabled">Notifications désactivées</string>
 </resources>
