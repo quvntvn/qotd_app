@@ -17,6 +17,8 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels // Correction de l'import pour viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 
 // 9. MainActivity.kt (Activité principale)
 class MainActivity : AppCompatActivity() {
@@ -65,15 +67,20 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this@MainActivity, SettingsActivity::class.java))
         }
 
+        val translator = TranslationManager(this)
         viewModel.quote.observe(this) { quote ->
-            quote?.let {
-                tvQuote.text = "\"${it.citation}\""
-                tvAuthor.text = it.auteur
-                val date = it.dateCreation
-                tvYear.text = if (date != null && date.length >= 4) {
-                    date.substring(0, 4)
-                } else {
-                    "N/A"
+            quote?.let { q ->
+                lifecycleScope.launch {
+                    val lang = SharedPrefManager.getLanguage(this@MainActivity)
+                    val text = translator.translate(q.citation, lang)
+                    tvQuote.text = "\"$text\""
+                    tvAuthor.text = q.auteur
+                    val date = q.dateCreation
+                    tvYear.text = if (date != null && date.length >= 4) {
+                        date.substring(0, 4)
+                    } else {
+                        "N/A"
+                    }
                 }
             }
         }

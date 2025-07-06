@@ -8,6 +8,7 @@ object SharedPrefManager {
     private const val NOTIFICATION_ENABLED = "notif_enabled"
     private const val NOTIFICATION_HOUR = "notif_hour"
     private const val NOTIFICATION_MINUTE = "notif_minute" // Nouvelle clé
+    private const val LANGUAGE = "language"
 
     // Sauvegarde les paramètres de notification
     fun saveSettings(context: Context, enabled: Boolean, hour: Int, minute: Int) {
@@ -31,6 +32,19 @@ object SharedPrefManager {
             prefs.getInt(NOTIFICATION_HOUR, 10),       // Valeur par défaut : 10h
             prefs.getInt(NOTIFICATION_MINUTE, 0)        // Valeur par défaut : 00 minutes
         )
+    }
+
+    fun saveLanguage(context: Context, language: String) {
+        context
+            .getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+            .edit()
+            .putString(LANGUAGE, language)
+            .apply()
+    }
+
+    fun getLanguage(context: Context): String {
+        val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        return prefs.getString(LANGUAGE, "fr") ?: "fr"
     }
 }
 
