@@ -13,6 +13,7 @@ import androidx.work.OneTimeWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
 import com.quvntvn.qotd_app.SharedPrefManager
+import com.quvntvn.qotd_app.TranslationManager
 import java.util.Calendar
 // import java.util.TimeZone // Décommentez si vous voulez un fuseau horaire spécifique comme "Europe/Paris"
 import java.util.concurrent.TimeUnit
@@ -41,8 +42,20 @@ class QuoteWorker(
             val response = api.getDailyQuote()
 
             if (response.isSuccessful) {
-                response.body()?.let {
-                    NotificationHelper(appContext).showNotification(it)
+                response.body()?.let { quote ->
+                    val lang = SharedPrefManager.getLanguage(appContext)
+                    val citation = if (lang == "en") {
+                        try {
+                            TranslationManager(appContext).translate(quote.citation, lang)
+                        } catch (e: Exception) {
+                            Log.e(TAG, "Erreur de traduction: ${e.localizedMessage}")
+                            quote.citation
+                        }
+                    } else {
+                        quote.citation
+                    }
+                    val translated = Quote(citation, quote.auteur, quote.dateCreation)
+                    NotificationHelper(appContext).showNotification(translated)
                 }
                 val (enabled, hour, minute) = SharedPrefManager.getNotificationSettings(appContext)
                 if (enabled) {
