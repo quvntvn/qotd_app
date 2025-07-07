@@ -61,6 +61,8 @@ class SettingsActivity : AppCompatActivity() {
             val selectedLanguage = if (spinnerLanguage.selectedItemPosition == 1) "en" else "fr"
             SharedPrefManager.saveLanguage(this, selectedLanguage)
 
+            val ctx = LocaleHelper.wrapContext(this)
+
             // Adapter SharedPrefManager pour sauvegarder aussi les minutes
             SharedPrefManager.saveSettings(this, notificationsAreEnabled, newHour, newMinute) // <--- PASSER LES MINUTES ICI
 
@@ -70,10 +72,10 @@ class SettingsActivity : AppCompatActivity() {
             if (notificationsAreEnabled) {
                 // Passer l'heure ET les minutes
                 QuoteWorker.scheduleDailyQuote(this, newHour, newMinute) // <--- PASSER LES MINUTES
-                val message = getString(R.string.notifications_scheduled, newHour, newMinute)
+                val message = ctx.getString(R.string.notifications_scheduled, newHour, newMinute)
                 Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, R.string.notifications_disabled, Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, ctx.getString(R.string.notifications_disabled), Toast.LENGTH_SHORT).show()
             }
             finish()
         }
