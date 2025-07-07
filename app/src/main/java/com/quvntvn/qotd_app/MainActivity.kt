@@ -34,6 +34,15 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, R.string.notification_permission_denied, Toast.LENGTH_SHORT).show()
             }
         }
+    private val settingsLauncher =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == RESULT_OK) {
+                val changed = result.data?.getBooleanExtra("languageChanged", false) ?: false
+                if (changed) {
+                    recreate()
+                }
+            }
+        }
 
     @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,7 +78,7 @@ class MainActivity : AppCompatActivity() {
             btnDaily.visibility = View.GONE
         }
         btnSettings.setOnClickListener {
-            startActivity(Intent(this@MainActivity, SettingsActivity::class.java))
+            settingsLauncher.launch(Intent(this@MainActivity, SettingsActivity::class.java))
         }
 
         val translator = TranslationManager(this)
