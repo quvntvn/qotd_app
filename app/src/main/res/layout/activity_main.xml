@@ -60,6 +60,7 @@
             android:layout_height="0dp"
             android:background="@drawable/glass_background"
             android:elevation="8dp"
+            android:clipToOutline="true"
             app:layout_constraintTop_toTopOf="@id/tvQuote"
             app:layout_constraintBottom_toBottomOf="@id/tvYear"
             app:layout_constraintStart_toStartOf="@id/tvQuote"

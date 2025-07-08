@@ -5,8 +5,6 @@ import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
-import android.graphics.RenderEffect
-import android.graphics.Shader
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -66,14 +64,7 @@ class MainActivity : AppCompatActivity() {
         val glassBackground = findViewById<View>(R.id.glass_background_view)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            val blurRadiusX = 60f
-            val blurRadiusY = 60f
-            val blur = RenderEffect.createBlurEffect(
-                blurRadiusX,
-                blurRadiusY,
-                Shader.TileMode.MIRROR
-            )
-            glassBackground.setRenderEffect(blur)
+            glassBackground.setBackgroundBlurRadius(60)
         }
 
         val (enabled, hour, minute) = SharedPrefManager.getNotificationSettings(this)
