@@ -61,10 +61,11 @@ class MainActivity : AppCompatActivity() {
         val tvAuthor = findViewById<TextView>(R.id.tvAuthor)
         val tvYear = findViewById<TextView>(R.id.tvYear)
 
-        val glassBackground = findViewById<View>(R.id.glass_background_view)
+        // In landscape mode the view may not exist, so we retrieve it as nullable
+        val glassBackground = findViewById<View?>(R.id.glass_background_view)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            glassBackground.setBackgroundBlurRadius(60)
+            glassBackground?.setBackgroundBlurRadius(60)
             btnRandom.setBackgroundBlurRadius(40)
             btnDaily.setBackgroundBlurRadius(40)
         }
