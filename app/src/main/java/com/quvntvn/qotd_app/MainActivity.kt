@@ -65,6 +65,8 @@ class MainActivity : AppCompatActivity() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             glassBackground.setBackgroundBlurRadius(60)
+            btnRandom.setBackgroundBlurRadius(40)
+            btnDaily.setBackgroundBlurRadius(40)
         }
 
         val (enabled, hour, minute) = SharedPrefManager.getNotificationSettings(this)
