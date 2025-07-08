@@ -14,6 +14,11 @@ import android.widget.TextView
 import android.widget.Toast
 import android.widget.ImageButton
 import android.content.Context
+import com.google.android.material.card.MaterialCardView
+import android.graphics.RenderEffect
+import android.graphics.Shader
+import android.graphics.BlurMaskFilter
+import android.graphics.Paint
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels // Correction de l'import pour viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -53,9 +58,21 @@ class MainActivity : AppCompatActivity() {
         val btnDaily = findViewById<Button>(R.id.btnDaily)
         val btnSettings = findViewById<ImageButton>(R.id.btn_settings)
         val progressBar = findViewById<ProgressBar>(R.id.progressBar)
+        val quoteCard = findViewById<MaterialCardView>(R.id.quoteCard)
         val tvQuote = findViewById<TextView>(R.id.tvQuote)
         val tvAuthor = findViewById<TextView>(R.id.tvAuthor)
         val tvYear = findViewById<TextView>(R.id.tvYear)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            quoteCard.setRenderEffect(
+                RenderEffect.createBlurEffect(20f, 20f, Shader.TileMode.CLAMP)
+            )
+        } else {
+            val paint = Paint().apply {
+                maskFilter = BlurMaskFilter(20f, BlurMaskFilter.Blur.NORMAL)
+            }
+            quoteCard.setLayerType(View.LAYER_TYPE_SOFTWARE, paint)
+        }
 
         // Initialisation WorkManager
         // Récupérer enabled, hour, ET minute depuis SharedPrefManager

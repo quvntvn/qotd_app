@@ -19,6 +19,7 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
+        android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -33,73 +34,81 @@
         app:layout_constraintTop_toTopOf="parent" />
 
 
-<!-- ProgressBar, également centrée pour le moment -->
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:indeterminateTint="@android:color/black"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/tvQuote"
-        app:layout_constraintEnd_toEndOf="@+id/tvQuote"
-        app:layout_constraintStart_toStartOf="@+id/tvQuote"
-        app:layout_constraintTop_toTopOf="@+id/tvQuote" />
-
-    <!-- Citation, centrée sur l'écran -->
-    <TextView
-        android:id="@+id/tvQuote"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/quoteCard"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/dancingscriptvariablefontwght"
-        android:textColor="@color/black"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textSize="24sp"
-        app:layout_constrainedHeight="true"
-        app:layout_constraintBottom_toTopOf="@id/tvAuthor"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5"
-        app:layout_constraintVertical_chainStyle="packed"
-        tools:text="Ceci est un exemple de citation très inspirante qui prendra un peu de place et sera joliment centrée." />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintBottom_toTopOf="@id/btnRandom"
+        app:layout_constraintVertical_bias="0.5">
 
-    <!-- Auteur, sous la citation, partie du groupe centré -->
-    <TextView
-        android:id="@+id/tvAuthor"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:gravity="center"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:fontFamily="@font/ptsansbold"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@id/tvYear"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvQuote"
-        tools:text="Auteur Célèbre" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:padding="16dp">
 
-    <!-- Année, sous l'auteur, partie du groupe centré -->
-    <TextView
-        android:id="@+id/tvYear"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:paddingStart="16dp"
-        android:fontFamily="@font/ptsansbold"
-        android:textColor="@color/black"
-        android:paddingEnd="16dp"
-        android:paddingBottom="16dp"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvAuthor"
-        tools:text="2024" />
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tvQuote"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/dancingscriptvariablefontwght"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="24sp"
+                    tools:text="Ceci est un exemple de citation très inspirante qui prendra un peu de place et sera joliment centrée." />
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:indeterminateTint="@android:color/black"
+                    android:visibility="gone" />
+            </FrameLayout>
+
+            <TextView
+                android:id="@+id/tvAuthor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:fontFamily="@font/ptsansbold"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                tools:text="Auteur Célèbre" />
+
+            <TextView
+                android:id="@+id/tvYear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:paddingBottom="16dp"
+                android:fontFamily="@font/ptsansbold"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                tools:text="2024" />
+
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
 
     <!-- Bouton Citation du Jour, au-dessus du bouton Citation Aléatoire -->
     <Button
