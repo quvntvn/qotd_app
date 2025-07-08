@@ -4,128 +4,163 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="30dp"
     tools:context=".MainActivity">
 
-    <!-- Bouton Paramètres en haut -->
-    <ImageButton
-        android:id="@+id/btn_settings"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/ic_settings_dark"
-        android:background="?attr/selectableItemBackground"
-        android:contentDescription="@string/settings_description"
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/fond"
+        android:contentDescription="@null"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:fontFamily="@font/ptsans"
-        android:textColor="@color/black"
-        android:text="@string/app_name"
-        android:textSize="40sp"
-        android:textStyle="bold"
-        android:layout_marginTop="100dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-<!-- ProgressBar, également centrée pour le moment -->
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:indeterminateTint="@android:color/black"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/tvQuote"
-        app:layout_constraintEnd_toEndOf="@+id/tvQuote"
-        app:layout_constraintStart_toStartOf="@+id/tvQuote"
-        app:layout_constraintTop_toTopOf="@+id/tvQuote" />
-
-    <!-- Citation, centrée sur l'écran -->
-    <TextView
-        android:id="@+id/tvQuote"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/content_container"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/dancingscriptvariablefontwght"
-        android:textColor="@color/black"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textSize="24sp"
-        app:layout_constrainedHeight="true"
-        app:layout_constraintBottom_toTopOf="@id/tvAuthor"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="0dp"
+        android:padding="30dp"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.5"
-        app:layout_constraintVertical_chainStyle="packed"
-        tools:text="Ceci est un exemple de citation très inspirante qui prendra un peu de place et sera joliment centrée." />
-
-    <!-- Auteur, sous la citation, partie du groupe centré -->
-    <TextView
-        android:id="@+id/tvAuthor"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:gravity="center"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:fontFamily="@font/ptsansbold"
-        android:textColor="@color/black"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@id/tvYear"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvQuote"
-        tools:text="Auteur Célèbre" />
-
-    <!-- Année, sous l'auteur, partie du groupe centré -->
-    <TextView
-        android:id="@+id/tvYear"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:gravity="center"
-        android:paddingStart="16dp"
-        android:fontFamily="@font/ptsansbold"
-        android:textColor="@color/black"
-        android:paddingEnd="16dp"
-        android:paddingBottom="16dp"
-        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageButton
+            android:id="@+id/btn_settings"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/ic_settings_white"
+            android:background="?attr/selectableItemBackground"
+            android:contentDescription="@string/settings_description"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tvAppName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:fontFamily="@font/ptsans"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+
+        <View
+            android:id="@+id/glass_background_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/glass_background"
+            android:elevation="8dp"
+            app:layout_constraintTop_toTopOf="@id/tvQuote"
+            app:layout_constraintBottom_toBottomOf="@id/tvYear"
+            app:layout_constraintStart_toStartOf="@id/tvQuote"
+            app:layout_constraintEnd_toEndOf="@id/tvQuote"
+            android:layout_marginStart="-24dp"
+            android:layout_marginEnd="-24dp"
+            android:layout_marginTop="-24dp"
+            android:layout_marginBottom="-24dp" />
+
+        <TextView
+            android:id="@+id/tvQuote"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+        android:layout_marginEnd="24dp"
+        android:fontFamily="@font/dancingscriptvariablefontwght"
+        android:gravity="center"
+        android:textColor="#E6FFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:elevation="9dp"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tvAuthor"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_bias="0.5"
+        tools:text="Ceci est un exemple de citation très inspirante qui sera joliment centrée." />
+
+        <TextView
+            android:id="@+id/tvAuthor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/ptsansbold"
+            android:gravity="center"
+            android:textColor="#CCFFFFFF"
+            android:textSize="18sp"
+            android:elevation="9dp"
+        app:layout_constraintTop_toBottomOf="@id/tvQuote"
+        app:layout_constraintBottom_toTopOf="@id/tvYear"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Auteur célèbre" />
+
+        <TextView
+            android:id="@+id/tvYear"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/ptsansbold"
+            android:gravity="center"
+            android:textColor="#B3FFFFFF"
+            android:textSize="14sp"
+            android:elevation="9dp"
         app:layout_constraintTop_toBottomOf="@id/tvAuthor"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         tools:text="2024" />
 
-    <!-- Bouton Citation du Jour, au-dessus du bouton Citation Aléatoire -->
-    <Button
-        android:id="@+id/btnDaily"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/button_daily_quote"
-        android:visibility="gone"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@id/btnRandom"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="8dp"/>
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:indeterminateTint="@android:color/black"
+            android:visibility="gone"
+            android:elevation="10dp"
+        app:layout_constraintTop_toTopOf="@id/glass_background_view"
+        app:layout_constraintBottom_toBottomOf="@id/glass_background_view"
+        app:layout_constraintStart_toStartOf="@id/glass_background_view"
+        app:layout_constraintEnd_toEndOf="@id/glass_background_view" />
 
-    <!-- Bouton Citation Aléatoire, en bas de l'écran -->
-    <Button
-        android:id="@+id/btnRandom"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="@string/button_random_quote"
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        android:fontFamily="@font/ptsans"
-        android:background="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <Button
+            android:id="@+id/btnDaily"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:text="@string/button_daily_quote"
+            android:textStyle="bold"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/btnRandom"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <Button
+            android:id="@+id/btnRandom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/button_random_quote"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:fontFamily="@font/ptsans"
+            android:background="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,45 +2,51 @@ package com.quvntvn.qotd_app
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.RenderEffect
+import android.graphics.Shader
 import android.os.Build
 import android.os.Bundle
-import android.util.Log // Import pour le logging si besoin
-import android.view.View
-import android.widget.Button
-import android.widget.ProgressBar
-import android.widget.TextView
-import android.widget.Toast
-import android.widget.ImageButton
-import android.content.Context
+import android.util.Log
+import android.view.View // Changement : Importation de android.view.View
+import android.widget.*
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.activity.viewModels // Correction de l'import pour viewModels
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.compose.ui.semantics.text
+// androidx.constraintlayout.widget.ConstraintLayout // Plus nécessaire pour le glassPanel directement ici
 import androidx.core.content.ContextCompat
+import androidx.glance.visibility
 import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.launch
 
-// 9. MainActivity.kt (Activité principale)
 class MainActivity : AppCompatActivity() {
+
     override fun attachBaseContext(newBase: Context) {
-        val context = LocaleHelper.wrapContext(newBase)
-        super.attachBaseContext(context)
+        super.attachBaseContext(LocaleHelper.wrapContext(newBase))
     }
-    private val viewModel: QuoteViewModel by viewModels() // Utilisation correcte de viewModels
+
+    private val viewModel: QuoteViewModel by viewModels()
+
     private val requestPermissionLauncher =
-        registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted ->
-            if (!isGranted) {
-                Toast.makeText(this, R.string.notification_permission_denied, Toast.LENGTH_SHORT).show()
+        registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
+            if (!granted) {
+                Toast.makeText(
+                    this,
+                    R.string.notification_permission_denied,
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
+
     private val settingsLauncher =
         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-            if (result.resultCode == RESULT_OK) {
-                val changed = result.data?.getBooleanExtra("languageChanged", false) ?: false
-                if (changed) {
-                    recreate()
-                }
+            if (result.resultCode == RESULT_OK &&
+                (result.data?.getBooleanExtra("languageChanged", false) ?: false)
+            ) {
+                recreate()
             }
         }
 
@@ -57,15 +63,23 @@ class MainActivity : AppCompatActivity() {
         val tvAuthor = findViewById<TextView>(R.id.tvAuthor)
         val tvYear = findViewById<TextView>(R.id.tvYear)
 
-        // Initialisation WorkManager
-        // Récupérer enabled, hour, ET minute depuis SharedPrefManager
+        val glassBackground = findViewById<View>(R.id.glass_background_view)
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            val blurRadiusX = 60f
+            val blurRadiusY = 60f
+            val blur = RenderEffect.createBlurEffect(
+                blurRadiusX,
+                blurRadiusY,
+                Shader.TileMode.MIRROR
+            )
+            glassBackground.setRenderEffect(blur)
+        }
+
         val (enabled, hour, minute) = SharedPrefManager.getNotificationSettings(this)
         if (enabled) {
-            Log.d("MainActivity", "Planification de la notification quotidienne depuis onCreate pour ${hour}h${String.format("%02d", minute)}.")
-            // Passer l'heure ET la minute à scheduleDailyQuote
+            Log.d("MainActivity", "Planif. notif quotidienne : ${hour}h${"%02d".format(minute)}")
             QuoteWorker.scheduleDailyQuote(this, hour, minute)
-        } else {
-            Log.d("MainActivity", "Notifications désactivées, aucune planification depuis onCreate.")
         }
 
         btnRandom.setOnClickListener {
@@ -77,25 +91,21 @@ class MainActivity : AppCompatActivity() {
             viewModel.loadDailyQuote()
             btnDaily.visibility = View.GONE
         }
+
         btnSettings.setOnClickListener {
-            settingsLauncher.launch(Intent(this@MainActivity, SettingsActivity::class.java))
+            settingsLauncher.launch(Intent(this, SettingsActivity::class.java))
         }
 
         val translator = TranslationManager(this)
+
         viewModel.quote.observe(this) { quote ->
-            quote?.let { q ->
-                lifecycleScope.launch {
-                    val lang = SharedPrefManager.getLanguage(this@MainActivity)
-                    val text = translator.translate(q.citation, lang)
-                    tvQuote.text = "\"$text\""
-                    tvAuthor.text = q.auteur
-                    val date = q.dateCreation
-                    tvYear.text = if (date != null && date.length >= 4) {
-                        date.substring(0, 4)
-                    } else {
-                        "N/A"
-                    }
-                }
+            quote ?: return@observe
+            lifecycleScope.launch {
+                val lang = SharedPrefManager.getLanguage(this@MainActivity)
+                val translated = translator.translate(quote.citation, lang)
+                tvQuote.text = "« $translated »"
+                tvAuthor.text = quote.auteur
+                tvYear.text = quote.dateCreation?.take(4) ?: "N/A"
             }
         }
 
@@ -103,40 +113,28 @@ class MainActivity : AppCompatActivity() {
             progressBar.visibility = if (loading) View.VISIBLE else View.GONE
         }
 
-        viewModel.loadDailyQuote() // Charger la citation quotidienne au démarrage
+        viewModel.loadDailyQuote()
         requestNotificationPermissionIfNeeded()
     }
 
     private fun requestNotificationPermissionIfNeeded() {
-        // Uniquement pour Android 13 (TIRAMISU) et versions ultérieures
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            when {
-                ContextCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.POST_NOTIFICATIONS
-                ) == PackageManager.PERMISSION_GRANTED -> {
-                    // La permission est déjà accordée
-                    Log.d("MainActivity", "Permission POST_NOTIFICATIONS déjà accordée.")
-                }
-
-                shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS) -> {
-                    // Expliquer à l'utilisateur pourquoi la permission est nécessaire
-                    // Vous pourriez afficher une boîte de dialogue ici avant de redemander
-                    Log.d("MainActivity", "Affichage de la justification pour POST_NOTIFICATIONS.")
-                    Toast.makeText(this, R.string.notification_permission_rationale, Toast.LENGTH_LONG).show()
-                    // Puis demander la permission
-                    requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
-                }
-
-                else -> {
-                    // Demander directement la permission
-                    Log.d("MainActivity", "Demande de la permission POST_NOTIFICATIONS.")
-                    requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
-                }
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) return
+        when {
+            ContextCompat.checkSelfPermission(
+                this, Manifest.permission.POST_NOTIFICATIONS
+            ) == PackageManager.PERMISSION_GRANTED -> {
             }
-        } else {
-            // Pas besoin de demander la permission pour les versions antérieures à Android 13
-            Log.d("MainActivity", "Pas besoin de demander la permission POST_NOTIFICATIONS pour API ${Build.VERSION.SDK_INT}.")
+
+            shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS) -> {
+                Toast.makeText(
+                    this,
+                    R.string.notification_permission_rationale,
+                    Toast.LENGTH_LONG
+                ).show()
+                requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+            }
+
+            else -> requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
         }
     }
 }
