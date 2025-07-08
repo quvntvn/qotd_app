@@ -1,42 +1,47 @@
 package com.quvntvn.qotd_app
 
 import android.Manifest
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
-import android.view.View // Changement : Importation de android.view.View
-import android.widget.*
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageButton
+import android.widget.ProgressBar
+import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.ui.semantics.text
-// androidx.constraintlayout.widget.ConstraintLayout // Plus nécessaire pour le glassPanel directement ici
+// Supprimez les imports non utilisés si Android Studio les signale (comme text, glance.visibility)
+// import androidx.compose.ui.semantics.text
 import androidx.core.content.ContextCompat
 import androidx.glance.visibility
+// import androidx.glance.visibility
 import androidx.lifecycle.lifecycleScope
+import eightbitlab.com.blurview.BlurView
+import eightbitlab.com.blurview.RenderScriptBlur
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
 
-    override fun attachBaseContext(newBase: Context) {
-        super.attachBaseContext(LocaleHelper.wrapContext(newBase))
-    }
+    /* ------------------------------------------------------------------ */
+    /*  Helpers de langue, ViewModel, permissions                         */
+    /* ------------------------------------------------------------------ */
 
-    private val viewModel: QuoteViewModel by viewModels()
+    override fun attachBaseContext(newBase: Context) =
+        super.attachBaseContext(LocaleHelper.wrapContext(newBase)) // Assurez-vous que LocaleHelper existe et fonctionne
 
-    private val requestPermissionLauncher =
+    private val viewModel: QuoteViewModel by viewModels() // Assurez-vous que QuoteViewModel existe et est configuré
+
+    private val notifPermission =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
-            if (!granted) {
-                Toast.makeText(
-                    this,
-                    R.string.notification_permission_denied,
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
+            if (!granted)
+                Toast.makeText(this, R.string.notification_permission_denied, Toast.LENGTH_SHORT).show()
         }
 
     private val settingsLauncher =
@@ -44,59 +49,93 @@ class MainActivity : AppCompatActivity() {
             if (result.resultCode == RESULT_OK &&
                 (result.data?.getBooleanExtra("languageChanged", false) ?: false)
             ) {
-                recreate()
+                recreate() // Recrée l'activité si la langue a changé
             }
         }
 
-    @SuppressLint("SetTextI18n")
+    /* ------------------------------------------------------------------ */
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val btnRandom = findViewById<Button>(R.id.btnRandom)
-        val btnDaily = findViewById<Button>(R.id.btnDaily)
-        val btnSettings = findViewById<ImageButton>(R.id.btn_settings)
-        val progressBar = findViewById<ProgressBar>(R.id.progressBar)
-        val tvQuote = findViewById<TextView>(R.id.tvQuote)
-        val tvAuthor = findViewById<TextView>(R.id.tvAuthor)
-        val tvYear = findViewById<TextView>(R.id.tvYear)
+        // ---------- Vues ----------
+        // Assurez-vous que tous ces IDs existent dans R.layout.activity_main
+        val blurCard        = findViewById<BlurView>(R.id.blurCard)
+        val btnRandom       = findViewById<Button>(R.id.btnRandom)
+        val btnDaily        = findViewById<Button>(R.id.btnDaily) // Toujours nécessaire pour le listener
+        val imageBtnSettings = findViewById<ImageButton>(R.id.btn_settings) // ImageButton pour le listener (ID du bouton lui-même)
+        val tvQuote         = findViewById<TextView>(R.id.tvQuote)
+        val tvAuthor        = findViewById<TextView>(R.id.tvAuthor)
+        val tvYear          = findViewById<TextView>(R.id.tvYear)
+        val progressBar     = findViewById<ProgressBar>(R.id.progressBar)
+        // val tvAppName       = findViewById<TextView>(R.id.tvAppName) // Le TextView lui-même n'est plus directement manipulé pour le flou
 
-        val glassBackground = findViewById<View>(R.id.glass_background_view)
+        // BlurViews
+        val blurBtnDaily    = findViewById<BlurView>(R.id.blurBtnDaily)
+        val blurBtnRandom   = findViewById<BlurView>(R.id.blurBtnRandom)
+        val blurBtnSettings = findViewById<BlurView>(R.id.blurBtnSettings) // ID du BlurView pour le bouton settings
+        val blurAppName     = findViewById<BlurView>(R.id.blurAppName)     // **NOUVEAU** ID du BlurView pour le titre
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-            glassBackground.setBackgroundBlurRadius(60)
+
+        // ---------- BlurView Setup ----------
+        val decorView = window.decorView
+        val rootView = decorView.findViewById<ViewGroup>(android.R.id.content)
+
+        blurCard.setupWith(rootView, RenderScriptBlur(this))
+            .setBlurRadius(20f)
+            .setBlurAutoUpdate(true)
+
+        blurBtnDaily.setupWith(rootView, RenderScriptBlur(this))
+            .setBlurRadius(15f)
+            .setBlurAutoUpdate(true)
+
+        blurBtnRandom.setupWith(rootView, RenderScriptBlur(this))
+            .setBlurRadius(15f)
+            .setBlurAutoUpdate(true)
+
+        blurBtnSettings.setupWith(rootView, RenderScriptBlur(this))
+            .setBlurRadius(10f) // Ajustez selon vos préférences
+            .setBlurAutoUpdate(true)
+
+        blurAppName.setupWith(rootView, RenderScriptBlur(this)) // **NOUVEAU**
+            .setBlurRadius(10f) // Ajustez selon vos préférences
+            .setBlurAutoUpdate(true)
+
+
+        // ---------- Notifications planifiées (si activées au démarrage) ----------
+        SharedPrefManager.getNotificationSettings(this).apply {
+            if (this.first) {
+                QuoteWorker.scheduleDailyQuote(this@MainActivity, this.second, this.third)
+            }
         }
 
-        val (enabled, hour, minute) = SharedPrefManager.getNotificationSettings(this)
-        if (enabled) {
-            Log.d("MainActivity", "Planif. notif quotidienne : ${hour}h${"%02d".format(minute)}")
-            QuoteWorker.scheduleDailyQuote(this, hour, minute)
-        }
-
+        // ---------- Listeners ----------
         btnRandom.setOnClickListener {
             viewModel.loadRandomQuote()
-            btnDaily.visibility = View.VISIBLE
+            blurBtnDaily.visibility = View.VISIBLE
         }
 
         btnDaily.setOnClickListener {
             viewModel.loadDailyQuote()
-            btnDaily.visibility = View.GONE
+            blurBtnDaily.visibility = View.GONE
         }
 
-        btnSettings.setOnClickListener {
+        // Le listener est sur ImageButton, pas sur le BlurView qui l'enveloppe
+        imageBtnSettings.setOnClickListener {
             settingsLauncher.launch(Intent(this, SettingsActivity::class.java))
         }
 
+        // ---------- Observers ----------
         val translator = TranslationManager(this)
 
-        viewModel.quote.observe(this) { quote ->
-            quote ?: return@observe
+        viewModel.quote.observe(this) { q ->
+            q ?: return@observe
             lifecycleScope.launch {
                 val lang = SharedPrefManager.getLanguage(this@MainActivity)
-                val translated = translator.translate(quote.citation, lang)
-                tvQuote.text = "« $translated »"
-                tvAuthor.text = quote.auteur
-                tvYear.text = quote.dateCreation?.take(4) ?: "N/A"
+                tvQuote.text  = "« ${translator.translate(q.citation, lang)} »"
+                tvAuthor.text = q.auteur
+                tvYear.text   = q.dateCreation?.take(4) ?: getString(R.string.not_available_abbr)
             }
         }
 
@@ -104,28 +143,29 @@ class MainActivity : AppCompatActivity() {
             progressBar.visibility = if (loading) View.VISIBLE else View.GONE
         }
 
+        // Charge la citation du jour au démarrage de l'activité
         viewModel.loadDailyQuote()
+        blurBtnDaily.visibility = View.GONE
+
+        // Demande la permission de notification si nécessaire (Android 13+)
         requestNotificationPermissionIfNeeded()
     }
 
     private fun requestNotificationPermissionIfNeeded() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU) return
+
         when {
-            ContextCompat.checkSelfPermission(
-                this, Manifest.permission.POST_NOTIFICATIONS
-            ) == PackageManager.PERMISSION_GRANTED -> {
+            ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS)
+                    == PackageManager.PERMISSION_GRANTED -> {
+                // La permission est déjà accordée
             }
-
             shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS) -> {
-                Toast.makeText(
-                    this,
-                    R.string.notification_permission_rationale,
-                    Toast.LENGTH_LONG
-                ).show()
-                requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+                Toast.makeText(this, R.string.notification_permission_rationale, Toast.LENGTH_LONG).show()
+                notifPermission.launch(Manifest.permission.POST_NOTIFICATIONS)
             }
-
-            else -> requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
+            else -> {
+                notifPermission.launch(Manifest.permission.POST_NOTIFICATIONS)
+            }
         }
     }
 }

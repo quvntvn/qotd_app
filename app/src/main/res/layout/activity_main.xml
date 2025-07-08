@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -16,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/content_container"
@@ -28,140 +29,155 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <ImageButton
-            android:id="@+id/btn_settings"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/ic_settings_white"
-            android:background="?attr/selectableItemBackground"
-            android:contentDescription="@string/settings_description"
+        <eightbitlab.com.blurview.BlurView
+            android:id="@+id/blurBtnSettings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clipToOutline="true"
+            android:background="@drawable/glass_overlay"
+            app:blurOverlayColor="@color/glass_tint"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <ImageButton
+                android:id="@+id/btn_settings"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/ic_settings_white"
+                android:background="?attr/selectableItemBackground"
+                android:padding="8dp"
+                android:contentDescription="@string/settings_description"/>
+        </eightbitlab.com.blurview.BlurView>
+
+        <eightbitlab.com.blurview.BlurView
+            android:id="@+id/blurAppName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+        android:clipToOutline="true"
+        android:background="@drawable/glass_overlay"
+        app:blurOverlayColor="@color/glass_tint"
+        app:layout_constraintTop_toTopOf="@+id/blurBtnSettings"
+        app:layout_constraintBottom_toBottomOf="@+id/blurBtnSettings"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/blurBtnSettings">
 
         <TextView
             android:id="@+id/tvAppName"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
             android:fontFamily="@font/ptsans"
             android:gravity="center"
-            android:text="@string/app_name"
-            android:textColor="@color/white"
-            android:textSize="40sp"
-            android:textStyle="bold"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            android:padding="8dp"
+        android:text="@string/app_name"
+        android:textColor="@color/white" />
+    </eightbitlab.com.blurview.BlurView>
 
 
-        <View
-            android:id="@+id/glass_background_view"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:background="@drawable/glass_background"
-            android:elevation="8dp"
-            android:clipToOutline="true"
-            app:layout_constraintTop_toTopOf="@id/tvQuote"
-            app:layout_constraintBottom_toBottomOf="@id/tvYear"
-            app:layout_constraintStart_toStartOf="@id/tvQuote"
-            app:layout_constraintEnd_toEndOf="@id/tvQuote"
-            android:layout_marginStart="-24dp"
-            android:layout_marginEnd="-24dp"
-            android:layout_marginTop="-24dp"
-            android:layout_marginBottom="-24dp" />
-
-        <TextView
-            android:id="@+id/tvQuote"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-        android:layout_marginEnd="24dp"
-        android:fontFamily="@font/dancingscriptvariablefontwght"
-        android:gravity="center"
-        android:textColor="#E6FFFFFF"
-        android:textSize="22sp"
-        android:textStyle="bold"
-        android:elevation="9dp"
-        app:layout_constraintVertical_chainStyle="packed"
+    <eightbitlab.com.blurview.BlurView
+        android:id="@+id/blurCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:clipToOutline="true"
+        android:background="@drawable/glass_overlay"
+        app:blurOverlayColor="@color/glass_tint"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/tvAuthor"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintVertical_bias="0.5"
-        tools:text="Ceci est un exemple de citation très inspirante qui sera joliment centrée." />
-
-        <TextView
-            android:id="@+id/tvAuthor"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginTop="12dp"
-            android:fontFamily="@font/ptsansbold"
-            android:gravity="center"
-            android:textColor="#CCFFFFFF"
-            android:textSize="18sp"
-            android:elevation="9dp"
-        app:layout_constraintTop_toBottomOf="@id/tvQuote"
-        app:layout_constraintBottom_toTopOf="@id/tvYear"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:text="Auteur célèbre" />
-
-        <TextView
-            android:id="@+id/tvYear"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="24dp"
-            android:layout_marginTop="4dp"
-            android:fontFamily="@font/ptsansbold"
-            android:gravity="center"
-            android:textColor="#B3FFFFFF"
-            android:textSize="14sp"
-            android:elevation="9dp"
-        app:layout_constraintTop_toBottomOf="@id/tvAuthor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:text="2024" />
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:indeterminateTint="@android:color/black"
-            android:visibility="gone"
-            android:elevation="10dp"
-        app:layout_constraintTop_toTopOf="@id/glass_background_view"
-        app:layout_constraintBottom_toBottomOf="@id/glass_background_view"
-        app:layout_constraintStart_toStartOf="@id/glass_background_view"
-        app:layout_constraintEnd_toEndOf="@id/glass_background_view" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="24dp">
+
+            <TextView
+                android:id="@+id/tvQuote"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#E6FFFFFF"
+                android:textSize="22sp"
+                android:gravity="center"
+                tools:text="La plus grande gloire n’est pas de ne jamais tomber…" />
+
+            <TextView
+                android:id="@+id/tvAuthor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:textColor="#CCFFFFFF"
+                android:textSize="18sp"
+                android:gravity="center"
+                tools:text="Confucius" />
+
+            <TextView
+                android:id="@+id/tvYear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textColor="#B3FFFFFF"
+                android:textSize="14sp"
+                android:gravity="center"
+                tools:text="-500" />
+        </LinearLayout>
+    </eightbitlab.com.blurview.BlurView>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:indeterminateTint="@android:color/white"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="@id/blurCard"
+        app:layout_constraintBottom_toBottomOf="@id/blurCard"
+        app:layout_constraintStart_toStartOf="@id/blurCard"
+        app:layout_constraintEnd_toEndOf="@id/blurCard"/>
+
+    <eightbitlab.com.blurview.BlurView
+        android:id="@+id/blurBtnDaily"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone"
+        android:clipToOutline="true"
+        android:background="@drawable/glass_overlay"
+        app:blurOverlayColor="@color/glass_tint"
+        app:layout_constraintBottom_toTopOf="@id/blurBtnRandom"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <Button
             android:id="@+id/btnDaily"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:text="@string/button_daily_quote"
             android:textStyle="bold"
-            android:visibility="gone"
-            app:layout_constraintBottom_toTopOf="@id/btnRandom"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            android:textColor="@color/white"
+            android:background="@android:color/transparent" />
+    </eightbitlab.com.blurview.BlurView>
+
+    <eightbitlab.com.blurview.BlurView
+        android:id="@+id/blurBtnRandom"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:clipToOutline="true"
+        android:background="@drawable/glass_overlay"
+        app:blurOverlayColor="@color/glass_tint"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <Button
             android:id="@+id/btnRandom"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/button_random_quote"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textStyle="bold"
-            android:fontFamily="@font/ptsans"
-            android:background="@color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:background="@android:color/transparent" />
+    </eightbitlab.com.blurview.BlurView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>

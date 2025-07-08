@@ -15,6 +15,8 @@
     <string name="notifications_enabled">Notifications activées</string>
     <string name="notification_time">Heure de notification</string>
     <string name="language_label">Langue</string>
+    <!-- Dans res/values/strings.xml -->
+    <string name="not_available_abbr">N/A</string>
     <string name="save">Enregistrer</string>
     <string name="back">Retour</string>
     <string name="notifications_scheduled">Notifications programmées pour %1$02dh%2$02d</string>

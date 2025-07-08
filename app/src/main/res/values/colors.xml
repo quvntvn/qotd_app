@@ -13,4 +13,5 @@
     <color name="colorSecondary">#FFB300</color>
     <color name="colorBackground">#FFFFFF</color>
     <color name="colorSurface">#E3F2FD</color>
+    <color name="glass_tint">#4DFFFFFF</color>
 </resources>

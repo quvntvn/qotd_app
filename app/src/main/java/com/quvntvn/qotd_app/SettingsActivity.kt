@@ -1,84 +1,116 @@
 package com.quvntvn.qotd_app
 
-import android.os.Bundle
-import android.widget.Button
+// Imports nécessaires pour cette activité
 import android.content.Context
-import android.widget.TimePicker
-import android.widget.Spinner
-import android.widget.ArrayAdapter
-import android.widget.Toast
 import android.content.Intent
+import android.os.Bundle
+// android.view.View // Peut être retiré si non explicitement utilisé par un listener
+// android.widget.AdapterView // Peut être retiré si onItemSelectedListener n'est pas utilisé directement
+import android.widget.ArrayAdapter
+import android.widget.Button
+import android.widget.Spinner
+import android.widget.TimePicker
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import androidx.work.WorkManager
 import java.util.Locale
 
 class SettingsActivity : AppCompatActivity() {
+
+    // Appliquer le contexte wrappé pour la gestion de la langue
     override fun attachBaseContext(newBase: Context) {
         val context = LocaleHelper.wrapContext(newBase)
         super.attachBaseContext(context)
     }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
-        // Récupérer l'heure ET les minutes depuis SharedPreferences
-        // Assurez-vous que SharedPrefManager.getNotificationSettings est adapté
-        // pour retourner également les minutes.
-        val (enabled, savedHour, savedMinute) = SharedPrefManager.getNotificationSettings(this)
+        // Récupérer les paramètres sauvegardés
+        val (notificationsPreviouslyEnabled, savedHour, savedMinute) = SharedPrefManager.getNotificationSettings(this)
+        val savedLanguage = SharedPrefManager.getLanguage(this)
 
+        // Initialisation des vues
         val switchNotifications = findViewById<SwitchCompat>(R.id.switch_notifications)
         val timePicker = findViewById<TimePicker>(R.id.timePicker)
+        val languageSpinner = findViewById<Spinner>(R.id.spinner_language)
+
+        // Configuration du TimePicker
         timePicker.setIs24HourView(true)
-        val spinnerLanguage = findViewById<Spinner>(R.id.spinner_language)
-        val adapter = ArrayAdapter.createFromResource(
-            this,
-            R.array.languages,
-            android.R.layout.simple_spinner_item
-        )
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        spinnerLanguage.adapter = adapter
-
-        val savedLanguage = SharedPrefManager.getLanguage(this)
-        spinnerLanguage.setSelection(if (savedLanguage == "en") 1 else 0)
-
-        switchNotifications.isChecked = enabled
         timePicker.hour = savedHour
-        timePicker.minute = savedMinute // Utiliser la minute sauvegardée
-        timePicker.isEnabled = enabled
+        timePicker.minute = savedMinute
+        timePicker.isEnabled = notificationsPreviouslyEnabled
 
+        // Configuration du Switch pour les notifications
+        switchNotifications.isChecked = notificationsPreviouslyEnabled
         switchNotifications.setOnCheckedChangeListener { _, isChecked ->
             timePicker.isEnabled = isChecked
         }
 
+        // Configuration du Spinner pour la langue
+        val languagesArray = resources.getStringArray(R.array.languages)
+        val adapter = ArrayAdapter(
+            this,
+            android.R.layout.simple_spinner_item,
+            languagesArray
+        )
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        languageSpinner.adapter = adapter
+
+        // Sélectionner la langue sauvegardée dans le Spinner
+        val languageIndex = when (savedLanguage.lowercase(Locale.ROOT)) {
+            "en" -> languagesArray.indexOfFirst { it.equals("English", ignoreCase = true) }
+            "fr" -> languagesArray.indexOfFirst { it.equals("Français", ignoreCase = true) }
+            else -> 0 // Par défaut à la première langue si non trouvée ou langue inconnue
+        }
+        if (languageIndex != -1) {
+            languageSpinner.setSelection(languageIndex)
+        } else {
+            languageSpinner.setSelection(0) // Sécurité, sélectionne le premier élément
+        }
+
+        // Bouton Retour
         findViewById<Button>(R.id.btn_back).setOnClickListener {
             finish()
         }
 
+        // Bouton Sauvegarder
         findViewById<Button>(R.id.btn_save).setOnClickListener {
             val newHour = timePicker.hour
             val newMinute = timePicker.minute
-            val notificationsAreEnabled = switchNotifications.isChecked
-            val selectedLanguage = if (spinnerLanguage.selectedItemPosition == 1) "en" else "fr"
-            val languageChanged = selectedLanguage != savedLanguage
-            SharedPrefManager.saveLanguage(this, selectedLanguage)
+            val notificationsAreNowEnabled = switchNotifications.isChecked
 
-            val ctx = LocaleHelper.wrapContext(this)
+            val selectedPosition = languageSpinner.selectedItemPosition
+            val selectedLanguageName = languagesArray.getOrElse(selectedPosition) { languagesArray[0] } // Sécurité
 
-            SharedPrefManager.saveSettings(this, notificationsAreEnabled, newHour, newMinute)
-
-            val workManager = WorkManager.getInstance(this)
-            workManager.cancelUniqueWork("daily_quote")
-
-            if (notificationsAreEnabled) {
-                QuoteWorker.scheduleDailyQuote(this, newHour, newMinute)
-                val message = ctx.getString(R.string.notifications_scheduled, newHour, newMinute)
-                Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-            } else {
-                Toast.makeText(this, ctx.getString(R.string.notifications_disabled), Toast.LENGTH_SHORT).show()
+            val selectedLanguageCode = if (selectedLanguageName.equals("English", ignoreCase = true)) {
+                "en"
+            } else { // Par défaut à "fr" (si "Français" est l'autre option)
+                "fr"
             }
 
-            val resultIntent = Intent().putExtra("languageChanged", languageChanged)
+            val languageHasChanged = selectedLanguageCode != savedLanguage
+
+            SharedPrefManager.saveLanguage(this, selectedLanguageCode)
+            val localizedContext = LocaleHelper.wrapContext(this) // Obtenir le contexte mis à jour APRES avoir sauvegardé la langue
+
+            SharedPrefManager.saveSettings(this, notificationsAreNowEnabled, newHour, newMinute)
+
+            val workManager = WorkManager.getInstance(this.applicationContext)
+            // Assurez-vous que QuoteWorker.UNIQUE_WORK_NAME est défini dans QuoteWorker.kt
+            workManager.cancelUniqueWork(QuoteWorker.UNIQUE_WORK_NAME)
+
+            if (notificationsAreNowEnabled) {
+                QuoteWorker.scheduleDailyQuote(this.applicationContext, newHour, newMinute)
+                val message = localizedContext.getString(R.string.notifications_scheduled, newHour, newMinute)
+                Toast.makeText(localizedContext, message, Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(localizedContext, localizedContext.getString(R.string.notifications_disabled), Toast.LENGTH_SHORT).show()
+            }
+
+            val resultIntent = Intent().putExtra("languageChanged", languageHasChanged)
             setResult(RESULT_OK, resultIntent)
             finish()
         }

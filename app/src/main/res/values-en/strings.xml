@@ -14,6 +14,7 @@
     <string name="notifications_enabled">Notifications enabled</string>
     <string name="notification_time">Notification time</string>
     <string name="language_label">Language</string>
+    <string name="not_available_abbr">N/A</string>
     <string name="save">Save</string>
     <string name="back">Back</string>
     <string name="notifications_scheduled">Notifications scheduled for %1$02dh%2$02d</string>
