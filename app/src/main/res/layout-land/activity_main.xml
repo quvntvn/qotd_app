@@ -102,6 +102,9 @@
             android:layout_height="wrap_content"
             android:text="@string/button_daily_quote"
             android:textStyle="bold"
+            android:textColor="@color/white"
+            android:background="@drawable/glass_button"
+            android:clipToOutline="true"
             android:visibility="gone" />
 
         <Button
@@ -111,7 +114,8 @@
             android:text="@string/button_random_quote"
             android:textColor="@color/white"
             android:fontFamily="@font/ptsans"
-            android:background="@color/black"
+            android:background="@drawable/glass_button"
+            android:clipToOutline="true"
             android:textStyle="bold"
             android:layout_marginTop="8dp"/>
     </LinearLayout>
