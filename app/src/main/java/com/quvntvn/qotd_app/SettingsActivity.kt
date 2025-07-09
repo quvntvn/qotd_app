@@ -71,16 +71,14 @@ class SettingsActivity : AppCompatActivity() {
         languageSpinner.adapter = adapter
 
         // Sélectionner la langue sauvegardée dans le Spinner
+        // Le premier élément du tableau correspond au français dans toutes les langues
+        // et le second à l'anglais. On sélectionne donc directement l'index selon le code enregistré.
         val languageIndex = when (savedLanguage.lowercase(Locale.ROOT)) {
-            "en" -> languagesArray.indexOfFirst { it.equals("English", ignoreCase = true) }
-            "fr" -> languagesArray.indexOfFirst { it.equals("Français", ignoreCase = true) }
-            else -> 0 // Par défaut à la première langue si non trouvée ou langue inconnue
+            "en" -> 1
+            "fr" -> 0
+            else -> 0 // Sécurité : défaut sur le français
         }
-        if (languageIndex != -1) {
-            languageSpinner.setSelection(languageIndex)
-        } else {
-            languageSpinner.setSelection(0) // Sécurité, sélectionne le premier élément
-        }
+        languageSpinner.setSelection(languageIndex)
 
         // Bouton Retour
         findViewById<Button>(R.id.btn_back).setOnClickListener {
