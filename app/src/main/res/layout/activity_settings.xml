@@ -132,8 +132,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:timePickerMode="spinner"
-                android:theme="@style/SettingsTimePicker"
-            android:layout_marginTop="8dp"/>
+                style="@style/SettingsTimePicker"
+                android:layout_marginTop="8dp"/>
         </LinearLayout>
     </eightbitlab.com.blurview.BlurView>
 
@@ -175,7 +175,7 @@
                 android:entries="@array/languages"
                 android:popupBackground="@color/glass_tint"
                 android:layout_marginTop="8dp"
-                android:theme="@style/SettingsSpinner" />
+                style="@style/SettingsSpinner" />
 
         </LinearLayout>
     </eightbitlab.com.blurview.BlurView>
