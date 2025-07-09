@@ -18,7 +18,7 @@
     <style name="SettingsTimePicker" parent="android:Widget.Material.Light.TimePicker">
         <!-- Pour le mode spinner -->
         <item name="android:textColorPrimary">@color/white</item> <!-- Couleur des chiffres et AM/PM non sélectionnés -->
-        <item name="android:textColorSecondary">#B3FFFFFF</item> <!-- Couleur des séparateurs ":" -->
+        <item name="android:textColorSecondary">@color/white</item> <!-- Couleur des séparateurs ":" -->
         <item name="android:numbersTextColor">@color/white</item> <!-- Couleur principale des chiffres -->
         <item name="android:numbersSelectorColor">@color/colorAccent</item> <!-- Couleur du sélecteur de chiffres (la surbrillance) -->
         <item name="android:numbersBackgroundColor">#33FFFFFF</item> <!-- Couleur de fond derrière les chiffres (légèrement visible) -->

@@ -76,15 +76,11 @@ class SettingsActivity : AppCompatActivity() {
 
         // Sélectionner la langue sauvegardée dans le Spinner
         val languageIndex = when (savedLanguage.lowercase(Locale.ROOT)) {
-            "en" -> languagesArray.indexOfFirst { it.equals("English", ignoreCase = true) }
-            "fr" -> languagesArray.indexOfFirst { it.equals("Français", ignoreCase = true) }
-            else -> 0 // Par défaut à la première langue si non trouvée ou langue inconnue
+            "en" -> 1
+            "fr" -> 0
+            else -> 0
         }
-        if (languageIndex != -1) {
-            languageSpinner.setSelection(languageIndex)
-        } else {
-            languageSpinner.setSelection(0) // Sécurité, sélectionne le premier élément
-        }
+        languageSpinner.setSelection(languageIndex)
 
         // Bouton Retour
         findViewById<Button>(R.id.btn_back).setOnClickListener {
