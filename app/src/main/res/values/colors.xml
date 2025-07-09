@@ -14,4 +14,7 @@
     <color name="colorBackground">#FFFFFF</color>
     <color name="colorSurface">#E3F2FD</color>
     <color name="glass_tint">#4DFFFFFF</color>
+    <color name="colorAccent">#03DAC5</color> <!-- Exemple de couleur d'accentuation (Teal). Choisissez celle qui convient à votre design. -->
+    <color name="glass_tint_popup_item">#B0303030</color> <!-- Exemple : Fond pour chaque item dans le popup du Spinner, peut-être légèrement différent du fond général du popup. -->
+
 </resources>

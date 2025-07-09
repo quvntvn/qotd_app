@@ -21,4 +21,5 @@
     <string name="back">Retour</string>
     <string name="notifications_scheduled">Notifications programmées pour %1$02dh%2$02d</string>
     <string name="notifications_disabled">Notifications désactivées</string>
+    <string name="settings_title">Réglages</string>
 </resources>

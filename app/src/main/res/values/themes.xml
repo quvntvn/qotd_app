@@ -1,9 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
+    <!-- Thème de base de votre application -->
     <style name="Theme.Qotd_app" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Make system bars transparent so app background shows underneath -->
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-    </style></resources>
+        <!-- Autres attributs spécifiques à votre thème principal si nécessaire -->
+        <!-- Par exemple, les couleurs primaires si vous n'utilisez pas MaterialComponents directement comme parent -->
+        <!-- <item name="colorPrimary">@color/purple_500</item> -->
+        <!-- <item name="colorPrimaryVariant">@color/purple_700</item> -->
+        <!-- <item name="colorOnPrimary">@color/white</item> -->
+    </style>
+
+    <!-- Style pour le TimePicker dans les paramètres -->
+    <style name="SettingsTimePicker" parent="android:Widget.Material.Light.TimePicker">
+        <!-- Pour le mode spinner -->
+        <item name="android:textColorPrimary">@color/white</item> <!-- Couleur des chiffres et AM/PM non sélectionnés -->
+        <item name="android:textColorSecondary">#B3FFFFFF</item> <!-- Couleur des séparateurs ":" -->
+        <item name="android:numbersTextColor">@color/white</item> <!-- Couleur principale des chiffres -->
+        <item name="android:numbersSelectorColor">@color/colorAccent</item> <!-- Couleur du sélecteur de chiffres (la surbrillance) -->
+        <item name="android:numbersBackgroundColor">#33FFFFFF</item> <!-- Couleur de fond derrière les chiffres (légèrement visible) -->
+    </style>
+
+    <!-- Style pour le Spinner dans les paramètres -->
+    <style name="SettingsSpinner" parent="Widget.AppCompat.Spinner">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:backgroundTint">@color/white</item> <!-- Pour la flèche du spinner -->
+    </style>
+
+    <!-- Style pour les éléments dans le dropdown du Spinner -->
+    <style name="SettingsSpinnerItem" parent="Widget.AppCompat.TextView.SpinnerItem">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- Style pour le dropdown lui-même du Spinner -->
+    <style name="SettingsSpinnerDropDownItem" parent="Widget.AppCompat.DropDownItem.Spinner">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@color/glass_tint_popup_item</item> <!-- Couleur de fond pour chaque item dans le dropdown -->
+    </style>
+
+</resources>
