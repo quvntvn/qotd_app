@@ -14,6 +14,9 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import androidx.work.WorkManager
+import android.graphics.Color
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsControllerCompat
 import java.util.Locale
 
 class SettingsActivity : AppCompatActivity() {
@@ -26,6 +29,14 @@ class SettingsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Make system bars transparent so the app background extends behind them
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+        window.statusBarColor = Color.TRANSPARENT
+        window.navigationBarColor = Color.TRANSPARENT
+        WindowCompat.getInsetsController(window, window.decorView)?.apply {
+            isAppearanceLightStatusBars = false
+            isAppearanceLightNavigationBars = false
+        }
         setContentView(R.layout.activity_settings)
 
         // Récupérer les paramètres sauvegardés
