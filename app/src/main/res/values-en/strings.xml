@@ -20,4 +20,10 @@
     <string name="notifications_scheduled">Notifications scheduled for %1$02dh%2$02d</string>
     <string name="notifications_disabled">Notifications disabled</string>
     <string name="settings_title">Settings</string>
+
+    <!-- Default quote shown when API fails -->
+    <string name="default_quote_text">Courage is not the absence of fear, but the ability to overcome what frightens.</string>
+    <string name="default_quote_author">Nelson Mandela</string>
+    <string name="default_quote_year">1996</string>
+    <string name="error_fetch_quote">Unable to retrieve quote. Check your connection.</string>
 </resources>

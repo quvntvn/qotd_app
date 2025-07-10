@@ -22,4 +22,10 @@
     <string name="notifications_scheduled">Notifications programmées pour %1$02dh%2$02d</string>
     <string name="notifications_disabled">Notifications désactivées</string>
     <string name="settings_title">Réglages</string>
+
+    <!-- Citation par défaut affichée en cas d'erreur -->
+    <string name="default_quote_text">Le courage n'est pas l'absence de peur, mais la capacité de vaincre ce qui fait peur.</string>
+    <string name="default_quote_author">Nelson Mandela</string>
+    <string name="default_quote_year">1996</string>
+    <string name="error_fetch_quote">Impossible de récupérer la citation. Vérifiez votre connexion.</string>
 </resources>

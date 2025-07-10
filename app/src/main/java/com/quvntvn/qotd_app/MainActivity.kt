@@ -29,6 +29,7 @@ import kotlinx.coroutines.launch
 import android.graphics.Color
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import com.quvntvn.qotd_app.Quote
 
 class MainActivity : AppCompatActivity() {
 
@@ -142,17 +143,27 @@ class MainActivity : AppCompatActivity() {
         val translator = TranslationManager(this)
 
         viewModel.quote.observe(this) { q ->
-            q ?: return@observe
             lifecycleScope.launch {
                 val lang = SharedPrefManager.getLanguage(this@MainActivity)
-                tvQuote.text  = "« ${translator.translate(q.citation, lang)} »"
-                tvAuthor.text = q.auteur
-                tvYear.text   = q.dateCreation?.take(4) ?: getString(R.string.not_available_abbr)
+                val quoteToShow = q ?: run {
+                    Toast.makeText(this@MainActivity, R.string.error_fetch_quote, Toast.LENGTH_SHORT).show()
+                    Quote(
+                        getString(R.string.default_quote_text),
+                        getString(R.string.default_quote_author),
+                        getString(R.string.default_quote_year)
+                    )
+                }
+
+                tvQuote.text  = "« ${translator.translate(quoteToShow.citation, lang)} »"
+                tvAuthor.text = quoteToShow.auteur
+                tvYear.text   = quoteToShow.dateCreation?.take(4) ?: getString(R.string.not_available_abbr)
             }
         }
 
+        val divider = findViewById<View>(R.id.quote_author_divider)
         viewModel.isLoading.observe(this) { loading ->
             progressBar.visibility = if (loading) View.VISIBLE else View.GONE
+            divider.visibility = if (loading) View.INVISIBLE else View.VISIBLE
         }
 
         // Charge la citation du jour au démarrage de l'activité
