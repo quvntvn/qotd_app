@@ -44,8 +44,8 @@
 
             <ImageButton
                 android:id="@+id/btn_settings"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
                 android:src="@drawable/ic_settings_white"
                 android:background="?attr/selectableItemBackground"
                 android:padding="8dp"
@@ -70,12 +70,12 @@
                 android:id="@+id/tvAppName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/ptsans"
+                android:fontFamily="@font/uicksandedium"
                 android:gravity="center"
                 android:padding="8dp"
                 android:text="@string/app_name"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
         </eightbitlab.com.blurview.BlurView>
 
 
@@ -98,38 +98,52 @@
                 android:layout_height="wrap_content"
                 android:padding="24dp">
 
-                <!-- ProgressBar a été déplacée en dehors de ce LinearLayout -->
-
                 <TextView
                     android:id="@+id/tvQuote"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textColor="#E6FFFFFF"
-                    android:textSize="22sp"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
                     android:gravity="center"
+                    android:fontFamily="@font/uicksandedium"
                     tools:text="La plus grande gloire n’est pas de ne jamais tomber…" />
+
+                <!-- Trait séparateur blanc -->
+                <View
+                    android:id="@+id/quote_author_divider"
+                    android:layout_width="100dp"
+                    android:layout_height="1dp"
+                    android:layout_gravity="center"
+                    android:background="#99FFFFFF"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginEnd="32dp" />
 
                 <TextView
                     android:id="@+id/tvAuthor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:textColor="#CCFFFFFF"
+                    android:fontFamily="@font/uicksandedium"
+                    android:textColor="#99FFFFFF"
                     android:textSize="18sp"
                     android:gravity="center"
                     tools:text="Confucius" />
+                <!-- android:layout_marginTop="12dp" a été retiré, géré par la marge du séparateur -->
 
                 <TextView
                     android:id="@+id/tvYear"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
-                    android:textColor="#B3FFFFFF"
-                    android:textSize="14sp"
+                    android:textColor="#99FFFFFF"
+                    android:fontFamily="@font/uicksandedium"
+                    android:textSize="18sp"
                     android:gravity="center"
                     tools:text="-500" />
             </LinearLayout>
         </eightbitlab.com.blurview.BlurView>
+
 
         <!-- ProgressBar est maintenant un enfant de content_container et centrée par rapport à blurCard -->
         <ProgressBar
@@ -162,8 +176,10 @@
                 android:layout_height="wrap_content"
                 android:text="@string/button_daily_quote"
                 android:textStyle="bold"
+                android:textSize="14sp"
+                android:fontFamily="@font/uicksandemiold"
                 android:textColor="@color/white"
-                android:background="@android:color/transparent" />
+                android:background="?attr/selectableItemBackground" />
         </eightbitlab.com.blurview.BlurView>
 
         <eightbitlab.com.blurview.BlurView
@@ -184,7 +200,9 @@
                 android:text="@string/button_random_quote"
                 android:textColor="@color/white"
                 android:textStyle="bold"
-                android:background="@android:color/transparent" />
+                android:textSize="14sp"
+                android:fontFamily="@font/uicksandemiold"
+                android:background="?attr/selectableItemBackground" />
         </eightbitlab.com.blurview.BlurView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

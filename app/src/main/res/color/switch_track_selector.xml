@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:color="#A9A9A9" android:state_checked="true" /> <!-- Un gris un peu plus foncé pour la piste quand activé -->
-    <item android:color="#E0E0E0" /> <!-- Un gris très clair pour la piste quand désactivé -->
+    <item android:color="#80C160B1" android:state_checked="true" /> <!-- Un gris un peu plus foncé pour la piste quand activé -->
+    <item android:color="#80FFD6F7" /> <!-- Un gris très clair pour la piste quand désactivé -->
 </selector>

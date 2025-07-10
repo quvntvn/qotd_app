@@ -49,12 +49,12 @@
             android:id="@+id/tvSettingsTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/ptsans"
+            android:fontFamily="@font/uicksandedium"
             android:gravity="center"
             android:padding="12dp"
             android:text="@string/settings_title"
         android:textColor="@color/white"
-        android:textSize="16sp" />
+        android:textSize="18sp" />
     </eightbitlab.com.blurview.BlurView>
 
 
@@ -84,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:textSize="18sp"
-                android:fontFamily="@font/ptsans"
+                android:fontFamily="@font/uicksandedium"
                 android:textColor="@color/white"
             android:text="@string/notifications_enabled"
             android:textAppearance="?attr/textAppearanceSubtitle1" />
@@ -122,7 +122,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/notification_time"
                 android:textSize="18sp"
-                android:fontFamily="@font/ptsans"
+                android:fontFamily="@font/uicksandedium"
                 android:textColor="@color/white"
             android:textAppearance="?attr/textAppearanceSubtitle1"
             android:layout_marginBottom="8dp"/>
@@ -131,6 +131,7 @@
                 android:id="@+id/timePicker"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/uicksandedium"
                 android:timePickerMode="spinner"
                 android:theme="@style/SettingsTimePicker"
                 android:layout_marginTop="8dp"/>
@@ -162,7 +163,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/language_label"
                 android:textSize="18sp"
-                android:fontFamily="@font/ptsans"
+                android:fontFamily="@font/uicksandedium"
                 android:textColor="@color/white"
             android:textAppearance="?attr/textAppearanceSubtitle1"
             android:layout_marginBottom="8dp"/>
@@ -172,6 +173,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="48dp"
+                android:fontFamily="@font/uicksandedium"
                 android:entries="@array/languages"
                 android:popupBackground="@color/glass_tint"
                 android:layout_marginTop="8dp"
@@ -200,9 +202,10 @@
             android:layout_height="wrap_content"
             android:text="@string/back"
             android:textStyle="bold"
-            android:fontFamily="@font/ptsans"
+            android:textSize="14sp"
+            android:fontFamily="@font/uicksandemiold"
             android:textColor="@color/white"
-            android:background="@android:color/transparent"/>
+            android:background="?attr/selectableItemBackground"/>
     </eightbitlab.com.blurview.BlurView>
 
     <!-- Bouton Enregistrer -->
@@ -222,9 +225,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/save"
+            android:textSize="14sp"
+            android:fontFamily="@font/uicksandemiold"
             android:textStyle="bold"
             android:textColor="@color/white"
-            android:background="@android:color/transparent"/>
+            android:background="?attr/selectableItemBackground"/>
     </eightbitlab.com.blurview.BlurView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
