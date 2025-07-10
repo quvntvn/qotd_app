@@ -10,11 +10,25 @@ class QuoteViewModel : ViewModel() {
     private val repository = QuoteRepository()
     val quote = MutableLiveData<Quote?>()
     val isLoading = MutableLiveData(false)
+    val errorMessage = MutableLiveData<Int?>()
+
+    private val defaultQuote = Quote(
+        "Le courage n'est pas l'absence de peur, mais la capacité de vaincre ce qui fait peur.",
+        "Nelson Mandela",
+        "1996"
+    )
 
     fun loadDailyQuote() {
         viewModelScope.launch {
             isLoading.value = true
-            quote.value = repository.getDailyQuote()
+            val result = repository.getDailyQuote()
+            if (result == null) {
+                errorMessage.value = R.string.quote_error
+                quote.value = defaultQuote
+            } else {
+                quote.value = result
+                errorMessage.value = null
+            }
             isLoading.value = false
         }
     }
@@ -22,7 +36,14 @@ class QuoteViewModel : ViewModel() {
     fun loadRandomQuote() {
         viewModelScope.launch {
             isLoading.value = true
-            quote.value = repository.getRandomQuote()
+            val result = repository.getRandomQuote()
+            if (result == null) {
+                errorMessage.value = R.string.quote_error
+                quote.value = defaultQuote
+            } else {
+                quote.value = result
+                errorMessage.value = null
+            }
             isLoading.value = false
         }
     }

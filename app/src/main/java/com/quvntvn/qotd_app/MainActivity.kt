@@ -81,6 +81,7 @@ class MainActivity : AppCompatActivity() {
         val tvAuthor        = findViewById<TextView>(R.id.tvAuthor)
         val tvYear          = findViewById<TextView>(R.id.tvYear)
         val progressBar     = findViewById<ProgressBar>(R.id.progressBar)
+        val divider         = findViewById<View>(R.id.quote_author_divider)
         // val tvAppName       = findViewById<TextView>(R.id.tvAppName) // Le TextView lui-même n'est plus directement manipulé pour le flou
 
         // BlurViews
@@ -153,6 +154,12 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.isLoading.observe(this) { loading ->
             progressBar.visibility = if (loading) View.VISIBLE else View.GONE
+            divider.visibility = if (loading) View.GONE else View.VISIBLE
+        }
+
+        viewModel.errorMessage.observe(this) { msgRes ->
+            msgRes ?: return@observe
+            Toast.makeText(this, msgRes, Toast.LENGTH_SHORT).show()
         }
 
         // Charge la citation du jour au démarrage de l'activité
