@@ -155,6 +155,10 @@ class MainActivity : AppCompatActivity() {
         viewModel.isLoading.observe(this) { loading ->
             progressBar.visibility = if (loading) View.VISIBLE else View.GONE
             divider.visibility = if (loading) View.GONE else View.VISIBLE
+            val contentVisibility = if (loading) View.INVISIBLE else View.VISIBLE
+            tvQuote.visibility = contentVisibility
+            tvAuthor.visibility = contentVisibility
+            tvYear.visibility = contentVisibility
         }
 
         viewModel.errorMessage.observe(this) { msgRes ->
