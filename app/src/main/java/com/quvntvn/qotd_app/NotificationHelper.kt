@@ -92,7 +92,7 @@ class NotificationHelper(private val context: Context) {
             .setAutoCancel(true) // La notification disparaît après le clic
             // Grande icône (en couleur)
             // Remplacez R.drawable.ic_quote_large par votre grande icône
-            .setLargeIcon(BitmapFactory.decodeResource(context.resources, R.mipmap.ic_launcher_round))
+            .setLargeIcon(BitmapFactory.decodeResource(context.resources, R.mipmap.ic_launcher_new_round))
             // Spécifier qu'il ne faut pas incrémenter le compteur de badge
             .setNumber(0)
         // Optionnel: Définir une couleur d'accentuation
