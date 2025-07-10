@@ -22,4 +22,5 @@
     <string name="notifications_scheduled">Notifications programmées pour %1$02dh%2$02d</string>
     <string name="notifications_disabled">Notifications désactivées</string>
     <string name="settings_title">Réglages</string>
+    <string name="quote_error">Impossible de récupérer la citation, affichage d\u2019une citation par défaut.</string>
 </resources>

@@ -20,4 +20,5 @@
     <string name="notifications_scheduled">Notifications scheduled for %1$02dh%2$02d</string>
     <string name="notifications_disabled">Notifications disabled</string>
     <string name="settings_title">Settings</string>
+    <string name="quote_error">Unable to retrieve quote, showing a default one.</string>
 </resources>
