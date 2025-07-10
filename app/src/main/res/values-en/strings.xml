@@ -3,7 +3,7 @@
     <string name="notification_channel_name">Quotes</string>
     <string name="notification_channel_description">Daily quote notifications</string>
     <string name="notification_permission_rationale">To display daily quotes, the app requests notification permission.</string>
-    <string name="notification_permission_denied">Notification permission denied. Daily quotes will not be shown.</string>
+    <string name="notification_permission_denied">Notification permission denied.</string>
     <string-array name="languages">
         <item>French</item>
         <item>English</item>
@@ -20,5 +20,5 @@
     <string name="notifications_scheduled">Notifications scheduled for %1$02dh%2$02d</string>
     <string name="notifications_disabled">Notifications disabled</string>
     <string name="settings_title">Settings</string>
-    <string name="quote_error">Unable to retrieve quote, showing a default one.</string>
+    <string name="quote_error">Unable to retrieve quote.</string>
 </resources>

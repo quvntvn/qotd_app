@@ -3,8 +3,8 @@
     <!-- Simple English text avoids parsing issues on some build tools -->
     <string name="notification_channel_name">Citations</string>
     <string name="notification_channel_description">Notifications pour les citations quotidiennes</string>
-    <string name="notification_permission_rationale">Pour afficher les citations quotidiennes, l\'application demande la permission de notifications.</string>
-    <string name="notification_permission_denied">Permission de notification refusée. Les citations quotidiennes ne seront pas affichées.</string>
+    <string name="notification_permission_rationale">Pour afficher les citations quotidiennes, acceptez la permission de notifications.</string>
+    <string name="notification_permission_denied">Permission de notification refusée.</string>
     <string-array name="languages">
         <item>Français</item>
         <item>English</item>
@@ -22,5 +22,5 @@
     <string name="notifications_scheduled">Notifications programmées pour %1$02dh%2$02d</string>
     <string name="notifications_disabled">Notifications désactivées</string>
     <string name="settings_title">Réglages</string>
-    <string name="quote_error">Impossible de récupérer la citation, affichage d\u2019une citation par défaut.</string>
+    <string name="quote_error">Probléme de récupération de la citation.</string>
 </resources>
