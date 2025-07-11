@@ -16,7 +16,7 @@ import androidx.glance.state.PreferencesGlanceStateDefinition
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.stringPreferencesKey
 import com.quvntvn.qotd_app.R
-import kotlinx.coroutines.runBlocking
+import com.quvntvn.qotd_app.MyApp
 
 class QuoteOfTheDayWidget : GlanceAppWidget() {
     override val stateDefinition = PreferencesGlanceStateDefinition
