@@ -148,7 +148,14 @@ class MainActivity : AppCompatActivity() {
                 val lang = SharedPrefManager.getLanguage(this@MainActivity)
                 tvQuote.text  = "« ${translator.translate(q.citation, lang)} »"
                 tvAuthor.text = q.auteur
-                tvYear.text   = q.dateCreation?.take(4) ?: getString(R.string.not_available_abbr)
+
+                val dateText = q.dateCreation?.take(4)
+                if (dateText.isNullOrBlank()) {
+                    tvYear.visibility = View.GONE
+                } else {
+                    tvYear.text = dateText
+                    tvYear.visibility = View.VISIBLE
+                }
             }
         }
 
@@ -158,7 +165,9 @@ class MainActivity : AppCompatActivity() {
             val contentVisibility = if (loading) View.INVISIBLE else View.VISIBLE
             tvQuote.visibility = contentVisibility
             tvAuthor.visibility = contentVisibility
-            tvYear.visibility = contentVisibility
+            if (loading) {
+                tvYear.visibility = View.INVISIBLE
+            }
         }
 
         viewModel.errorMessage.observe(this) { msgRes ->
