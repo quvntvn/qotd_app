@@ -12,6 +12,7 @@ import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
 import com.quvntvn.qotd_app.widget.QuoteOfTheDayWidget
+import com.quvntvn.qotd_app.MyApp
 import java.util.concurrent.TimeUnit
 import java.util.Calendar
 
