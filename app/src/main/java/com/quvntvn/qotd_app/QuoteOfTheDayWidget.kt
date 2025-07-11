@@ -13,16 +13,22 @@ import androidx.glance.text.*
 import androidx.glance.appwidget.action.ActionCallback
 import androidx.glance.appwidget.action.actionRunCallback
 import androidx.glance.state.PreferencesGlanceStateDefinition
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.core.stringPreferencesKey
 import com.quvntvn.qotd_app.R
 import kotlinx.coroutines.runBlocking
 
 class QuoteOfTheDayWidget : GlanceAppWidget() {
+    override val stateDefinition = PreferencesGlanceStateDefinition
+
+    private val quoteTextKey = stringPreferencesKey("quote_text")
+    private val quoteAuthorKey = stringPreferencesKey("quote_author")
 
     override suspend fun provideGlance(context: Context, id: GlanceId) {
-        val prefs = currentState(key = PreferencesGlanceStateDefinition)
+        val prefs = currentState<Preferences>()
 
-        val quote  = prefs["quote_text"]    ?: context.getString(R.string.loading)
-        val author = prefs["quote_author"]  ?: ""
+        val quote  = prefs[quoteTextKey]    ?: context.getString(R.string.loading)
+        val author = prefs[quoteAuthorKey]  ?: ""
 
         provideContent {
             // UI declarative style (Compose-like)
@@ -64,14 +70,14 @@ class QuoteOfTheDayWidget : GlanceAppWidget() {
 
     /** Action exécutée quand l’utilisateur appuie sur le bouton */
     class RefreshAction : ActionCallback {
-        override suspend fun onRun(context: Context, glanceId: GlanceId, parameters: ActionParameters) {
+        override suspend fun onAction(context: Context, glanceId: GlanceId, parameters: ActionParameters) {
             // Ici tu récupères une citation (API, base locale, etc.)
             val repo = (context.applicationContext as MyApp).quoteRepository
-            val quote = repo.randomQuote()
+            val quote = repo.getRandomQuote() ?: return
 
             updateAppWidgetState(context, PreferencesGlanceStateDefinition, glanceId) { prefs ->
-                prefs["quote_text"]   = quote.citation
-                prefs["quote_author"] = quote.auteur
+                prefs[quoteTextKey]   = quote.citation
+                prefs[quoteAuthorKey] = quote.auteur
             }
 
             QuoteOfTheDayWidget().update(context, glanceId) // force le re-compose
