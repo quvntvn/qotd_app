@@ -67,4 +67,23 @@ class QuoteRepository {
             null
         }
     }
+
+    /**
+     * Returns the daily quote or a fallback one when the API request fails.
+     */
+    suspend fun dailyQuote(): Quote {
+        return getDailyQuote() ?: Quote(
+            citation = "",
+            auteur = "",
+            dateCreation = null
+        )
+    }
+
+    /**
+     * Returns a random quote. If the random request fails, fall back to the
+     * daily quote to avoid empty content in the widget.
+     */
+    suspend fun randomQuote(): Quote {
+        return getRandomQuote() ?: dailyQuote()
+    }
 }

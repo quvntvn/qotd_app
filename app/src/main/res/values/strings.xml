@@ -23,4 +23,5 @@
     <string name="notifications_disabled">Notifications désactivées</string>
     <string name="settings_title">Réglages</string>
     <string name="quote_error">Probléme de récupération de la citation.</string>
+    <string name="loading">Chargement…</string>
 </resources>
