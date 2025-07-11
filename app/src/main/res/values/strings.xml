@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Citation du jour</string>
+    <string name="loading">Chargement…</string>
     <!-- Simple English text avoids parsing issues on some build tools -->
     <string name="notification_channel_name">Citations</string>
     <string name="notification_channel_description">Notifications pour les citations quotidiennes</string>
