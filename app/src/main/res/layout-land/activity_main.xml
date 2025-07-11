@@ -112,12 +112,22 @@
             android:gravity="center"
             tools:text="Ceci est un exemple de citation un peu plus longue pour voir comment elle s'affiche en mode paysage." />
 
+            <View
+                android:id="@+id/quote_author_divider"
+                android:layout_width="100dp"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:background="#99FFFFFF"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp" />
+
             <TextView
                 android:id="@+id/tvAuthor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/uicksandedium"
-                android:layout_marginTop="12dp"
                 android:textColor="#99FFFFFF"
                 android:textSize="18sp"
             android:gravity="center"

@@ -11,8 +11,8 @@ android {
         applicationId = "com.quvntvn.qotd_app"
         minSdk = 28
         targetSdk = 35
-        versionCode = 3
-        versionName = "1.1.1"
+        versionCode = 6
+        versionName = "1.1.4"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
@@ -74,5 +74,7 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+    implementation("androidx.glance:glance-appwidget:1.1.1")
+    implementation("androidx.work:work-runtime-ktx:2.10.1")
 }
 
