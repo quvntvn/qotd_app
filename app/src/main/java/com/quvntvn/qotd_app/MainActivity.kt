@@ -41,6 +41,8 @@ class MainActivity : AppCompatActivity() {
 
     private val viewModel: QuoteViewModel by viewModels() // Assurez-vous que QuoteViewModel existe et est configuré
 
+    private lateinit var translator: TranslationManager
+
     private val notifPermission =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
             if (!granted)
@@ -140,7 +142,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         // ---------- Observers ----------
-        val translator = TranslationManager(this)
+        translator = TranslationManager(this)
 
         viewModel.quote.observe(this) { q ->
             q ?: return@observe
@@ -199,5 +201,10 @@ class MainActivity : AppCompatActivity() {
                 notifPermission.launch(Manifest.permission.POST_NOTIFICATIONS)
             }
         }
+    }
+
+    override fun onDestroy() {
+        translator.close()
+        super.onDestroy()
     }
 }

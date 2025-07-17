@@ -47,12 +47,15 @@ class QuoteWorker(
                 response.body()?.let { quote ->
                     val lang = SharedPrefManager.getLanguage(appContext)
                     val citationText = if (lang == "en") { // Vous pourriez vouloir aussi traduire si la langue est "fr" et que la citation est dans une autre langue
+                        val translator = TranslationManager(appContext)
                         try {
                             // Assurez-vous que TranslationManager gère bien les exceptions réseau etc.
-                            TranslationManager(appContext).translate(quote.citation, lang)
+                            translator.translate(quote.citation, lang)
                         } catch (e: Exception) {
                             Log.e(TAG, "Erreur de traduction: ${e.localizedMessage}", e)
                             quote.citation // Retour à la citation originale en cas d'erreur
+                        } finally {
+                            translator.close()
                         }
                     } else {
                         quote.citation
