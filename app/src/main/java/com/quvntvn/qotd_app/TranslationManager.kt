@@ -16,6 +16,13 @@ class TranslationManager(private val context: Context) {
         Translation.getClient(options)
     }
 
+    fun close() {
+        try {
+            frToEnTranslator.close()
+        } catch (_: Exception) {
+        }
+    }
+
     suspend fun translate(text: String, target: String): String {
         if (target == "fr") return text
         val translator = when (target) {
