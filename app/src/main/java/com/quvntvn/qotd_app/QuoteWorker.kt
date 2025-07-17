@@ -5,18 +5,11 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
 import androidx.core.content.ContextCompat
-import androidx.work.Constraints
 import androidx.work.CoroutineWorker
-import androidx.work.ExistingPeriodicWorkPolicy // <- AJOUTÉ
-import androidx.work.NetworkType
-import androidx.work.PeriodicWorkRequestBuilder // <- MODIFIÉ (au lieu de OneTime)
-import androidx.work.WorkManager
 import androidx.work.WorkerParameters
 // Supposons que SharedPrefManager, TranslationManager, QuoteApi, Quote, NotificationHelper existent et fonctionnent
 // import com.quvntvn.qotd_app.SharedPrefManager
 // import com.quvntvn.qotd_app.TranslationManager
-import java.util.Calendar
-import java.util.concurrent.TimeUnit
 import android.util.Log
 
 class QuoteWorker(
@@ -78,8 +71,6 @@ class QuoteWorker(
 
     companion object {
         private const val TAG = "QuoteWorker"
-        // C'EST LA CONSTANTE IMPORTANTE POUR IDENTIFIER LE TRAVAIL DE MANIÈRE UNIQUE
-        const val UNIQUE_WORK_NAME = "daily_quote_notification_worker"
 
         /**
          * Planifie une tâche périodique quotidienne pour afficher une citation.
@@ -96,51 +87,9 @@ class QuoteWorker(
                 return
             }
 
-            val workManager = WorkManager.getInstance(context.applicationContext) // Utiliser applicationContext
-
-            // Calculer le délai initial pour que la première notification soit à l'heure spécifiée
-            val initialDelay = calculateInitialDelay(hour, minute)
-            Log.d(TAG, "Planification de la citation quotidienne. Prochaine dans: ${TimeUnit.MILLISECONDS.toMinutes(initialDelay)} minutes.")
-
-            val constraints = Constraints.Builder()
-                .setRequiredNetworkType(NetworkType.CONNECTED) // Exemple de contrainte
-                .build()
-
-            val dailyQuoteRequest =
-                PeriodicWorkRequestBuilder<QuoteWorker>(1, TimeUnit.DAYS) // Répéter tous les jours
-                    .setInitialDelay(initialDelay, TimeUnit.MILLISECONDS)
-                    .setConstraints(constraints) // Appliquer les contraintes
-                    .build()
-
-            workManager.enqueueUniquePeriodicWork(
-                UNIQUE_WORK_NAME, // Utilisation du nom unique
-                ExistingPeriodicWorkPolicy.REPLACE, // Remplace le travail existant s'il y en a un avec le même nom
-                dailyQuoteRequest
-            )
-            Log.d(TAG, "Travail périodique '${UNIQUE_WORK_NAME}' planifié pour se répéter tous les jours.")
+            QuoteAlarmReceiver.scheduleDailyQuote(context.applicationContext, hour, minute)
+            Log.d(TAG, "Alarm scheduled for daily quote at $hour:$minute")
         }
 
-        /**
-         * Calcule le délai en millisecondes jusqu'à la prochaine occurrence de l'heure et minute cibles.
-         * @param targetHour L'heure cible (0-23).
-         * @param targetMinute La minute cible (0-59).
-         * @return Le délai en millisecondes.
-         */
-        private fun calculateInitialDelay(targetHour: Int, targetMinute: Int): Long {
-            val currentTime = Calendar.getInstance()
-            val dueTime = Calendar.getInstance().apply {
-                set(Calendar.HOUR_OF_DAY, targetHour)
-                set(Calendar.MINUTE, targetMinute)
-                set(Calendar.SECOND, 0)
-                set(Calendar.MILLISECOND, 0)
-            }
-
-            // Si l'heure spécifiée est déjà passée pour aujourd'hui, programmer pour le lendemain à la même heure
-            if (dueTime.before(currentTime)) {
-                dueTime.add(Calendar.DAY_OF_YEAR, 1)
-            }
-
-            return dueTime.timeInMillis - currentTime.timeInMillis
-        }
     }
 }

@@ -29,6 +29,7 @@ import kotlinx.coroutines.launch
 import android.graphics.Color
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import com.quvntvn.qotd_app.QuoteAlarmReceiver
 
 class MainActivity : AppCompatActivity() {
 
@@ -121,7 +122,7 @@ class MainActivity : AppCompatActivity() {
         // ---------- Notifications planifiées (si activées au démarrage) ----------
         SharedPrefManager.getNotificationSettings(this).apply {
             if (this.first) {
-                QuoteWorker.scheduleDailyQuote(this@MainActivity, this.second, this.third)
+                QuoteAlarmReceiver.scheduleDailyQuote(this@MainActivity, this.second, this.third)
             }
         }
 
