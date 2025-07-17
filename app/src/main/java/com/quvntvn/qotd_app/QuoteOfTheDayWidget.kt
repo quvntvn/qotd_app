@@ -24,10 +24,11 @@ import com.quvntvn.qotd_app.MyApp
 class QuoteOfTheDayWidget : GlanceAppWidget() {
     override val stateDefinition = PreferencesGlanceStateDefinition
 
-    private val quoteTextKey = stringPreferencesKey("quote_text")
-    private val quoteAuthorKey = stringPreferencesKey("quote_author")
+    companion object {
+        val quoteTextKey = stringPreferencesKey("quote_text")
+        val quoteAuthorKey = stringPreferencesKey("quote_author")
+    }
 
-    @Composable
     override suspend fun provideGlance(context: Context, id: GlanceId) {
         val prefs = currentState<Preferences>()
 
@@ -79,7 +80,7 @@ class QuoteOfTheDayWidget : GlanceAppWidget() {
             val repo = (context.applicationContext as MyApp).quoteRepository
             val quote = repo.getRandomQuote() ?: return
 
-            updateAppWidgetState(context, PreferencesGlanceStateDefinition, glanceId) { prefs ->
+            updateAppWidgetState(context, glanceId) { prefs ->
                 prefs[quoteTextKey]   = quote.citation
                 prefs[quoteAuthorKey] = quote.auteur
             }
