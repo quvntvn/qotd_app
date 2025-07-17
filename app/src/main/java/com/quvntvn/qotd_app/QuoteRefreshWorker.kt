@@ -31,7 +31,7 @@ class QuoteRefreshWorker(
         val quote = repo.getDailyQuote() ?: return Result.retry()
 
         glanceIds.forEach { id ->
-            updateAppWidgetState(ctx, PreferencesGlanceStateDefinition, id) { prefs ->
+            updateAppWidgetState(ctx, id) { prefs ->
                 prefs[quoteTextKey]   = quote.citation
                 prefs[quoteAuthorKey] = quote.auteur
             }
