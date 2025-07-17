@@ -2,6 +2,9 @@
 package com.quvntvn.qotd_app.widget
 
 import android.content.Context
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.glance.appwidget.GlanceAppWidget
 import androidx.glance.appwidget.GlanceAppWidgetReceiver
 import androidx.glance.appwidget.state.updateAppWidgetState
@@ -24,6 +27,7 @@ class QuoteOfTheDayWidget : GlanceAppWidget() {
     private val quoteTextKey = stringPreferencesKey("quote_text")
     private val quoteAuthorKey = stringPreferencesKey("quote_author")
 
+    @Composable
     override suspend fun provideGlance(context: Context, id: GlanceId) {
         val prefs = currentState<Preferences>()
 
