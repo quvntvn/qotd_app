@@ -30,12 +30,11 @@ class QuoteOfTheDayWidget : GlanceAppWidget() {
     }
 
     override suspend fun provideGlance(context: Context, id: GlanceId) {
-        val prefs = currentState<Preferences>()
-
-        val quote  = prefs[quoteTextKey]    ?: context.getString(R.string.loading)
-        val author = prefs[quoteAuthorKey]  ?: ""
-
         provideContent {
+            val prefs = currentState<Preferences>()
+
+            val quote  = prefs[quoteTextKey]    ?: context.getString(R.string.loading)
+            val author = prefs[quoteAuthorKey]  ?: ""
             // UI declarative style (Compose-like)
             Box(
                 modifier = GlanceModifier
