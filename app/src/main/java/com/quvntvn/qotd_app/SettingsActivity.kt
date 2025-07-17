@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import androidx.core.view.WindowCompat
 // import androidx.core.view.WindowInsetsControllerCompat // Non explicitement utilisé dans ce code modifié
-import androidx.work.WorkManager
+import com.quvntvn.qotd_app.QuoteAlarmReceiver
 import eightbitlab.com.blurview.BlurView // Import pour BlurView
 import eightbitlab.com.blurview.RenderScriptBlur // Import pour l'algorithme de flou
 import java.util.Locale
@@ -109,11 +109,10 @@ class SettingsActivity : AppCompatActivity() {
 
             SharedPrefManager.saveSettings(this, notificationsAreNowEnabled, newHour, newMinute)
 
-            val workManager = WorkManager.getInstance(this.applicationContext)
-            workManager.cancelUniqueWork(QuoteWorker.UNIQUE_WORK_NAME)
+            QuoteAlarmReceiver.cancelDailyQuote(this.applicationContext)
 
             if (notificationsAreNowEnabled) {
-                QuoteWorker.scheduleDailyQuote(this.applicationContext, newHour, newMinute)
+                QuoteAlarmReceiver.scheduleDailyQuote(this.applicationContext, newHour, newMinute)
                 val message = localizedContext.getString(R.string.notifications_scheduled, newHour, newMinute)
                 Toast.makeText(localizedContext, message, Toast.LENGTH_SHORT).show()
             } else {
