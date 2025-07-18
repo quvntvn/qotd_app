@@ -9,6 +9,7 @@ class MyApp : Application() {
     override fun onCreate() {
         super.onCreate()
         QuoteRefreshWorker.schedule(applicationContext)
+        QuoteRefreshWorker.refreshOnce(applicationContext)
     }
 }
 

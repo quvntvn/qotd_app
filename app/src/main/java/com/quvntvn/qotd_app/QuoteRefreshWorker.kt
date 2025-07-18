@@ -8,9 +8,11 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.work.CoroutineWorker
 import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.ExistingWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import androidx.work.WorkerParameters
+import androidx.work.OneTimeWorkRequestBuilder
 import com.quvntvn.qotd_app.widget.QuoteOfTheDayWidget
 import com.quvntvn.qotd_app.MyApp
 import java.util.concurrent.TimeUnit
@@ -47,6 +49,16 @@ class QuoteRefreshWorker(
                 .build()
             WorkManager.getInstance(context).enqueueUniquePeriodicWork(
                 "widget_refresh", ExistingPeriodicWorkPolicy.UPDATE, request
+            )
+        }
+
+        fun refreshOnce(context: Context) {
+            val request = OneTimeWorkRequestBuilder<QuoteRefreshWorker>()
+                .build()
+            WorkManager.getInstance(context).enqueueUniqueWork(
+                "widget_refresh_once",
+                ExistingWorkPolicy.REPLACE,
+                request
             )
         }
 

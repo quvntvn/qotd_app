@@ -71,6 +71,9 @@ class QuoteOfTheDayReceiver : GlanceAppWidgetReceiver() {
 
     override fun onEnabled(context: Context?) {
         super.onEnabled(context)
-        context?.let { QuoteRefreshWorker.schedule(it.applicationContext) }
+        context?.let {
+            QuoteRefreshWorker.schedule(it.applicationContext)
+            QuoteRefreshWorker.refreshOnce(it.applicationContext)
+        }
     }
 }
