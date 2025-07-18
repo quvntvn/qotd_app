@@ -2,7 +2,6 @@
 package com.quvntvn.qotd_app.widget
 
 import android.content.Context
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.glance.appwidget.GlanceAppWidget
@@ -10,16 +9,14 @@ import androidx.glance.appwidget.GlanceAppWidgetReceiver
 import androidx.glance.appwidget.state.updateAppWidgetState
 import androidx.glance.appwidget.provideContent
 import androidx.glance.*
-import androidx.glance.action.ActionParameters
 import androidx.glance.layout.*
 import androidx.glance.text.*
-import androidx.glance.appwidget.action.ActionCallback
-import androidx.glance.appwidget.action.actionRunCallback
 import androidx.glance.state.PreferencesGlanceStateDefinition
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.stringPreferencesKey
 import com.quvntvn.qotd_app.R
 import com.quvntvn.qotd_app.MyApp
+import com.quvntvn.qotd_app.QuoteRefreshWorker
 
 class QuoteOfTheDayWidget : GlanceAppWidget() {
     override val stateDefinition = PreferencesGlanceStateDefinition
@@ -60,31 +57,10 @@ class QuoteOfTheDayWidget : GlanceAppWidget() {
                         style = TextStyle(fontSize = 12.sp, fontStyle = FontStyle.Italic)
                     )
 
+                    // Extra spacing for readability
                     Spacer(modifier = GlanceModifier.height(8.dp))
-
-                    // Bouton “Refresh”
-                    Button(
-                        text     = "Nouvelle citation",
-                        onClick  = actionRunCallback<RefreshAction>()
-                    )
                 }
             }
-        }
-    }
-
-    /** Action exécutée quand l’utilisateur appuie sur le bouton */
-    class RefreshAction : ActionCallback {
-        override suspend fun onAction(context: Context, glanceId: GlanceId, parameters: ActionParameters) {
-            // Ici tu récupères une citation (API, base locale, etc.)
-            val repo = (context.applicationContext as MyApp).quoteRepository
-            val quote = repo.getRandomQuote() ?: return
-
-            updateAppWidgetState(context, glanceId) { prefs ->
-                prefs[quoteTextKey]   = quote.citation
-                prefs[quoteAuthorKey] = quote.auteur
-            }
-
-            QuoteOfTheDayWidget().update(context, glanceId) // force le re-compose
         }
     }
 }
@@ -92,4 +68,9 @@ class QuoteOfTheDayWidget : GlanceAppWidget() {
 /** Receiver déclaré dans le manifeste */
 class QuoteOfTheDayReceiver : GlanceAppWidgetReceiver() {
     override val glanceAppWidget = QuoteOfTheDayWidget()
+
+    override fun onEnabled(context: Context?) {
+        super.onEnabled(context)
+        context?.let { QuoteRefreshWorker.schedule(it.applicationContext) }
+    }
 }
