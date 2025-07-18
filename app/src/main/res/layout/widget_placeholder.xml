@@ -8,5 +8,8 @@
         android:id="@+id/tvPlaceholder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:gravity="center"
+        android:fontFamily="@font/uicksandedium"
         android:text="@string/loading" />
 </FrameLayout>
