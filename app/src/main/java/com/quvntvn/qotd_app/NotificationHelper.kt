@@ -28,7 +28,7 @@ class NotificationHelper(private val context: Context) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             val channelName = context.getString(R.string.notification_channel_name) // Extrait de strings.xml
             val channelDescription = context.getString(R.string.notification_channel_description) // Extrait de strings.xml
-            val importance = NotificationManager.IMPORTANCE_DEFAULT // Pour utiliser le son par défaut, la priorité DEFAULT est bien.
+            val importance = NotificationManager.IMPORTANCE_HIGH // Pour utiliser le son par défaut, la priorité DEFAULT est bien.
             // Si vous vouliez absolument pas de son, IMPORTANCE_LOW pourrait être une option,
             // mais cela affecte aussi d'autres aspects de la notification.
 
