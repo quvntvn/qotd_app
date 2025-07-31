@@ -8,65 +8,100 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Build
+import android.util.Log // Import pour Log.e
 import androidx.annotation.RequiresPermission
-import com.quvntvn.qotd_app.R
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import java.text.SimpleDateFormat
-import java.util.Locale
+import androidx.core.content.ContextCompat.checkSelfPermission
 
+// Assurez-vous que R est correctement importé. Normalement, il l'est automatiquement
+// si le package est correct et que le fichier est dans le bon module.
+// import com.quvntvn.qotd_app.R
+
+// Supposons que ces classes sont définies dans votre projet et correctement importées
+// Si elles sont dans le même package, l'import n'est pas nécessaire.
+// import com.quvntvn.qotd_app.MainActivity
+// import com.quvntvn.qotd_app.Quote
+
+/**
+ * Classe utilitaire pour créer et afficher des notifications de citation.
+ *
+ * @param context Le contexte de l'application.
+ */
 class NotificationHelper(private val context: Context) {
-    private val channelId = "quote_channel"
-    private val notificationId = 101 // ID unique pour cette notification
-    private val PENDING_INTENT_REQUEST_CODE = 0
+
+    companion object {
+        private const val TAG = "NotificationHelper" // Tag pour les logs
+        private const val CHANNEL_ID = "quote_channel" // ID unique pour le canal de notification
+        private const val NOTIFICATION_ID = 101 // ID unique pour cette notification spécifique
+        private const val PENDING_INTENT_REQUEST_CODE = 0 // Code de requête pour le PendingIntent
+    }
 
     init {
         createNotificationChannel()
     }
 
+    /**
+     * Crée le canal de notification. Nécessaire pour Android Oreo (API 26) et versions ultérieures.
+     * Pour les versions antérieures, cette méthode ne fait rien.
+     */
     private fun createNotificationChannel() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            val channelName = context.getString(R.string.notification_channel_name) // Extrait de strings.xml
-            val channelDescription = context.getString(R.string.notification_channel_description) // Extrait de strings.xml
-            val importance = NotificationManager.IMPORTANCE_HIGH // Pour utiliser le son par défaut, la priorité DEFAULT est bien.
-            // Si vous vouliez absolument pas de son, IMPORTANCE_LOW pourrait être une option,
-            // mais cela affecte aussi d'autres aspects de la notification.
-
-            // Plus besoin de définir soundUri ou audioAttributes ici si on utilise le son par défaut du système.
+            // Nom du canal visible par l'utilisateur dans les paramètres de l'application
+            val channelName = context.getString(R.string.notification_channel_name)
+            // Description du canal visible par l'utilisateur
+            val channelDescription = context.getString(R.string.notification_channel_description)
+            // Importance du canal. IMPORTANCE_HIGH fait apparaître la notification en mode prioritaire (heads-up)
+            // et émet un son (si non désactivé par l'utilisateur).
+            val importance = NotificationManager.IMPORTANCE_HIGH
 
             val channel = NotificationChannel(
-                channelId,
+                CHANNEL_ID,
                 channelName,
                 importance
             ).apply {
                 description = channelDescription
-                // On ne fait plus appel à setSound() pour utiliser le son par défaut du canal/système
-                setShowBadge(false) // Désactiver les badges numériques/points pour ce canal
-
-                // Optionnel: Configurer la vibration, la lumière, etc.
-                // Si vous ne spécifiez rien pour la vibration, elle suivra aussi les paramètres système/canal par défaut.
-                // enableLights(true)
-                // lightColor = Color.RED
-                // enableVibration(true) // Si vous voulez forcer la vibration même si le son est désactivé
-                // vibrationPattern = longArrayOf(100, 200, 300, 400, 500, 400, 300, 200, 400)
+                // Options supplémentaires du canal (facultatif) :
+                // setShowBadge(false) // Pour ne pas afficher de badge pour ce canal
+                // enableLights(true) // Activer la LED de notification (si l'appareil en a une)
+                // lightColor = Color.RED // Couleur de la LED
+                // enableVibration(true) // Activer la vibration
+                // vibrationPattern = longArrayOf(100, 200, 300) // Modèle de vibration personnalisé
             }
 
-            val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            manager.createNotificationChannel(channel)
+            // Enregistrer le canal auprès du système de notification
+            val notificationManager: NotificationManager? =
+                context.getSystemService(Context.NOTIFICATION_SERVICE) as? NotificationManager
+
+            notificationManager?.createNotificationChannel(channel)
+                ?: Log.e(TAG, "NotificationManager non disponible.")
         }
     }
 
+    /**
+     * Affiche une notification avec la citation fournie.
+     *
+     * Nécessite la permission Manifest.permission.POST_NOTIFICATIONS pour Android 13 (API 33) et plus.
+     * La vérification de cette permission à l'exécution doit être gérée avant d'appeler cette méthode.
+     *
+     * @param quote L'objet Quote contenant les informations à afficher.
+     */
     @RequiresPermission(Manifest.permission.POST_NOTIFICATIONS)
     fun showNotification(quote: Quote) {
-
-
-        // Intent pour lancer MainActivity lorsque la notification est cliquée
+        // Intent à lancer lorsque l'utilisateur clique sur la notification.
+        // Ouvre MainActivity.
         val intent = Intent(context, MainActivity::class.java).apply {
+            // Ces flags assurent que si MainActivity est déjà ouverte, elle est ramenée au premier plan,
+            // et une nouvelle instance n'est pas créée au-dessus d'une existante dans la même tâche.
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            // Optionnel: Passer des données à l'Activity
-            // putExtra("QUOTE_ID", quote.id)
+            // Optionnel : Passer des données supplémentaires à MainActivity.
+            // Assurez-vous que `quote.id` est Parcelable/Serializable ou un type primitif.
+            // Exemple : intent.putExtra("QUOTE_ID_EXTRA", quote.id)
         }
 
+        // Crée un PendingIntent pour l'action de la notification.
+        // FLAG_UPDATE_CURRENT: si le PendingIntent existe déjà, il est conservé, mais son extra data est remplacé.
+        // FLAG_IMMUTABLE: requis pour Android 12 (API 31)+ si le PendingIntent est passé à une autre application (comme le système ici).
         val pendingIntentFlags = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         } else {
@@ -79,46 +114,102 @@ class NotificationHelper(private val context: Context) {
             pendingIntentFlags
         )
 
-        // Plus besoin de soundUriForPreOreo si on utilise le son par défaut
+        // Récupération des chaînes de caractères avec gestion des valeurs nulles.
+        val title = quote.auteur ?: context.getString(R.string.unknown_author)
+        val content = quote.citation ?: context.getString(R.string.quote_not_available)
 
-        val notificationBuilder = NotificationCompat.Builder(context, channelId)
-            // Petite icône (blanche et transparente)
-            // Remplacez R.drawable.ic_stat_quote par votre petite icône
+        // Construction de la notification.
+        val notificationBuilder = NotificationCompat.Builder(context, CHANNEL_ID)
+            // Petite icône (obligatoire). Doit être une icône blanche avec des zones transparentes.
             .setSmallIcon(R.drawable.ic_qotd_notif)
-            .setContentTitle(quote.auteur)
-            .setContentText(quote.citation)
-            .setStyle(NotificationCompat.BigTextStyle().bigText(quote.citation))
+            // Titre de la notification.
+            .setContentTitle(title)
+            // Texte principal de la notification.
+            .setContentText(content)
+            // Style pour afficher un texte plus long lorsque la notification est étendue.
+            .setStyle(NotificationCompat.BigTextStyle().bigText(content))
+            // Action à exécuter lors du clic sur la notification.
             .setContentIntent(pendingIntent)
-            .setAutoCancel(true) // La notification disparaît après le clic
-            // Grande icône (en couleur)
-            // Remplacez R.drawable.ic_quote_large par votre grande icône
-            .setLargeIcon(BitmapFactory.decodeResource(context.resources, R.mipmap.ic_launcher_new_round))
-            // Spécifier qu'il ne faut pas incrémenter le compteur de badge
+            // La notification est automatiquement annulée (supprimée) lorsque l'utilisateur clique dessus.
+            .setAutoCancel(true)
+            // Pour ne pas afficher de nombre sur le badge de l'application pour cette notification.
             .setNumber(0)
-        // Optionnel: Définir une couleur d'accentuation
-        // .setColor(ContextCompat.getColor(context, R.color.your_notification_accent_color))
+            // Priorité de la notification (pour les versions antérieures à Android Oreo).
+            // Pour Oreo et plus, l'importance est définie sur le canal.
+            // PRIORITY_MAX est utilisé ici pour maximiser la visibilité sur les anciennes versions.
+            .setPriority(NotificationCompat.PRIORITY_MAX) // Valeur par défaut pour les canaux IMPORTANCE_HIGH sur les anciennes versions
 
-        // On ne définit plus de son sur le builder pour les versions pré-Oreo non plus,
-        // afin qu'elles utilisent également le son de notification par défaut du système.
-        // Si vous ne faites rien, NotificationCompat.Builder utilisera les valeurs par défaut
-        // pour le son, la vibration, etc., basées sur la priorité de la notification.
-        // if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) {
-        // notificationBuilder.priority = NotificationCompat.PRIORITY_DEFAULT // Déjà la valeur par défaut
-        // }
+        // Ajout d'une grande icône (facultatif, mais améliore l'aspect visuel).
+        try {
+            val largeIconBitmap = BitmapFactory.decodeResource(context.resources, R.mipmap.ic_launcher_new_round)
+            if (largeIconBitmap != null) {
+                notificationBuilder.setLargeIcon(largeIconBitmap)
+            } else {
+                Log.w(TAG, "La grande icône (R.mipmap.ic_launcher_new_round) n'a pas pu être décodée ou est nulle.")
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "Erreur lors du chargement de la grande icône pour la notification.", e)
+        }
 
-        NotificationManagerCompat.from(context).notify(notificationId, notificationBuilder.build())
+        // Affichage de la notification.
+        // NotificationManagerCompat est utilisé pour la compatibilité avec les anciennes versions d'Android.
+        with(NotificationManagerCompat.from(context)) {
+            // S'assurer que la permission est accordée avant de notifier (pour API 33+)
+            // Cette vérification est redondante si déjà faite avant l'appel à showNotification,
+            // mais sert de rappel. La `@RequiresPermission` est pour l'analyse statique.
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                if (checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != android.content.pm.PackageManager.PERMISSION_GRANTED) {
+                    Log.e(TAG, "La permission POST_NOTIFICATIONS n'a pas été accordée. La notification ne sera pas affichée.")
+                    // Idéalement, gérer ce cas en informant l'utilisateur ou en ne tentant pas d'afficher.
+                    return // Ne pas afficher la notification si la permission est manquante
+                }
+            }
+            try {
+                notify(NOTIFICATION_ID, notificationBuilder.build())
+            } catch (e: SecurityException) {
+                Log.e(TAG, "SecurityException lors de l'affichage de la notification. Vérifiez les permissions et les restrictions en arrière-plan.", e)
+                // Cela peut arriver si la permission est révoquée entre la vérification et l'appel à notify,
+                // ou si l'application est en arrière-plan et tente d'afficher une notification de manière inappropriée
+                // sur certaines versions d'Android avec des restrictions strictes.
+            } catch (e: Exception) {
+                Log.e(TAG, "Exception inattendue lors de l'affichage de la notification.", e)
+            }
+        }
     }
 }
 
-// Assurez-vous que votre modèle de données Quote est défini quelque part, par exemple :
+// Définitions des classes de données et des ressources nécessaires (à placer dans les fichiers appropriés) :
+
+// 1. Modèle de données Quote (par exemple, dans un fichier Quote.kt)
 // data class Quote(
-//    val id: String? = null, // Ou Int, si vous l'utilisez pour le putExtra
-//    val citation: String,
-//    val auteur: String,
-//    val dateCreation: String? // Format "yyyy-MM-dd"
+//    val id: String? = null, // Ou Int, Long etc. si utilisé pour un ID unique
+//    val citation: String?,
+//    val auteur: String?,
+//    // val dateCreation: String? // Si vous avez d'autres champs
 // )
 
-// N'oubliez pas d'ajouter les chaînes de caractères pour le nom et la description du canal
-// dans votre fichier res/values/strings.xml :
-// <string name="notification_channel_name">Citations</string>
-// <string name="notification_channel_description">Notifications pour les citations quotidiennes</string>
+// 2. MainActivity (doit être déclarée dans votre AndroidManifest.xml)
+// class MainActivity : AppCompatActivity() { ... }
+
+// 3. Ressources de chaînes de caractères (dans res/values/strings.xml)
+/*
+<resources>
+    <string name="app_name">QOTD App</string>
+    <string name="notification_channel_name">Citations Quotidiennes</string>
+    <string name="notification_channel_description">Notifications affichant une citation du jour.</string>
+    <string name="unknown_author">Auteur inconnu</string>
+    <string name="quote_not_available">Citation non disponible.</string>
+</resources>
+*/
+
+// 4. Icônes de notification (dans res/drawable/ et res/mipmap/)
+//    - res/drawable/ic_qotd_notif.xml (petite icône vectorielle, blanche sur fond transparent)
+//    - res/mipmap-xhdpi/ic_launcher_new_round.png (et autres densités pour la grande icône)
+
+// 5. Permission dans AndroidManifest.xml (pour Android 13, API 33 et plus)
+// <manifest ...>
+//    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+//    <application ...>
+//        ...
+//    </application>
+// </manifest>
