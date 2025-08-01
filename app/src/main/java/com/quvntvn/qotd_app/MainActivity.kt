@@ -13,6 +13,7 @@ import android.widget.ImageButton
 import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
+import android.util.Log
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -149,7 +150,13 @@ class MainActivity : AppCompatActivity() {
             q ?: return@observe
             lifecycleScope.launch {
                 val lang = SharedPrefManager.getLanguage(this@MainActivity)
-                tvQuote.text  = "« ${translator.translate(q.citation, lang)} »"
+                val translated = try {
+                    translator.translate(q.citation, lang)
+                } catch (e: Exception) {
+                    Log.e("MainActivity", "Translation failed", e)
+                    q.citation
+                }
+                tvQuote.text = "« $translated »"
                 tvAuthor.text = q.auteur
 
                 val dateText = q.dateCreation?.take(4)
