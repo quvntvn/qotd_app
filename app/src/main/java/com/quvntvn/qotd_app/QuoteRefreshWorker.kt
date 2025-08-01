@@ -29,7 +29,9 @@ class QuoteRefreshWorker(
     override suspend fun doWork(): Result {
         val ctx = applicationContext
         val glanceIds = GlanceAppWidgetManager(ctx).getGlanceIds(QuoteOfTheDayWidget::class.java)
-        val repo = (ctx as MyApp).quoteRepository
+
+        val repo = (ctx as? MyApp)?.quoteRepository
+            ?: return Result.failure()
         val quote = repo.getDailyQuote() ?: return Result.retry()
 
         glanceIds.forEach { id ->
