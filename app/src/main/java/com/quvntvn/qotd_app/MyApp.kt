@@ -12,15 +12,15 @@ class MyApp : Application(), Configuration.Provider {
 
     val quoteRepository: QuoteRepository by lazy { QuoteRepository() }
 
-    override fun getWorkManagerConfiguration(): Configuration =
-        Configuration.Builder()
+    override val workManagerConfiguration: Configuration
+        get() = Configuration.Builder()
             .setMinimumLoggingLevel(Log.INFO)
             .build()
 
     override fun onCreate() {
         super.onCreate()
         // Manual initialization because WorkManagerInitializer is removed
-        WorkManager.initialize(this, getWorkManagerConfiguration())
+        WorkManager.initialize(this, workManagerConfiguration)
 
         QuoteRefreshWorker.schedule(applicationContext)
         QuoteRefreshWorker.refreshOnce(applicationContext)
