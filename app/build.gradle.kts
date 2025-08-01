@@ -11,8 +11,8 @@ android {
         applicationId = "com.quvntvn.qotd_app"
         minSdk = 28
         targetSdk = 35
-        versionCode = 6
-        versionName = "1.1.4"
+        versionCode = 9
+        versionName = "1.1.7"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }

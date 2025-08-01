@@ -8,6 +8,8 @@
         <item>French</item>
         <item>English</item>
     </string-array>
+    <string name="unknown_author">Unknown author</string>
+    <string name="quote_not_available">Quote not available.</string>
     <string name="settings_description">Settings</string>
     <string name="button_daily_quote">Daily quote</string>
     <string name="button_random_quote">Random quote</string>
@@ -21,4 +23,6 @@
     <string name="notifications_disabled">Notifications disabled</string>
     <string name="settings_title">Settings</string>
     <string name="quote_error">Unable to retrieve quote.</string>
+    <string name="widget_description">Displays the quote of the day.</string>
+    <string name="loading">Loading...</string>
 </resources>

@@ -138,8 +138,6 @@ class NotificationHelper(private val context: Context) {
             // Pour Oreo et plus, l'importance est définie sur le canal.
             // PRIORITY_MAX est utilisé ici pour maximiser la visibilité sur les anciennes versions.
             .setPriority(NotificationCompat.PRIORITY_MAX) // Valeur par défaut pour les canaux IMPORTANCE_HIGH sur les anciennes versions
-
-        // Ajout d'une grande icône (facultatif, mais améliore l'aspect visuel).
         try {
             val largeIconBitmap = BitmapFactory.decodeResource(context.resources, R.mipmap.ic_launcher_new_round)
             if (largeIconBitmap != null) {
@@ -151,16 +149,10 @@ class NotificationHelper(private val context: Context) {
             Log.e(TAG, "Erreur lors du chargement de la grande icône pour la notification.", e)
         }
 
-        // Affichage de la notification.
-        // NotificationManagerCompat est utilisé pour la compatibilité avec les anciennes versions d'Android.
         with(NotificationManagerCompat.from(context)) {
-            // S'assurer que la permission est accordée avant de notifier (pour API 33+)
-            // Cette vérification est redondante si déjà faite avant l'appel à showNotification,
-            // mais sert de rappel. La `@RequiresPermission` est pour l'analyse statique.
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
                 if (checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != android.content.pm.PackageManager.PERMISSION_GRANTED) {
                     Log.e(TAG, "La permission POST_NOTIFICATIONS n'a pas été accordée. La notification ne sera pas affichée.")
-                    // Idéalement, gérer ce cas en informant l'utilisateur ou en ne tentant pas d'afficher.
                     return // Ne pas afficher la notification si la permission est manquante
                 }
             }
@@ -168,48 +160,9 @@ class NotificationHelper(private val context: Context) {
                 notify(NOTIFICATION_ID, notificationBuilder.build())
             } catch (e: SecurityException) {
                 Log.e(TAG, "SecurityException lors de l'affichage de la notification. Vérifiez les permissions et les restrictions en arrière-plan.", e)
-                // Cela peut arriver si la permission est révoquée entre la vérification et l'appel à notify,
-                // ou si l'application est en arrière-plan et tente d'afficher une notification de manière inappropriée
-                // sur certaines versions d'Android avec des restrictions strictes.
             } catch (e: Exception) {
                 Log.e(TAG, "Exception inattendue lors de l'affichage de la notification.", e)
             }
         }
     }
 }
-
-// Définitions des classes de données et des ressources nécessaires (à placer dans les fichiers appropriés) :
-
-// 1. Modèle de données Quote (par exemple, dans un fichier Quote.kt)
-// data class Quote(
-//    val id: String? = null, // Ou Int, Long etc. si utilisé pour un ID unique
-//    val citation: String?,
-//    val auteur: String?,
-//    // val dateCreation: String? // Si vous avez d'autres champs
-// )
-
-// 2. MainActivity (doit être déclarée dans votre AndroidManifest.xml)
-// class MainActivity : AppCompatActivity() { ... }
-
-// 3. Ressources de chaînes de caractères (dans res/values/strings.xml)
-/*
-<resources>
-    <string name="app_name">QOTD App</string>
-    <string name="notification_channel_name">Citations Quotidiennes</string>
-    <string name="notification_channel_description">Notifications affichant une citation du jour.</string>
-    <string name="unknown_author">Auteur inconnu</string>
-    <string name="quote_not_available">Citation non disponible.</string>
-</resources>
-*/
-
-// 4. Icônes de notification (dans res/drawable/ et res/mipmap/)
-//    - res/drawable/ic_qotd_notif.xml (petite icône vectorielle, blanche sur fond transparent)
-//    - res/mipmap-xhdpi/ic_launcher_new_round.png (et autres densités pour la grande icône)
-
-// 5. Permission dans AndroidManifest.xml (pour Android 13, API 33 et plus)
-// <manifest ...>
-//    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
-//    <application ...>
-//        ...
-//    </application>
-// </manifest>

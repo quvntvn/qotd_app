@@ -17,6 +17,8 @@
     <string name="notification_time">Heure de notification</string>
     <string name="language_label">Langue</string>
     <!-- Dans res/values/strings.xml -->
+    <string name="unknown_author">Auteur inconnu</string>
+    <string name="quote_not_available">Citation non disponible.</string>
     <string name="not_available_abbr">N/A</string>
     <string name="save">Enregistrer</string>
     <string name="back">Retour</string>
@@ -24,4 +26,5 @@
     <string name="notifications_disabled">Notifications désactivées</string>
     <string name="settings_title">Réglages</string>
     <string name="quote_error">Probléme de récupération de la citation.</string>
+    <string name="widget_description">Affiche la citation du jour.</string>
 </resources>
