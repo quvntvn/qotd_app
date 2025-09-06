@@ -25,9 +25,9 @@ import androidx.glance.visibility
 // import androidx.glance.visibility
 import androidx.lifecycle.lifecycleScope
 import eightbitlab.com.blurview.BlurView
-import eightbitlab.com.blurview.RenderScriptBlur
 import kotlinx.coroutines.launch
 import android.graphics.Color
+import eightbitlab.com.blurview.BlurTarget
 import androidx.core.view.WindowCompat
 import androidx.core.view.WindowInsetsControllerCompat
 import com.quvntvn.qotd_app.QuoteAlarmReceiver
@@ -98,26 +98,25 @@ class MainActivity : AppCompatActivity() {
 
 
         // ---------- BlurView Setup ----------
-        val decorView = window.decorView
-        val rootView = decorView.findViewById<ViewGroup>(android.R.id.content)
+        val blurTarget = findViewById<BlurTarget>(R.id.blur_target)
 
-        blurCard.setupWith(rootView, RenderScriptBlur(this))
+        blurCard.setupWith(blurTarget)
             .setBlurRadius(20f)
             .setBlurAutoUpdate(true)
 
-        blurBtnDaily.setupWith(rootView, RenderScriptBlur(this))
+        blurBtnDaily.setupWith(blurTarget)
             .setBlurRadius(15f)
             .setBlurAutoUpdate(true)
 
-        blurBtnRandom.setupWith(rootView, RenderScriptBlur(this))
+        blurBtnRandom.setupWith(blurTarget)
             .setBlurRadius(15f)
             .setBlurAutoUpdate(true)
 
-        blurBtnSettings.setupWith(rootView, RenderScriptBlur(this))
+        blurBtnSettings.setupWith(blurTarget)
             .setBlurRadius(10f) // Ajustez selon vos préférences
             .setBlurAutoUpdate(true)
 
-        blurAppName.setupWith(rootView, RenderScriptBlur(this)) // **NOUVEAU**
+        blurAppName.setupWith(blurTarget) // **NOUVEAU**
             .setBlurRadius(10f) // Ajustez selon vos préférences
             .setBlurAutoUpdate(true)
 

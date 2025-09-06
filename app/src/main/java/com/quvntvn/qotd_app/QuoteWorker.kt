@@ -53,7 +53,7 @@ class QuoteWorker(
                     } else {
                         quote.citation
                     }
-                    val translatedQuote = Quote(citationText, quote.auteur, quote.dateCreation) // Assurez-vous que la classe Quote est définie
+                    val translatedQuote = Quote(quote.id, citationText, quote.auteur, quote.dateCreation) // Assurez-vous que la classe Quote est définie
                     NotificationHelper(appContext).showNotification(translatedQuote) // Assurez-vous que NotificationHelper est défini
                     Log.d(TAG, "Notification de citation affichée avec succès.")
                 } ?: Log.w(TAG, "Réponse API réussie mais corps vide.")

@@ -114,9 +114,9 @@ class NotificationHelper(private val context: Context) {
             pendingIntentFlags
         )
 
-        // Récupération des chaînes de caractères avec gestion des valeurs nulles.
-        val title = quote.auteur ?: context.getString(R.string.unknown_author)
-        val content = quote.citation ?: context.getString(R.string.quote_not_available)
+        // Récupération des chaînes de caractères. Auteur et citation sont non-nullables dans le modèle Quote.
+        val title = quote.auteur
+        val content = quote.citation
 
         // Construction de la notification.
         val notificationBuilder = NotificationCompat.Builder(context, CHANNEL_ID)

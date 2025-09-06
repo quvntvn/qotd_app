@@ -16,7 +16,7 @@ import androidx.core.view.WindowCompat
 // import androidx.core.view.WindowInsetsControllerCompat // Non explicitement utilisé dans ce code modifié
 import com.quvntvn.qotd_app.QuoteAlarmReceiver
 import eightbitlab.com.blurview.BlurView // Import pour BlurView
-import eightbitlab.com.blurview.RenderScriptBlur // Import pour l'algorithme de flou
+import eightbitlab.com.blurview.BlurTarget
 import java.util.Locale
 
 class SettingsActivity : AppCompatActivity() {
@@ -127,58 +127,57 @@ class SettingsActivity : AppCompatActivity() {
 
     // Fonction mise à jour pour configurer toutes les BlurViews (portrait et paysage)
     private fun setupBlurViews() {
-        val decorView = window.decorView
-        val rootView = decorView.findViewById<ViewGroup>(android.R.id.content)
+        val blurTarget = findViewById<BlurTarget>(R.id.settings_blur_target)
         val blurRadius = 15f // Ajustez le rayon de flou selon vos préférences
 
         // IDs du layout Portrait
-        findViewById<BlurView>(R.id.blurSettingsTitle)?.setupWith(rootView, RenderScriptBlur(this))
+        findViewById<BlurView>(R.id.blurSettingsTitle)?.setupWith(blurTarget)
             ?.setBlurRadius(blurRadius)
             ?.setBlurAutoUpdate(true)
 
-        findViewById<BlurView>(R.id.blurNotificationsSection)?.setupWith(rootView, RenderScriptBlur(this))
+        findViewById<BlurView>(R.id.blurNotificationsSection)?.setupWith(blurTarget)
             ?.setBlurRadius(blurRadius)
             ?.setBlurAutoUpdate(true)
 
-        findViewById<BlurView>(R.id.blurTimePickerSection)?.setupWith(rootView, RenderScriptBlur(this))
+        findViewById<BlurView>(R.id.blurTimePickerSection)?.setupWith(blurTarget)
             ?.setBlurRadius(blurRadius)
             ?.setBlurAutoUpdate(true)
 
-        findViewById<BlurView>(R.id.blurLanguageSection)?.setupWith(rootView, RenderScriptBlur(this))
+        findViewById<BlurView>(R.id.blurLanguageSection)?.setupWith(blurTarget)
             ?.setBlurRadius(blurRadius)
             ?.setBlurAutoUpdate(true)
 
-        findViewById<BlurView>(R.id.blurBtnBack)?.setupWith(rootView, RenderScriptBlur(this))
+        findViewById<BlurView>(R.id.blurBtnBack)?.setupWith(blurTarget)
             ?.setBlurRadius(blurRadius)
             ?.setBlurAutoUpdate(true)
 
-        findViewById<BlurView>(R.id.blurBtnSave)?.setupWith(rootView, RenderScriptBlur(this))
+        findViewById<BlurView>(R.id.blurBtnSave)?.setupWith(blurTarget)
             ?.setBlurRadius(blurRadius)
             ?.setBlurAutoUpdate(true)
 
         // IDs du layout Paysage (layout-land)
         // Ces appels ne feront rien si les ID ne sont pas dans le layout actuellement chargé (par ex. en mode portrait)
-        findViewById<BlurView>(R.id.blurSettingsTitleLand)?.setupWith(rootView, RenderScriptBlur(this))
+        findViewById<BlurView>(R.id.blurSettingsTitleLand)?.setupWith(blurTarget)
             ?.setBlurRadius(blurRadius)
             ?.setBlurAutoUpdate(true)
 
-        findViewById<BlurView>(R.id.blurNotificationsSectionLand)?.setupWith(rootView, RenderScriptBlur(this))
+        findViewById<BlurView>(R.id.blurNotificationsSectionLand)?.setupWith(blurTarget)
             ?.setBlurRadius(blurRadius)
             ?.setBlurAutoUpdate(true)
 
-        findViewById<BlurView>(R.id.blurTimePickerSectionLand)?.setupWith(rootView, RenderScriptBlur(this))
+        findViewById<BlurView>(R.id.blurTimePickerSectionLand)?.setupWith(blurTarget)
             ?.setBlurRadius(blurRadius)
             ?.setBlurAutoUpdate(true)
 
-        findViewById<BlurView>(R.id.blurLanguageSectionLand)?.setupWith(rootView, RenderScriptBlur(this))
+        findViewById<BlurView>(R.id.blurLanguageSectionLand)?.setupWith(blurTarget)
             ?.setBlurRadius(blurRadius)
             ?.setBlurAutoUpdate(true)
 
-        findViewById<BlurView>(R.id.blurBtnBackLand)?.setupWith(rootView, RenderScriptBlur(this))
+        findViewById<BlurView>(R.id.blurBtnBackLand)?.setupWith(blurTarget)
             ?.setBlurRadius(blurRadius)
             ?.setBlurAutoUpdate(true)
 
-        findViewById<BlurView>(R.id.blurBtnSaveLand)?.setupWith(rootView, RenderScriptBlur(this))
+        findViewById<BlurView>(R.id.blurBtnSaveLand)?.setupWith(blurTarget)
             ?.setBlurRadius(blurRadius)
             ?.setBlurAutoUpdate(true)
     }
