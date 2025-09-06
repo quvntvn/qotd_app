@@ -26,46 +26,25 @@ class QuoteWorker(
                 ) != PackageManager.PERMISSION_GRANTED
             ) {
                 Log.w(TAG, "Permission POST_NOTIFICATIONS non accordée. Impossible d'afficher la notification.")
-                // Si la permission n'est pas accordée, il est préférable d'arrêter ici et de ne pas réessayer indéfiniment.
-                // Le travail devrait être replanifié uniquement lorsque la permission est accordée.
                 return Result.failure()
             }
         }
 
         return try {
-            val api = QuoteApi.create() // Assurez-vous que cette méthode existe et est correcte
-            val response = api.getDailyQuote() // Assurez-vous que cette méthode existe et est correcte
+            val repository = (appContext.applicationContext as MyApp).quoteRepository
+            val quote = repository.getRandomQuote()
 
-            if (response.isSuccessful) {
-                response.body()?.let { quote ->
-                    val lang = SharedPrefManager.getLanguage(appContext)
-                    val citationText = if (lang == "en") { // Vous pourriez vouloir aussi traduire si la langue est "fr" et que la citation est dans une autre langue
-                        val translator = TranslationManager(appContext)
-                        try {
-                            // Assurez-vous que TranslationManager gère bien les exceptions réseau etc.
-                            translator.translate(quote.citation, lang)
-                        } catch (e: Exception) {
-                            Log.e(TAG, "Erreur de traduction: ${e.localizedMessage}", e)
-                            quote.citation // Retour à la citation originale en cas d'erreur
-                        } finally {
-                            translator.close()
-                        }
-                    } else {
-                        quote.citation
-                    }
-                    val translatedQuote = Quote(citationText, quote.auteur, quote.dateCreation) // Assurez-vous que la classe Quote est définie
-                    NotificationHelper(appContext).showNotification(translatedQuote) // Assurez-vous que NotificationHelper est défini
-                    Log.d(TAG, "Notification de citation affichée avec succès.")
-                } ?: Log.w(TAG, "Réponse API réussie mais corps vide.")
+            if (quote != null) {
+                NotificationHelper(appContext).showNotification(quote)
+                Log.d(TAG, "Notification de citation affichée avec succès.")
                 Result.success()
             } else {
-                Log.e(TAG, "Erreur API: ${response.code()} - ${response.message()}")
-                // En cas d'erreur API, un retry est raisonnable. WorkManager gère les backoffs.
+                Log.w(TAG, "Impossible de récupérer une citation.")
                 Result.retry()
             }
         } catch (e: Exception) {
             Log.e(TAG, "Exception dans doWork: ${e.localizedMessage}", e)
-            Result.retry() // Retry en cas d'autres exceptions (ex: réseau)
+            Result.retry()
         }
     }
 

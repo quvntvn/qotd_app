@@ -19,36 +19,20 @@ class QuoteAlarmReceiver : BroadcastReceiver() {
         val pendingResult = goAsync()
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val api = QuoteApi.create()
-                val response = api.getDailyQuote()
-                if (response.isSuccessful) {
-                    response.body()?.let { quote ->
-                        val lang = SharedPrefManager.getLanguage(context)
-                        val citationText = if (lang == "en") {
-                            val translator = TranslationManager(context)
-                            try {
-                                translator.translate(quote.citation, lang)
-                            } catch (_: Exception) {
-                                quote.citation
-                            } finally {
-                                translator.close()
-                            }
-                        } else {
-                            quote.citation
-                        }
-                        val translatedQuote = Quote(citationText, quote.auteur, quote.dateCreation)
-                        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
-                            ContextCompat.checkSelfPermission(
-                                context,
-                                Manifest.permission.POST_NOTIFICATIONS
-                            ) == PackageManager.PERMISSION_GRANTED
-                        ) {
-                            NotificationHelper(context).showNotification(translatedQuote)
-                        }
+                val repository = (context.applicationContext as MyApp).quoteRepository
+                val quote = repository.getRandomQuote()
+                if (quote != null) {
+                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
+                        ContextCompat.checkSelfPermission(
+                            context,
+                            Manifest.permission.POST_NOTIFICATIONS
+                        ) == PackageManager.PERMISSION_GRANTED
+                    ) {
+                        NotificationHelper(context).showNotification(quote)
                     }
                 }
-            } catch (_: Exception) {
-                // Ignore network or parsing errors
+            } catch (e: Exception) {
+                // Ignore errors
             } finally {
                 // Re-planifier pour le lendemain si toujours activé
                 val settings = SharedPrefManager.getNotificationSettings(context)

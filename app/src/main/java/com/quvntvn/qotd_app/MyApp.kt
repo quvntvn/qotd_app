@@ -10,7 +10,7 @@ import androidx.work.WorkManager
  */
 class MyApp : Application(), Configuration.Provider {
 
-    val quoteRepository: QuoteRepository by lazy { QuoteRepository() }
+    val quoteRepository: QuoteRepository by lazy { QuoteRepository(applicationContext) }
 
     override val workManagerConfiguration: Configuration
         get() = Configuration.Builder()
