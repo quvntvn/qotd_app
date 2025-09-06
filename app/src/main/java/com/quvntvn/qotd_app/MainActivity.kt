@@ -41,7 +41,9 @@ class MainActivity : AppCompatActivity() {
     override fun attachBaseContext(newBase: Context) =
         super.attachBaseContext(LocaleHelper.wrapContext(newBase)) // Assurez-vous que LocaleHelper existe et fonctionne
 
-    private val viewModel: QuoteViewModel by viewModels() // Assurez-vous que QuoteViewModel existe et est configuré
+    private val viewModel: QuoteViewModel by viewModels {
+        QuoteViewModelFactory(application)
+    }
 
     private lateinit var translator: TranslationManager
 
