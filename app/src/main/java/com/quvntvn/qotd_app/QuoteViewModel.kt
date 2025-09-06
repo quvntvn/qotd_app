@@ -11,6 +11,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.io.InputStreamReader
 import androidx.lifecycle.ViewModelProvider
+import com.quvntvn.qotd_app.R
 
 // 10. QuoteViewModel.kt (ViewModel)
 class QuoteViewModel(application: Application) : AndroidViewModel(application) {
