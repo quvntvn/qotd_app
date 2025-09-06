@@ -1,18 +1,26 @@
 package com.quvntvn.qotd_app
 
+import android.app.Application
+import android.content.Context
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import java.io.InputStreamReader
+import androidx.lifecycle.ViewModelProvider
 
 // 10. QuoteViewModel.kt (ViewModel)
-class QuoteViewModel : ViewModel() {
-    private val repository = QuoteRepository()
+class QuoteViewModel(application: Application) : AndroidViewModel(application) {
+    private val repository = QuoteRepository(application.applicationContext)
     val quote = MutableLiveData<Quote?>()
     val isLoading = MutableLiveData(false)
     val errorMessage = MutableLiveData<Int?>()
 
     private val defaultQuote = Quote(
+        0,
         "Le courage n'est pas l'absence de peur, mais la capacité de vaincre ce qui fait peur.",
         "Nelson Mandela",
         "1996"
@@ -49,21 +57,48 @@ class QuoteViewModel : ViewModel() {
     }
 }
 
-class QuoteRepository {
-    private val api = QuoteApi.create()
+class QuoteViewModelFactory(private val application: Application) : ViewModelProvider.Factory {
+    override fun <T : androidx.lifecycle.ViewModel> create(modelClass: Class<T>): T {
+        if (modelClass.isAssignableFrom(QuoteViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST")
+            return QuoteViewModel(application) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
+    }
+}
+
+class QuoteRepository(private val context: Context) {
+    private var quotes: List<Quote> = emptyList()
+
+    init {
+        loadQuotes()
+    }
+
+    private fun loadQuotes() {
+        try {
+            val inputStream = context.resources.openRawResource(R.raw.quotes)
+            val reader = InputStreamReader(inputStream)
+            val quoteListType = object : TypeToken<List<Quote>>() {}.type
+            quotes = Gson().fromJson(reader, quoteListType)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+    }
 
     suspend fun getDailyQuote(): Quote? {
-        return try {
-            api.getDailyQuote().body()
-        } catch (e: Exception) {
+        delay(300)
+        return if (quotes.isNotEmpty()) {
+            quotes.random()
+        } else {
             null
         }
     }
 
     suspend fun getRandomQuote(): Quote? {
-        return try {
-            api.getRandomQuote().body()
-        } catch (e: Exception) {
+        delay(300)
+        return if (quotes.isNotEmpty()) {
+            quotes.random()
+        } else {
             null
         }
     }
