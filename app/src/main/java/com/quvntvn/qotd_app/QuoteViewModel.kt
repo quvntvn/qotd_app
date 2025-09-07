@@ -7,11 +7,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.io.InputStreamReader
 import androidx.lifecycle.ViewModelProvider
 import com.quvntvn.qotd_app.R
+import java.util.Calendar
 
 // 10. QuoteViewModel.kt (ViewModel)
 class QuoteViewModel(application: Application) : AndroidViewModel(application) {
@@ -24,6 +24,8 @@ class QuoteViewModel(application: Application) : AndroidViewModel(application) {
         0,
         "Le courage n'est pas l'absence de peur, mais la capacité de vaincre ce qui fait peur.",
         "Nelson Mandela",
+        "If you're going through hell, keep going.",
+        "Winston Churchill",
         "1996"
     )
 
@@ -70,6 +72,8 @@ class QuoteViewModelFactory(private val application: Application) : ViewModelPro
 
 class QuoteRepository(private val context: Context) {
     private var quotes: List<Quote> = emptyList()
+    private var quotesById: Map<Int, Quote> = emptyMap()
+
 
     init {
         loadQuotes()
@@ -81,22 +85,18 @@ class QuoteRepository(private val context: Context) {
             val reader = InputStreamReader(inputStream)
             val quoteListType = object : TypeToken<List<Quote>>() {}.type
             quotes = Gson().fromJson(reader, quoteListType)
+            quotesById = quotes.associateBy { it.id }
         } catch (e: Exception) {
             e.printStackTrace()
         }
     }
 
     suspend fun getDailyQuote(): Quote? {
-        delay(300)
-        return if (quotes.isNotEmpty()) {
-            quotes.random()
-        } else {
-            null
-        }
+        val dayOfYear = Calendar.getInstance().get(Calendar.DAY_OF_YEAR)
+        return quotesById[dayOfYear]
     }
 
     suspend fun getRandomQuote(): Quote? {
-        delay(300)
         return if (quotes.isNotEmpty()) {
             quotes.random()
         } else {
