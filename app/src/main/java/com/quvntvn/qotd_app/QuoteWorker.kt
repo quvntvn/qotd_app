@@ -39,22 +39,14 @@ class QuoteWorker(
             if (response.isSuccessful) {
                 response.body()?.let { quote ->
                     val lang = SharedPrefManager.getLanguage(appContext)
-                    val citationText = if (lang == "en") { // Vous pourriez vouloir aussi traduire si la langue est "fr" et que la citation est dans une autre langue
-                        val translator = TranslationManager(appContext)
-                        try {
-                            // Assurez-vous que TranslationManager gère bien les exceptions réseau etc.
-                            translator.translate(quote.citation, lang)
-                        } catch (e: Exception) {
-                            Log.e(TAG, "Erreur de traduction: ${e.localizedMessage}", e)
-                            quote.citation // Retour à la citation originale en cas d'erreur
-                        } finally {
-                            translator.close()
-                        }
+                    val displayQuote = if (lang == "en") {
+                        // The API provides the English translation, so we use it.
+                        quote.copy(citation = quote.citationEn, auteur = quote.auteurEn)
                     } else {
-                        quote.citation
+                        // The default quote from the API is in French, so we use it as is.
+                        quote
                     }
-                    val translatedQuote = Quote(quote.id, citationText, quote.auteur, quote.dateCreation) // Assurez-vous que la classe Quote est définie
-                    NotificationHelper(appContext).showNotification(translatedQuote) // Assurez-vous que NotificationHelper est défini
+                    NotificationHelper(appContext).showNotification(displayQuote)
                     Log.d(TAG, "Notification de citation affichée avec succès.")
                 } ?: Log.w(TAG, "Réponse API réussie mais corps vide.")
                 Result.success()
