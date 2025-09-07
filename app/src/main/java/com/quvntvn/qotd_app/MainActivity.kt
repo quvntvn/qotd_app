@@ -45,8 +45,6 @@ class MainActivity : AppCompatActivity() {
         QuoteViewModelFactory(application)
     }
 
-    private lateinit var translator: TranslationManager
-
     private val notifPermission =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { granted ->
             if (!granted)
@@ -145,28 +143,23 @@ class MainActivity : AppCompatActivity() {
         }
 
         // ---------- Observers ----------
-        translator = TranslationManager(this)
-
         viewModel.quote.observe(this) { q ->
             q ?: return@observe
-            lifecycleScope.launch {
-                val lang = SharedPrefManager.getLanguage(this@MainActivity)
-                val translated = try {
-                    translator.translate(q.citation, lang)
-                } catch (e: Exception) {
-                    Log.e("MainActivity", "Translation failed", e)
-                    q.citation
-                }
-                tvQuote.text = "« $translated »"
+            val lang = SharedPrefManager.getLanguage(this@MainActivity)
+            if (lang == "en") {
+                tvQuote.text = "“${q.citationEn}”"
+                tvAuthor.text = q.auteurEn
+            } else {
+                tvQuote.text = "« ${q.citation} »"
                 tvAuthor.text = q.auteur
+            }
 
-                val dateText = q.dateCreation?.take(4)
-                if (dateText.isNullOrBlank()) {
-                    tvYear.visibility = View.GONE
-                } else {
-                    tvYear.text = dateText
-                    tvYear.visibility = View.VISIBLE
-                }
+            val dateText = q.dateCreation?.take(4)
+            if (dateText.isNullOrBlank()) {
+                tvYear.visibility = View.GONE
+            } else {
+                tvYear.text = dateText
+                tvYear.visibility = View.VISIBLE
             }
         }
 
@@ -213,7 +206,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onDestroy() {
-        translator.close()
         super.onDestroy()
     }
 }

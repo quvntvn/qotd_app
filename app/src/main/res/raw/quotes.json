@@ -2,2197 +2,2929 @@
   {
     "id": 1,
     "auteur": "Winston Churchill",
+    "auteur_en": "Winston Churchill",
     "date_creation": "1941-10-29",
-    "citation": "Si vous traversez l'enfer, continuez d'avancer."
+    "citation": "Si vous traversez l'enfer, continuez d'avancer.",
+    "citation_en": "If you're going through hell, keep going."
   },
   {
     "id": 2,
     "auteur": "Winston Churchill",
+    "auteur_en": "Winston Churchill",
     "date_creation": "1941-10-29",
-    "citation": "Le succès consiste à aller d’échec en échec sans perdre son enthousiasme."
+    "citation": "Le succès consiste à aller d’échec en échec sans perdre son enthousiasme.",
+    "citation_en": "Success is going from failure to failure without losing your enthusiasm."
   },
   {
     "id": 3,
     "auteur": "Nelson Mandela",
+    "auteur_en": "Nelson Mandela",
     "date_creation": "1994-05-10",
-    "citation": "Cela semble toujours impossible, jusqu'à ce qu’on le fasse."
+    "citation": "Cela semble toujours impossible, jusqu'à ce qu’on le fasse.",
+    "citation_en": "It always seems impossible until it's done."
   },
   {
     "id": 4,
     "auteur": "Nelson Mandela",
+    "auteur_en": "Nelson Mandela",
     "date_creation": "1994-05-10",
-    "citation": "L'éducation est l'arme la plus puissante qu’on puisse utiliser pour changer le monde."
+    "citation": "L'éducation est l'arme la plus puissante qu’on puisse utiliser pour changer le monde.",
+    "citation_en": "Education is the most powerful weapon which you can use to change the world."
   },
   {
     "id": 5,
     "auteur": "Confucius",
+    "auteur_en": "Confucius",
     "date_creation": null,
-    "citation": "Exige beaucoup de toi-même et attends peu des autres. Ainsi, beaucoup d'ennuis te seront épargnés."
+    "citation": "Exige beaucoup de toi-même et attends peu des autres. Ainsi, beaucoup d'ennuis te seront épargnés.",
+    "citation_en": "Demand much from yourself and expect little from others. Thus, much trouble will be spared you."
   },
   {
     "id": 6,
     "auteur": "Confucius",
+    "auteur_en": "Confucius",
     "date_creation": null,
-    "citation": "On a deux vies, et la deuxième commence quand on se rend compte qu’on n'en a qu'une."
+    "citation": "On a deux vies, et la deuxième commence quand on se rend compte qu’on n'en a qu'une.",
+    "citation_en": "We have two lives, and the second begins when we realize we only have one."
   },
   {
     "id": 7,
     "auteur": "Mahatma Gandhi",
+    "auteur_en": "Mahatma Gandhi",
     "date_creation": "1942-01-01",
-    "citation": "Soyez le changement que vous voulez voir dans le monde."
+    "citation": "Soyez le changement que vous voulez voir dans le monde.",
+    "citation_en": "Be the change that you wish to see in the world."
   },
   {
     "id": 8,
     "auteur": "Mahatma Gandhi",
+    "auteur_en": "Mahatma Gandhi",
     "date_creation": "1942-01-01",
-    "citation": "Vis comme si tu devais mourir demain. Apprends comme si tu devais vivre toujours."
+    "citation": "Vis comme si tu devais mourir demain. Apprends comme si tu devais vivre toujours.",
+    "citation_en": "Live as if you were to die tomorrow. Learn as if you were to live forever."
   },
   {
     "id": 9,
     "auteur": "Martin Luther King Jr.",
+    "auteur_en": "Martin Luther King Jr.",
     "date_creation": "1957-01-01",
-    "citation": "La haine ne peut pas chasser la haine, seul l'amour le peut."
+    "citation": "La haine ne peut pas chasser la haine, seul l'amour le peut.",
+    "citation_en": "Hate cannot drive out hate, only love can do that."
   },
   {
     "id": 10,
     "auteur": "Bouddha",
+    "auteur_en": "Buddha",
     "date_creation": null,
-    "citation": "Ne demeure pas dans le passé, ne rêve pas du futur, concentre ton esprit sur le moment présent."
+    "citation": "Ne demeure pas dans le passé, ne rêve pas du futur, concentre ton esprit sur le moment présent.",
+    "citation_en": "Do not dwell in the past, do not dream of the future, concentrate the mind on the present moment."
   },
   {
     "id": 11,
     "auteur": "Lao Tseu",
+    "auteur_en": "Lao Tzu",
     "date_creation": null,
-    "citation": "Un voyage de mille lieues commence toujours par un premier pas."
+    "citation": "Un voyage de mille lieues commence toujours par un premier pas.",
+    "citation_en": "A journey of a thousand miles begins with a single step."
   },
   {
     "id": 12,
     "auteur": "Sénèque",
+    "auteur_en": "Seneca",
     "date_creation": null,
-    "citation": "Ce n'est pas parce que les choses sont difficiles que nous n'osons pas les faire; c'est parce que nous n'osons pas les faire qu'elles sont difficiles."
+    "citation": "Ce n'est pas parce que les choses sont difficiles que nous n'osons pas les faire; c'est parce que nous n'osons pas les faire qu'elles sont difficiles.",
+    "citation_en": "It is not because things are difficult that we do not dare to do them; it is because we do not dare to do them that they are difficult."
   },
   {
     "id": 13,
     "auteur": "Marc Aurèle",
+    "auteur_en": "Marcus Aurelius",
     "date_creation": null,
-    "citation": "Ce n'est pas la mort que l'homme doit craindre, mais de ne jamais commencer à vivre."
+    "citation": "Ce n'est pas la mort que l'homme doit craindre, mais de ne jamais commencer à vivre.",
+    "citation_en": "It is not death that a man should fear, but he should fear never beginning to live."
   },
   {
     "id": 14,
     "auteur": "Épictète",
+    "auteur_en": "Epictetus",
     "date_creation": null,
-    "citation": "Ce n'est pas ce qui t'arrive qui compte, mais la façon dont tu y réagis."
+    "citation": "Ce n'est pas ce qui t'arrive qui compte, mais la façon dont tu y réagis.",
+    "citation_en": "It's not what happens to you, but how you react to it that matters."
   },
   {
     "id": 15,
     "auteur": "Albert Einstein",
+    "auteur_en": "Albert Einstein",
     "date_creation": "1889-01-01",
-    "citation": "La vie, c'est comme une bicyclette : il faut avancer pour ne pas perdre l'équilibre."
+    "citation": "La vie, c'est comme une bicyclette : il faut avancer pour ne pas perdre l'équilibre.",
+    "citation_en": "Life is like riding a bicycle. To keep your balance, you must keep moving."
   },
   {
     "id": 16,
     "auteur": "Albert Einstein",
+    "auteur_en": "Albert Einstein",
     "date_creation": "1889-01-01",
-    "citation": "Il n'y a que deux façons de vivre sa vie : l'une comme si rien n'était un miracle, l'autre comme si tout était un miracle."
+    "citation": "Il n'y a que deux façons de vivre sa vie : l'une comme si rien n'était un miracle, l'autre comme si tout était un miracle.",
+    "citation_en": "There are only two ways to live your life. One is as though nothing is a miracle. The other is as though everything is a miracle."
   },
   {
     "id": 17,
     "auteur": "Marie Curie",
+    "auteur_en": "Marie Curie",
     "date_creation": "1911-01-01",
-    "citation": "Dans la vie, rien n'est à craindre, tout est à comprendre."
+    "citation": "Dans la vie, rien n'est à craindre, tout est à comprendre.",
+    "citation_en": "Nothing in life is to be feared, it is only to be understood."
   },
   {
     "id": 18,
     "auteur": "Helen Keller",
+    "auteur_en": "Helen Keller",
     "date_creation": "1969-01-01",
-    "citation": "La vie est soit une aventure audacieuse, soit elle n'est rien du tout."
+    "citation": "La vie est soit une aventure audacieuse, soit elle n'est rien du tout.",
+    "citation_en": "Life is either a daring adventure or nothing at all."
   },
   {
     "id": 19,
     "auteur": "Mère Teresa",
+    "auteur_en": "Mother Teresa",
     "date_creation": "1950-01-01",
-    "citation": "Si vous jugez les gens, vous n'avez pas le temps de les aimer."
+    "citation": "Si vous jugez les gens, vous n'avez pas le temps de les aimer.",
+    "citation_en": "If you judge people, you have no time to love them."
   },
   {
     "id": 20,
     "auteur": "Malala Yousafzai",
+    "auteur_en": "Malala Yousafzai",
     "date_creation": "2013-10-10",
-    "citation": "Un enfant, un enseignant, un livre, un crayon peuvent changer le monde."
+    "citation": "Un enfant, un enseignant, un livre, un crayon peuvent changer le monde.",
+    "citation_en": "One child, one teacher, one book, one pen can change the world."
   },
   {
     "id": 21,
     "auteur": "Stephen Hawking",
+    "auteur_en": "Stephen Hawking",
     "date_creation": "1988-10-01",
-    "citation": "N'oubliez pas de lever les yeux vers les étoiles, pas vers vos pieds."
+    "citation": "N'oubliez pas de lever les yeux vers les étoiles, pas vers vos pieds.",
+    "citation_en": "Remember to look up at the stars and not down at your feet."
   },
   {
     "id": 22,
     "auteur": "Neil Armstrong",
+    "auteur_en": "Neil Armstrong",
     "date_creation": "1969-07-20",
-    "citation": "C'est un petit pas pour l'homme, un bond de géant pour l'humanité."
+    "citation": "C'est un petit pas pour l'homme, un bond de géant pour l'humanité.",
+    "citation_en": "That's one small step for man, one giant leap for mankind."
   },
   {
     "id": 23,
     "auteur": "Franklin D. Roosevelt",
+    "auteur_en": "Franklin D. Roosevelt",
     "date_creation": "1933-03-04",
-    "citation": "La seule chose que nous ayons à craindre est la crainte elle-même."
+    "citation": "La seule chose que nous ayons à craindre est la crainte elle-même.",
+    "citation_en": "The only thing we have to fear is fear itself."
   },
   {
     "id": 24,
     "auteur": "Theodore Roosevelt",
+    "auteur_en": "Theodore Roosevelt",
     "date_creation": "1901-09-14",
-    "citation": "Croyez que vous le pouvez, et vous aurez déjà fait la moitié du chemin."
+    "citation": "Croyez que vous le pouvez, et vous aurez déjà fait la moitié du chemin.",
+    "citation_en": "Believe you can and you're halfway there."
   },
   {
     "id": 25,
     "auteur": "Henry Ford",
+    "auteur_en": "Henry Ford",
     "date_creation": "1927-06-16",
-    "citation": "Que vous pensiez pouvoir ou ne pas pouvoir, dans les deux cas vous avez raison."
+    "citation": "Que vous pensiez pouvoir ou ne pas pouvoir, dans les deux cas vous avez raison.",
+    "citation_en": "Whether you think you can, or you think you can't – you're right."
   },
   {
     "id": 26,
     "auteur": "Napoléon Bonaparte",
+    "auteur_en": "Napoleon Bonaparte",
     "date_creation": "1803-12-02",
-    "citation": "Impossible n'est pas français."
+    "citation": "Impossible n'est pas français.",
+    "citation_en": "Impossible is not French."
   },
   {
     "id": 27,
     "auteur": "Voltaire",
+    "auteur_en": "Voltaire",
     "date_creation": "1764-01-01",
-    "citation": "J'ai décidé d'être heureux parce que c'est bon pour la santé."
+    "citation": "J'ai décidé d'être heureux parce que c'est bon pour la santé.",
+    "citation_en": "I have decided to be happy because it is good for my health."
   },
   {
     "id": 28,
     "auteur": "Victor Hugo",
+    "auteur_en": "Victor Hugo",
     "date_creation": "1852-01-01",
-    "citation": "Rien n'est plus puissant qu'une idée dont le temps est venu."
+    "citation": "Rien n'est plus puissant qu'une idée dont le temps est venu.",
+    "citation_en": "Nothing is more powerful than an idea whose time has come."
   },
   {
     "id": 29,
     "auteur": "Victor Hugo (Les Misérables)",
+    "auteur_en": "Victor Hugo (Les Misérables)",
     "date_creation": "1862-01-01",
-    "citation": "Même la nuit la plus sombre prendra fin et le soleil se lèvera."
+    "citation": "Même la nuit la plus sombre prendra fin et le soleil se lèvera.",
+    "citation_en": "Even the darkest night will end and the sun will rise."
   },
   {
     "id": 30,
     "auteur": "Oscar Wilde",
+    "auteur_en": "Oscar Wilde",
     "date_creation": "1890-01-01",
-    "citation": "Vivre est la chose la plus rare au monde. La plupart des gens existent, c'est tout."
+    "citation": "Vivre est la chose la plus rare au monde. La plupart des gens existent, c'est tout.",
+    "citation_en": "To live is the rarest thing in the world. Most people exist, that is all."
   },
   {
     "id": 31,
     "auteur": "Mark Twain",
+    "auteur_en": "Mark Twain",
     "date_creation": "1888-01-01",
-    "citation": "Ils ne savaient pas que c'était impossible, alors ils l'ont fait."
+    "citation": "Ils ne savaient pas que c'était impossible, alors ils l'ont fait.",
+    "citation_en": "They did not know it was impossible, so they did it."
   },
   {
     "id": 32,
     "auteur": "C.S. Lewis",
+    "auteur_en": "C.S. Lewis",
     "date_creation": "1955-01-01",
-    "citation": "Vous n'êtes jamais trop vieux pour vous fixer un nouveau but ou rêver un nouveau rêve."
+    "citation": "Vous n'êtes jamais trop vieux pour vous fixer un nouveau but ou rêver un nouveau rêve.",
+    "citation_en": "You are never too old to set another goal or to dream a new dream."
   },
   {
     "id": 33,
     "auteur": "Johann Wolfgang von Goethe",
+    "auteur_en": "Johann Wolfgang von Goethe",
     "date_creation": "1800-01-01",
-    "citation": "Quoi que tu rêves d'entreprendre, commence-le. L'audace a du génie, du pouvoir, et de la magie."
+    "citation": "Quoi que tu rêves d'entreprendre, commence-le. L'audace a du génie, du pouvoir, et de la magie.",
+    "citation_en": "Whatever you can do, or dream you can, begin it. Boldness has genius, power, and magic in it."
   },
   {
     "id": 34,
     "auteur": "Michel-Ange",
+    "auteur_en": "Michelangelo",
     "date_creation": "1500-01-01",
-    "citation": "Le plus grand danger pour la plupart d'entre nous n'est pas que notre objectif soit trop élevé et que nous le manquions, mais qu'il soit trop bas et que nous l'atteignions."
+    "citation": "Le plus grand danger pour la plupart d'entre nous n'est pas que notre objectif soit trop élevé et que nous le manquions, mais qu'il soit trop bas et que nous l'atteignions.",
+    "citation_en": "The greatest danger for most of us is not that our aim is too high and we miss it, but that it is too low and we reach it."
   },
   {
     "id": 35,
     "auteur": "Pablo Picasso",
+    "auteur_en": "Pablo Picasso",
     "date_creation": "1930-01-01",
-    "citation": "Tout ce que tu peux imaginer est réel."
+    "citation": "Tout ce que tu peux imaginer est réel.",
+    "citation_en": "Everything you can imagine is real."
   },
   {
     "id": 36,
     "auteur": "Vincent Van Gogh",
+    "auteur_en": "Vincent Van Gogh",
     "date_creation": "1889-06-01",
-    "citation": "La normalité est une route pavée : il est confortable d'y marcher, mais aucune fleur n'y pousse."
+    "citation": "La normalité est une route pavée : il est confortable d'y marcher, mais aucune fleur n'y pousse.",
+    "citation_en": "Normality is a paved road: It’s comfortable to walk, but no flowers grow on it."
   },
   {
     "id": 37,
     "auteur": "André Gide",
+    "auteur_en": "André Gide",
     "date_creation": "1900-01-01",
-    "citation": "On ne découvre pas de terres nouvelles sans consentir à perdre de vue, d'abord et longtemps, tout rivage."
+    "citation": "On ne découvre pas de terres nouvelles sans consentir à perdre de vue, d'abord et longtemps, tout rivage.",
+    "citation_en": "One doesn't discover new lands without consenting to lose sight of the shore for a very long time."
   },
   {
     "id": 38,
     "auteur": "Ralph Waldo Emerson",
+    "auteur_en": "Ralph Waldo Emerson",
     "date_creation": "1850-01-01",
-    "citation": "La vie est un voyage, pas une destination."
+    "citation": "La vie est un voyage, pas une destination.",
+    "citation_en": "Life is a journey, not a destination."
   },
   {
     "id": 39,
     "auteur": "Abbé Pierre",
+    "auteur_en": "Abbé Pierre",
     "date_creation": "1951-01-01",
-    "citation": "Il ne faut pas attendre d'être parfait pour commencer quelque chose de bien."
+    "citation": "Il ne faut pas attendre d'être parfait pour commencer quelque chose de bien.",
+    "citation_en": "You don't have to be perfect to start something good."
   },
   {
     "id": 40,
     "auteur": "John F. Kennedy",
+    "auteur_en": "John F. Kennedy",
     "date_creation": "1961-01-20",
-    "citation": "Une personne peut faire la différence, et tout le monde devrait essayer."
+    "citation": "Une personne peut faire la différence, et tout le monde devrait essayer.",
+    "citation_en": "One person can make a difference, and everyone should try."
   },
   {
     "id": 41,
     "auteur": "Eleanor Roosevelt",
+    "auteur_en": "Eleanor Roosevelt",
     "date_creation": "1945-01-01",
-    "citation": "Personne ne peut vous faire sentir inférieur sans votre consentement."
+    "citation": "Personne ne peut vous faire sentir inférieur sans votre consentement.",
+    "citation_en": "No one can make you feel inferior without your consent."
   },
   {
     "id": 42,
     "auteur": "Maya Angelou",
+    "auteur_en": "Maya Angelou",
     "date_creation": "1969-01-01",
-    "citation": "Les gens oublieront ce que vous avez dit, ils oublieront ce que vous avez fait, mais ils n’oublieront jamais comment vous les avez fait se sentir."
+    "citation": "Les gens oublieront ce que vous avez dit, ils oublieront ce que vous avez fait, mais ils n’oublieront jamais comment vous les avez fait se sentir.",
+    "citation_en": "People will forget what you said, people will forget what you did, but people will never forget how you made them feel."
   },
   {
     "id": 43,
     "auteur": "Anne Frank",
+    "auteur_en": "Anne Frank",
     "date_creation": "1944-08-01",
-    "citation": "Comme c'est merveilleux que personne n'ait besoin d'attendre un seul instant pour commencer à améliorer le monde."
+    "citation": "Comme c'est merveilleux que personne n'ait besoin d'attendre un seul instant pour commencer à améliorer le monde.",
+    "citation_en": "How wonderful it is that nobody need wait a single moment before starting to improve the world."
   },
   {
     "id": 44,
     "auteur": "Socrate",
+    "auteur_en": "Socrates",
     "date_creation": null,
-    "citation": "Tout ce que je sais, c'est que je ne sais rien."
+    "citation": "Tout ce que je sais, c'est que je ne sais rien.",
+    "citation_en": "All I know is that I know nothing."
   },
   {
     "id": 45,
     "auteur": "Aristote",
+    "auteur_en": "Aristotle",
     "date_creation": null,
-    "citation": "Le courage est la première des qualités humaines car elle garantit toutes les autres."
+    "citation": "Le courage est la première des qualités humaines car elle garantit toutes les autres.",
+    "citation_en": "Courage is the first of human qualities because it is the quality which guarantees the others."
   },
   {
     "id": 46,
     "auteur": "Abraham Lincoln",
+    "auteur_en": "Abraham Lincoln",
     "date_creation": "1863-01-01",
-    "citation": "Quoi que vous soyez, soyez-en un bon."
+    "citation": "Quoi que vous soyez, soyez-en un bon.",
+    "citation_en": "Whatever you are, be a good one."
   },
   {
     "id": 47,
     "auteur": "Dalaï Lama",
+    "auteur_en": "Dalai Lama",
     "date_creation": "1980-01-01",
-    "citation": "S'il y a une solution, il n'y a pas lieu de s'inquiéter; s'il n'y en a pas, s'inquiéter ne change rien."
+    "citation": "S'il y a une solution, il n'y a pas lieu de s'inquiéter; s'il n'y en a pas, s'inquiéter ne change rien.",
+    "citation_en": "If a problem is fixable, if a situation is such that you can do something about it, then there is no need to worry. If it's not fixable, then there is no help in worrying. There is no benefit in worrying whatsoever."
   },
   {
     "id": 48,
     "auteur": "Rûmi",
+    "auteur_en": "Rumi",
     "date_creation": null,
-    "citation": "Hier, j'étais intelligent et je voulais changer le monde. Aujourd'hui, je suis sage et je me change moi-même."
+    "citation": "Hier, j'étais intelligent et je voulais changer le monde. Aujourd'hui, je suis sage et je me change moi-même.",
+    "citation_en": "Yesterday I was clever, so I wanted to change the world. Today I am wise, so I am changing myself."
   },
   {
     "id": 49,
     "auteur": "Paulo Coelho (L'Alchimiste)",
+    "auteur_en": "Paulo Coelho (The Alchemist)",
     "date_creation": "1988-01-01",
-    "citation": "Quand tu veux quelque chose, tout l'Univers conspire à te permettre de réaliser ton désir."
+    "citation": "Quand tu veux quelque chose, tout l'Univers conspire à te permettre de réaliser ton désir.",
+    "citation_en": "When you want something, all the universe conspires in helping you to achieve it."
   },
   {
     "id": 50,
     "auteur": "Muhammad Ali",
+    "auteur_en": "Muhammad Ali",
     "date_creation": "1965-01-01",
-    "citation": "J'ai détesté chaque minute d'entraînement, mais je me disais : Ne renonce pas. Souffre maintenant et vis le reste de ta vie comme un champion."
+    "citation": "J'ai détesté chaque minute d'entraînement, mais je me disais : Ne renonce pas. Souffre maintenant et vis le reste de ta vie comme un champion.",
+    "citation_en": "I hated every minute of training, but I said, 'Don't quit. Suffer now and live the rest of your life as a champion.'"
   },
   {
     "id": 51,
     "auteur": "Bruce Lee",
+    "auteur_en": "Bruce Lee",
     "date_creation": "1972-01-01",
-    "citation": "Ne prie pas pour une vie facile, prie pour avoir la force d'endurer une vie difficile."
+    "citation": "Ne prie pas pour une vie facile, prie pour avoir la force d'endurer une vie difficile.",
+    "citation_en": "Do not pray for an easy life, pray for the strength to endure a difficult one."
   },
   {
     "id": 52,
     "auteur": "Henry David Thoreau",
+    "auteur_en": "Henry David Thoreau",
     "date_creation": "1854-01-01",
-    "citation": "Allez en confiance dans la direction de vos rêves. Vivez la vie que vous avez imaginée."
+    "citation": "Allez en confiance dans la direction de vos rêves. Vivez la vie que vous avez imaginée.",
+    "citation_en": "Go confidently in the direction of your dreams. Live the life you have imagined."
   },
   {
     "id": 53,
     "auteur": "Steve Jobs",
+    "auteur_en": "Steve Jobs",
     "date_creation": "2005-06-13",
-    "citation": "Votre temps est limité, ne le gâchez pas en menant une existence qui n'est pas la vôtre."
+    "citation": "Votre temps est limité, ne le gâchez pas en menant une existence qui n'est pas la vôtre.",
+    "citation_en": "Your time is limited, so don't waste it living someone else's life."
   },
   {
     "id": 54,
     "auteur": "Zig Ziglar",
+    "auteur_en": "Zig Ziglar",
     "date_creation": "1975-01-01",
-    "citation": "Votre attitude, non votre aptitude, détermine votre altitude."
+    "citation": "Votre attitude, non votre aptitude, détermine votre altitude.",
+    "citation_en": "Your attitude, not your aptitude, will determine your altitude."
   },
   {
     "id": 55,
     "auteur": "Jim Rohn",
+    "auteur_en": "Jim Rohn",
     "date_creation": "1980-01-01",
-    "citation": "La motivation vous fait démarrer, mais c'est l'habitude qui vous fait continuer."
+    "citation": "La motivation vous fait démarrer, mais c'est l'habitude qui vous fait continuer.",
+    "citation_en": "Motivation is what gets you started. Habit is what keeps you going."
   },
   {
     "id": 56,
     "auteur": "Les Brown",
+    "auteur_en": "Les Brown",
     "date_creation": "1990-01-01",
-    "citation": "Visez la lune. Même si vous échouez, vous atterrirez parmi les étoiles."
+    "citation": "Visez la lune. Même si vous échouez, vous atterrirez parmi les étoiles.",
+    "citation_en": "Shoot for the moon. Even if you miss, you'll land among the stars."
   },
   {
     "id": 57,
     "auteur": "Earl Nightingale",
+    "auteur_en": "Earl Nightingale",
     "date_creation": "1956-01-01",
-    "citation": "N'abandonnez jamais un rêve en raison du temps qu'il faudra pour l'accomplir. Le temps de toute façon passera."
+    "citation": "N'abandonnez jamais un rêve en raison du temps qu'il faudra pour l'accomplir. Le temps de toute façon passera.",
+    "citation_en": "Never give up on a dream just because of the time it will take to accomplish it. The time will pass anyway."
   },
   {
     "id": 58,
     "auteur": "Napoleon Hill",
+    "auteur_en": "Napoleon Hill",
     "date_creation": "1937-01-01",
-    "citation": "Tout ce que l'esprit de l'homme peut concevoir et croire, il peut le réaliser."
+    "citation": "Tout ce que l'esprit de l'homme peut concevoir et croire, il peut le réaliser.",
+    "citation_en": "Whatever the mind of man can conceive and believe, it can achieve."
   },
   {
     "id": 59,
     "auteur": "Walt Disney",
+    "auteur_en": "Walt Disney",
     "date_creation": "1954-01-01",
-    "citation": "La meilleure façon de se lancer, c'est d'arrêter de parler et de commencer à agir."
+    "citation": "La meilleure façon de se lancer, c'est d'arrêter de parler et de commencer à agir.",
+    "citation_en": "The way to get started is to quit talking and begin doing."
   },
   {
     "id": 60,
     "auteur": "Proverbe chinois",
+    "auteur_en": "Chinese Proverb",
     "date_creation": null,
-    "citation": "La meilleure époque pour planter un arbre, c'était il y a 20 ans. La deuxième meilleure, c'est maintenant."
+    "citation": "La meilleure époque pour planter un arbre, c'était il y a 20 ans. La deuxième meilleure, c'est maintenant.",
+    "citation_en": "The best time to plant a tree was 20 years ago. The second best time is now."
   },
   {
     "id": 61,
     "auteur": "Yoda (Star Wars)",
+    "auteur_en": "Yoda (Star Wars)",
     "date_creation": "1980-05-21",
-    "citation": "N'essaie pas ! Fais-le, ou ne le fais pas. Il n'y a pas d'essai."
+    "citation": "N'essaie pas ! Fais-le, ou ne le fais pas. Il n'y a pas d'essai.",
+    "citation_en": "Do, or do not. There is no try."
   },
   {
     "id": 62,
     "auteur": "Albus Dumbledore (Harry Potter)",
+    "auteur_en": "Albus Dumbledore (Harry Potter)",
     "date_creation": "2001-11-16",
-    "citation": "On peut trouver du bonheur même dans les moments les plus sombres, il suffit de se souvenir d'allumer la lumière."
+    "citation": "On peut trouver du bonheur même dans les moments les plus sombres, il suffit de se souvenir d'allumer la lumière.",
+    "citation_en": "Happiness can be found, even in the darkest of times, if one only remembers to turn on the light."
   },
   {
     "id": 63,
     "auteur": "Albus Dumbledore (Harry Potter)",
+    "auteur_en": "Albus Dumbledore (Harry Potter)",
     "date_creation": "2001-11-16",
-    "citation": "Ce sont nos choix qui montrent ce que nous sommes vraiment, bien plus que nos aptitudes."
+    "citation": "Ce sont nos choix qui montrent ce que nous sommes vraiment, bien plus que nos aptitudes.",
+    "citation_en": "It is our choices that show what we truly are, far more than our abilities."
   },
   {
     "id": 64,
     "auteur": "Gandalf (Le Seigneur des Anneaux)",
+    "auteur_en": "Gandalf (The Lord of the Rings)",
     "date_creation": "2001-12-19",
-    "citation": "Tout ce que nous avons à décider, c'est que faire du temps qui nous est imparti."
+    "citation": "Tout ce que nous avons à décider, c'est que faire du temps qui nous est imparti.",
+    "citation_en": "All we have to decide is what to do with the time that is given us."
   },
   {
     "id": 65,
     "auteur": "Sam Gamegie (Le Seigneur des Anneaux)",
+    "auteur_en": "Samwise Gamgee (The Lord of the Rings)",
     "date_creation": "2001-12-19",
-    "citation": "Il y a du bon en ce monde, et il faut se battre pour cela."
+    "citation": "Il y a du bon en ce monde, et il faut se battre pour cela.",
+    "citation_en": "There's some good in this world, and it's worth fighting for."
   },
   {
     "id": 66,
     "auteur": "Tyler Durden (Fight Club)",
+    "auteur_en": "Tyler Durden (Fight Club)",
     "date_creation": "1999-10-15",
-    "citation": "Les choses que l'on possède finissent par nous posséder."
+    "citation": "Les choses que l'on possède finissent par nous posséder.",
+    "citation_en": "The things you own end up owning you."
   },
   {
     "id": 67,
     "auteur": "Tyler Durden (Fight Club)",
+    "auteur_en": "Tyler Durden (Fight Club)",
     "date_creation": "1999-10-15",
-    "citation": "C'est seulement quand on a tout perdu qu'on est libre de faire tout ce qu'on veut."
+    "citation": "C'est seulement quand on a tout perdu qu'on est libre de faire tout ce qu'on veut.",
+    "citation_en": "It's only after we've lost everything that we're free to do anything."
   },
   {
     "id": 68,
     "auteur": "V (V pour Vendetta)",
+    "auteur_en": "V (V for Vendetta)",
     "date_creation": "2006-03-17",
-    "citation": "Sous ce masque, il y a plus que de la chair. Sous ce masque il y a une idée, et les idées sont à l'épreuve des balles."
+    "citation": "Sous ce masque, il y a plus que de la chair. Sous ce masque il y a une idée, et les idées sont à l'épreuve des balles.",
+    "citation_en": "Beneath this mask there is more than flesh. Beneath this mask there is an idea, and ideas are bulletproof."
   },
   {
     "id": 69,
     "auteur": "Rocky Balboa (Rocky)",
+    "auteur_en": "Rocky Balboa (Rocky)",
     "date_creation": "1976-12-03",
-    "citation": "Ce qui compte, ce n'est pas le nombre de coups que tu peux donner, mais le nombre que tu peux encaisser tout en continuant d'avancer."
+    "citation": "Ce qui compte, ce n'est pas le nombre de coups que tu peux donner, mais le nombre que tu peux encaisser tout en continuant d'avancer.",
+    "citation_en": "It ain't about how hard you hit. It's about how hard you can get hit and keep moving forward."
   },
   {
     "id": 70,
     "auteur": "Thomas Wayne (Batman Begins)",
+    "auteur_en": "Thomas Wayne (Batman Begins)",
     "date_creation": "2005-06-15",
-    "citation": "Pourquoi tombons-nous ? Pour apprendre à nous relever."
+    "citation": "Pourquoi tombons-nous ? Pour apprendre à nous relever.",
+    "citation_en": "Why do we fall? So that we can learn to pick ourselves up."
   },
   {
     "id": 71,
     "auteur": "John Keating (Le Cercle des poètes disparus)",
+    "auteur_en": "John Keating (Dead Poets Society)",
     "date_creation": "1989-06-02",
-    "citation": "Carpe diem. Profitez du jour présent, les garçons. Rendez vos vies extraordinaires."
+    "citation": "Carpe diem. Profitez du jour présent, les garçons. Rendez vos vies extraordinaires.",
+    "citation_en": "Carpe diem. Seize the day, boys. Make your lives extraordinary."
   },
   {
     "id": 72,
     "auteur": "Morpheus (Matrix)",
+    "auteur_en": "Morpheus (The Matrix)",
     "date_creation": "1999-03-31",
-    "citation": "Il y a une différence entre connaître le chemin et arpenter le chemin."
+    "citation": "Il y a une différence entre connaître le chemin et arpenter le chemin.",
+    "citation_en": "There's a difference between knowing the path and walking the path."
   },
   {
     "id": 73,
     "auteur": "Maître Oogway (Kung Fu Panda)",
+    "auteur_en": "Master Oogway (Kung Fu Panda)",
     "date_creation": "2008-06-06",
-    "citation": "Hier est de l'histoire, demain est un mystère, aujourd'hui est un cadeau, c'est pourquoi on l'appelle le présent."
+    "citation": "Hier est de l'histoire, demain est un mystère, aujourd'hui est un cadeau, c'est pourquoi on l'appelle le présent.",
+    "citation_en": "Yesterday is history, tomorrow is a mystery, but today is a gift. That is why it is called the present."
   },
   {
     "id": 74,
     "auteur": "Oncle Ben (Spider-Man)",
+    "auteur_en": "Uncle Ben (Spider-Man)",
     "date_creation": "2002-05-03",
-    "citation": "Un grand pouvoir implique de grandes responsabilités."
+    "citation": "Un grand pouvoir implique de grandes responsabilités.",
+    "citation_en": "With great power comes great responsibility."
   },
   {
     "id": 75,
     "auteur": "Empereur de Chine (Mulan)",
+    "auteur_en": "The Emperor of China (Mulan)",
     "date_creation": "1998-06-19",
-    "citation": "La fleur qui s'épanouit dans l'adversité est la plus rare et la plus belle de toutes."
+    "citation": "La fleur qui s'épanouit dans l'adversité est la plus rare et la plus belle de toutes.",
+    "citation_en": "The flower that blooms in adversity is the most rare and beautiful of all."
   },
   {
     "id": 76,
     "auteur": "Galadriel (Le Seigneur des Anneaux)",
+    "auteur_en": "Galadriel (The Lord of the Rings)",
     "date_creation": "2001-12-19",
-    "citation": "Même la plus petite des personnes peut changer le cours de l'avenir."
+    "citation": "Même la plus petite des personnes peut changer le cours de l'avenir.",
+    "citation_en": "Even the smallest person can change the course of the future."
   },
   {
     "id": 77,
     "auteur": "Raiponce (Disney)",
+    "auteur_en": "Rapunzel (Disney)",
     "date_creation": "2010-11-24",
-    "citation": "Aventure-toi en dehors de ta zone de confort. La récompense en vaut la peine."
+    "citation": "Aventure-toi en dehors de ta zone de confort. La récompense en vaut la peine.",
+    "citation_en": "Venture outside your comfort zone. The rewards are worth it."
   },
   {
     "id": 78,
     "auteur": "Megara (Hercule)",
+    "auteur_en": "Megara (Hercules)",
     "date_creation": "1997-06-27",
-    "citation": "Les gens font parfois de drôles de choses, quand leur cœur parle."
+    "citation": "Les gens font parfois de drôles de choses, quand leur cœur parle.",
+    "citation_en": "People do crazy things... when they're in love."
   },
   {
     "id": 79,
     "auteur": "Olaf (La Reine des Neiges)",
+    "auteur_en": "Olaf (Frozen)",
     "date_creation": "2013-11-27",
-    "citation": "L'amour, c'est faire passer les besoins de l'autre avant les siens."
+    "citation": "L'amour, c'est faire passer les besoins de l'autre avant les siens.",
+    "citation_en": "Love is putting someone else's needs before yours."
   },
   {
     "id": 80,
     "auteur": "Winnie l'Ourson (Disney)",
+    "auteur_en": "Winnie the Pooh (Disney)",
     "date_creation": "2011-07-15",
-    "citation": "Chaque journée passée avec toi est ma journée préférée."
+    "citation": "Chaque journée passée avec toi est ma journée préférée.",
+    "citation_en": "Any day spent with you is my favorite day."
   },
   {
     "id": 81,
     "auteur": "Mufasa (Le Roi Lion)",
+    "auteur_en": "Mufasa (The Lion King)",
     "date_creation": "1994-06-24",
-    "citation": "Tu m'as oublié, parce que tu as oublié qui tu étais."
+    "citation": "Tu m'as oublié, parce que tu as oublié qui tu étais.",
+    "citation_en": "You have forgotten who you are and so have forgotten me."
   },
   {
     "id": 82,
     "auteur": "Tarzan (Disney)",
+    "auteur_en": "Tarzan (Disney)",
     "date_creation": "1999-06-18",
-    "citation": "Pourquoi te sens-tu menacé par ceux qui sont différents de toi ?"
+    "citation": "Pourquoi te sens-tu menacé par ceux qui sont différents de toi ?",
+    "citation_en": "Why are you threatened by anyone different than you?"
   },
   {
     "id": 83,
     "auteur": "Deadpool",
+    "auteur_en": "Deadpool",
     "date_creation": "2016-02-12",
-    "citation": "Maximum effort !"
+    "citation": "Maximum effort !",
+    "citation_en": "Maximum effort!"
   },
   {
     "id": 84,
     "auteur": "Obi-Wan Kenobi (Star Wars)",
+    "auteur_en": "Obi-Wan Kenobi (Star Wars)",
     "date_creation": "1977-05-25",
-    "citation": "Que la Force soit avec toi."
+    "citation": "Que la Force soit avec toi.",
+    "citation_en": "May the Force be with you."
   },
   {
     "id": 85,
     "auteur": "Flash McQueen (Cars)",
+    "auteur_en": "Lightning McQueen (Cars)",
     "date_creation": "2006-06-09",
-    "citation": "La victoire ne vaut rien si on ne la partage pas avec son équipe."
+    "citation": "La victoire ne vaut rien si on ne la partage pas avec son équipe.",
+    "citation_en": "A win is worthless if you don't share it with your team."
   },
   {
     "id": 86,
     "auteur": "Bert (Mary Poppins)",
+    "auteur_en": "Bert (Mary Poppins)",
     "date_creation": "1964-08-27",
-    "citation": "Le rire est le meilleur remède à nos soucis."
+    "citation": "Le rire est le meilleur remède à nos soucis.",
+    "citation_en": "Laughter is the best medicine for our worries."
   },
   {
     "id": 87,
     "auteur": "Spock (Star Trek)",
+    "auteur_en": "Spock (Star Trek)",
     "date_creation": "2009-05-08",
-    "citation": "Longue vie et prospérité."
+    "citation": "Longue vie et prospérité.",
+    "citation_en": "Live long and prosper."
   },
   {
     "id": 88,
     "auteur": "Scarlett O'Hara (Autant en emporte le vent)",
+    "auteur_en": "Scarlett O'Hara (Gone with the Wind)",
     "date_creation": "1939-12-15",
-    "citation": "Après tout, demain est un autre jour !"
+    "citation": "Après tout, demain est un autre jour !",
+    "citation_en": "After all, tomorrow is another day!"
   },
   {
     "id": 89,
     "auteur": "Jack Sparrow (Pirates des Caraïbes)",
+    "auteur_en": "Jack Sparrow (Pirates of the Caribbean)",
     "date_creation": "2003-07-09",
-    "citation": "Le problème, ce n'est pas le problème. C'est ton attitude face au problème."
+    "citation": "Le problème, ce n'est pas le problème. C'est ton attitude face au problème.",
+    "citation_en": "The problem is not the problem. The problem is your attitude about the problem."
   },
   {
     "id": 90,
     "auteur": "Ebenezer Scrooge",
+    "auteur_en": "Ebenezer Scrooge",
     "date_creation": null,
-    "citation": "Il n'est jamais trop tard pour changer et faire le bien."
+    "citation": "Il n'est jamais trop tard pour changer et faire le bien.",
+    "citation_en": "It's never too late to change and do good."
   },
   {
     "id": 91,
     "auteur": "Le Géant de Fer",
+    "auteur_en": "The Iron Giant",
     "date_creation": "1999-08-06",
-    "citation": "L'âme ne meurt jamais."
+    "citation": "L'âme ne meurt jamais.",
+    "citation_en": "The soul never dies."
   },
   {
     "id": 92,
     "auteur": "Vanellope von Schweetz (Les Mondes de Ralph)",
+    "auteur_en": "Vanellope von Schweetz (Wreck-It Ralph)",
     "date_creation": "2012-11-02",
-    "citation": "Être différente, c'est ma super-puissance."
+    "citation": "Être différente, c'est ma super-puissance.",
+    "citation_en": "Being different is my superpower."
   },
   {
     "id": 93,
     "auteur": "Judy Hopps (Zootopie)",
+    "auteur_en": "Judy Hopps (Zootopia)",
     "date_creation": "2016-03-04",
-    "citation": "Personne n'a le droit de vous dire qui vous pouvez être."
+    "citation": "Personne n'a le droit de vous dire qui vous pouvez être.",
+    "citation_en": "No one has the right to tell you who you can be."
   },
   {
     "id": 94,
     "auteur": "Maître Shifu (Kung Fu Panda)",
+    "auteur_en": "Master Shifu (Kung Fu Panda)",
     "date_creation": "2008-06-06",
-    "citation": "Il n'y a pas de hasard."
+    "citation": "Il n'y a pas de hasard.",
+    "citation_en": "There are no accidents."
   },
   {
     "id": 95,
     "auteur": "Sora (Kingdom Hearts)",
+    "auteur_en": "Sora (Kingdom Hearts)",
     "date_creation": "2002-09-17",
-    "citation": "Mes amis sont ma puissance."
+    "citation": "Mes amis sont ma puissance.",
+    "citation_en": "My friends are my power."
   },
   {
     "id": 96,
     "auteur": "Turbo (DreamWorks)",
+    "auteur_en": "Turbo (DreamWorks)",
     "date_creation": "2013-07-17",
-    "citation": "Aucun rêve n'est trop grand, aucun rêveur n'est trop petit."
+    "citation": "Aucun rêve n'est trop grand, aucun rêveur n'est trop petit.",
+    "citation_en": "No dream is too big, and no dreamer is too small."
   },
   {
     "id": 97,
     "auteur": "Marraine la Bonne Fée (Cendrillon)",
+    "auteur_en": "Fairy Godmother (Cinderella)",
     "date_creation": "1950-03-04",
-    "citation": "Même les miracles prennent un peu de temps."
+    "citation": "Même les miracles prennent un peu de temps.",
+    "citation_en": "Even miracles take a little time."
   },
   {
     "id": 98,
     "auteur": "Carl Fredricksen (Là-haut)",
+    "auteur_en": "Carl Fredricksen (Up)",
     "date_creation": "2009-05-29",
-    "citation": "On ne peut saisir l'avenir qu'en lâchant prise sur le passé."
+    "citation": "On ne peut saisir l'avenir qu'en lâchant prise sur le passé.",
+    "citation_en": "You can only grasp the future by letting go of the past."
   },
   {
     "id": 99,
     "auteur": "Natsu Dragnir (Fairy Tail)",
+    "auteur_en": "Natsu Dragneel (Fairy Tail)",
     "date_creation": "2009-08-02",
-    "citation": "Si tu abandonnes tes rêves, ils ne se réaliseront jamais."
+    "citation": "Si tu abandonnes tes rêves, ils ne se réaliseront jamais.",
+    "citation_en": "If you give up on your dreams, they will never come true."
   },
   {
     "id": 100,
     "auteur": "Oncle Iroh (Avatar: Le dernier maître de l'air)",
+    "auteur_en": "Uncle Iroh (Avatar: The Last Airbender)",
     "date_creation": "2005-02-21",
-    "citation": "L'échec est le meilleur des professeurs."
+    "citation": "L'échec est le meilleur des professeurs.",
+    "citation_en": "Failure is the greatest teacher."
   },
   {
     "id": 101,
     "auteur": "Barry Allen (The Flash)",
+    "auteur_en": "Barry Allen (The Flash)",
     "date_creation": "2014-10-07",
-    "citation": "Ce n’était pas vivre sans peur qui fait un héros, c’était de persévérer malgré la peur."
+    "citation": "Ce n’était pas vivre sans peur qui fait un héros, c’était de persévérer malgré la peur.",
+    "citation_en": "It wasn't living without fear that makes a hero, it was persevering despite the fear."
   },
   {
     "id": 102,
     "auteur": "Prince Ashitaka (Princesse Mononoké)",
+    "auteur_en": "Prince Ashitaka (Princess Mononoke)",
     "date_creation": "1997-07-12",
-    "citation": "Le Dieu-Cerf m'a dit de vivre, car il porte en lui la vie comme la mort."
+    "citation": "Le Dieu-Cerf m'a dit de vivre, car il porte en lui la vie comme la mort.",
+    "citation_en": "The Deer God told me to live, for he carries both life and death within him."
   },
   {
     "id": 103,
     "auteur": "Quasimodo (Le Bossu de Notre-Dame)",
+    "auteur_en": "Quasimodo (The Hunchback of Notre Dame)",
     "date_creation": "1996-01-01",
-    "citation": "La véritable beauté se trouve à l'intérieur."
+    "citation": "La véritable beauté se trouve à l'intérieur.",
+    "citation_en": "True beauty is found within."
   },
   {
     "id": 104,
     "auteur": "Sailor Moon",
+    "auteur_en": "Sailor Moon",
     "date_creation": "1992-03-07",
-    "citation": "Je ne renoncerai jamais à l'amour ni à la justice."
+    "citation": "Je ne renoncerai jamais à l'amour ni à la justice.",
+    "citation_en": "I will never give up on love or justice."
   },
   {
     "id": 105,
     "auteur": "Aragorn (Le Seigneur des Anneaux)",
+    "auteur_en": "Aragorn (The Lord of the Rings)",
     "date_creation": "2003-12-17",
-    "citation": "Il y a toujours de l'espoir."
+    "citation": "Il y a toujours de l'espoir.",
+    "citation_en": "There is always hope."
   },
   {
     "id": 106,
     "auteur": "Mewtwo (Pokémon)",
+    "auteur_en": "Mewtwo (Pokémon)",
     "date_creation": "1998-07-18",
-    "citation": "Ce ne sont pas les circonstances de notre naissance qui importent, mais ce que nous faisons du don de la vie."
+    "citation": "Ce ne sont pas les circonstances de notre naissance qui importent, mais ce que nous faisons du don de la vie.",
+    "citation_en": "It is not the circumstances of one's birth that are important, but what one does with the gift of life."
   },
   {
     "id": 107,
     "auteur": "Mickey Mouse",
+    "auteur_en": "Mickey Mouse",
     "date_creation": "1928-11-18",
-    "citation": "Souris à la vie, et la vie te sourira."
+    "citation": "Souris à la vie, et la vie te sourira.",
+    "citation_en": "Smile at life, and life will smile back at you."
   },
   {
     "id": 108,
     "auteur": "Maître Splinter (Les Tortues Ninja)",
+    "auteur_en": "Master Splinter (Teenage Mutant Ninja Turtles)",
     "date_creation": "1990-03-30",
-    "citation": "Ce n'est pas la force physique qui fait un vrai guerrier, mais la force de son cœur."
+    "citation": "Ce n'est pas la force physique qui fait un vrai guerrier, mais la force de son cœur.",
+    "citation_en": "It is not physical strength that makes a true warrior, but the strength of his heart."
   },
   {
     "id": 109,
     "auteur": "Maître Roshi (Dragon Ball)",
+    "auteur_en": "Master Roshi (Dragon Ball)",
     "date_creation": "1986-02-26",
-    "citation": "Le pouvoir ne vaut rien sans la sagesse pour l'utiliser."
+    "citation": "Le pouvoir ne vaut rien sans la sagesse pour l'utiliser.",
+    "citation_en": "Power is worthless without the wisdom to use it."
   },
   {
     "id": 110,
     "auteur": "Peter Pan",
+    "auteur_en": "Peter Pan",
     "date_creation": "1953-02-05",
-    "citation": "Ne grandis pas trop vite, c'est peut-être un piège."
+    "citation": "Ne grandis pas trop vite, c'est peut-être un piège.",
+    "citation_en": "Don't grow up too fast, it might be a trap."
   },
   {
     "id": 111,
     "auteur": "Mary Poppins",
+    "auteur_en": "Mary Poppins",
     "date_creation": "1964-08-27",
-    "citation": "Dans chaque travail qui doit être fait, il y a quelque chose d'amusant."
+    "citation": "Dans chaque travail qui doit être fait, il y a quelque chose d'amusant.",
+    "citation_en": "In every job that must be done, there is an element of fun."
   },
   {
     "id": 112,
     "auteur": "Elsa (La Reine des Neiges)",
+    "auteur_en": "Elsa (Frozen)",
     "date_creation": "2013-11-27",
-    "citation": "Seul un acte d'amour véritable peut décongeler un cœur gelé."
+    "citation": "Seul un acte d'amour véritable peut décongeler un cœur gelé.",
+    "citation_en": "Only an act of true love can thaw a frozen heart."
   },
   {
     "id": 113,
     "auteur": "Grand-mère Feuillage (Pocahontas)",
+    "auteur_en": "Grandmother Willow (Pocahontas)",
     "date_creation": "1998-06-19",
-    "citation": "Écoute ton cœur, il te guidera."
+    "citation": "Écoute ton cœur, il te guidera.",
+    "citation_en": "Listen with your heart, you will understand."
   },
   {
     "id": 114,
     "auteur": "Le Génie (Aladdin)",
+    "auteur_en": "The Genie (Aladdin)",
     "date_creation": "1992-11-25",
-    "citation": "Dis toujours la vérité à ceux que tu aimes."
+    "citation": "Dis toujours la vérité à ceux que tu aimes.",
+    "citation_en": "Always tell the truth to those you love."
   },
   {
     "id": 115,
     "auteur": "Rémy (Ratatouille)",
+    "auteur_en": "Remy (Ratatouille)",
     "date_creation": "2007-06-29",
-    "citation": "La seule chose prévisible dans la vie, c'est son imprévisibilité."
+    "citation": "La seule chose prévisible dans la vie, c'est son imprévisibilité.",
+    "citation_en": "The only predictable thing about life is its unpredictability."
   },
   {
     "id": 116,
     "auteur": "Miguel (Coco)",
+    "auteur_en": "Miguel (Coco)",
     "date_creation": "2017-11-22",
-    "citation": "Notre famille nous façonne, mais ce sont nos choix qui nous définissent."
+    "citation": "Notre famille nous façonne, mais ce sont nos choix qui nous définissent.",
+    "citation_en": "Our family shapes us, but it is our choices that define us."
   },
   {
     "id": 117,
     "auteur": "Izuku Midoriya (My Hero Academia)",
+    "auteur_en": "Izuku Midoriya (My Hero Academia)",
     "date_creation": "2016-04-03",
-    "citation": "Rêver est la première étape vers la victoire."
+    "citation": "Rêver est la première étape vers la victoire.",
+    "citation_en": "Dreaming is the first step to victory."
   },
   {
     "id": 118,
     "auteur": "Katniss Everdeen (Hunger Games)",
+    "auteur_en": "Katniss Everdeen (The Hunger Games)",
     "date_creation": "2012-03-23",
-    "citation": "J'ai survécu parce que je n'ai jamais perdu espoir."
+    "citation": "J'ai survécu parce que je n'ai jamais perdu espoir.",
+    "citation_en": "I survived because I never lost hope."
   },
   {
     "id": 119,
     "auteur": "Sherlock Holmes",
+    "auteur_en": "Sherlock Holmes",
     "date_creation": "2009-12-25",
-    "citation": "Une fois éliminé l'impossible, ce qui reste, si improbable soit-il, est forcément la vérité."
+    "citation": "Une fois éliminé l'impossible, ce qui reste, si improbable soit-il, est forcément la vérité.",
+    "citation_en": "Once you eliminate the impossible, whatever remains, no matter how improbable, must be the truth."
   },
   {
     "id": 120,
     "auteur": "Hercule Poirot",
+    "auteur_en": "Hercule Poirot",
     "date_creation": "2012-11-09",
-    "citation": "Ce sont souvent les petites choses qui ont la plus grande importance."
+    "citation": "Ce sont souvent les petites choses qui ont la plus grande importance.",
+    "citation_en": "It is often the little things that are of the greatest importance."
   },
   {
     "id": 121,
     "auteur": "Dorothy (Le Magicien d'Oz)",
+    "auteur_en": "Dorothy (The Wizard of Oz)",
     "date_creation": "1939-08-25",
-    "citation": "On n'est nulle part aussi bien que chez soi."
+    "citation": "On n'est nulle part aussi bien que chez soi.",
+    "citation_en": "There's no place like home."
   },
   {
     "id": 122,
     "auteur": "Obi-Wan Kenobi (Star Wars)",
+    "auteur_en": "Obi-Wan Kenobi (Star Wars)",
     "date_creation": "1977-05-25",
-    "citation": "D'après mon expérience, la chance n'existe pas."
+    "citation": "D'après mon expérience, la chance n'existe pas.",
+    "citation_en": "In my experience, there's no such thing as luck."
   },
   {
     "id": 123,
     "auteur": "Rubeus Hagrid (Harry Potter)",
+    "auteur_en": "Rubeus Hagrid (Harry Potter)",
     "date_creation": "2001-11-16",
-    "citation": "Ce qui doit arriver arrivera, et nous y ferons face au moment voulu."
+    "citation": "Ce qui doit arriver arrivera, et nous y ferons face au moment voulu.",
+    "citation_en": "What's comin' will come, an' we'll meet it when it does."
   },
   {
     "id": 124,
     "auteur": "Albus Dumbledore (Harry Potter)",
+    "auteur_en": "Albus Dumbledore (Harry Potter)",
     "date_creation": "2001-11-16",
-    "citation": "Prévoir l'avenir est une tâche bien difficile, même pour les plus avisés."
+    "citation": "Prévoir l'avenir est une tâche bien difficile, même pour les plus avisés.",
+    "citation_en": "Predicting the future is a very difficult task, even for the wisest."
   },
   {
     "id": 125,
     "auteur": "Le Petit Prince",
+    "auteur_en": "The Little Prince",
     "date_creation": "1943-04-06",
-    "citation": "On ne voit bien qu'avec le cœur. L'essentiel est invisible pour les yeux."
+    "citation": "On ne voit bien qu'avec le cœur. L'essentiel est invisible pour les yeux.",
+    "citation_en": "It is only with the heart that one can see rightly; what is essential is invisible to the eye."
   },
   {
     "id": 126,
     "auteur": "Simone de Beauvoir",
+    "auteur_en": "Simone de Beauvoir",
     "date_creation": "1949-01-01",
-    "citation": "On ne naît pas femme : on le devient."
+    "citation": "On ne naît pas femme : on le devient.",
+    "citation_en": "One is not born, but rather becomes, a woman."
   },
   {
     "id": 127,
     "auteur": "Jean-Paul Sartre",
+    "auteur_en": "Jean-Paul Sartre",
     "date_creation": "1943-01-01",
-    "citation": "L'enfer, c'est les autres."
+    "citation": "L'enfer, c'est les autres.",
+    "citation_en": "Hell is other people."
   },
   {
     "id": 128,
     "auteur": "Camus",
+    "auteur_en": "Camus",
     "date_creation": "1942-01-01",
-    "citation": "Il n'y a pas d'amour de vivre sans désespoir de vivre."
+    "citation": "Il n'y a pas d'amour de vivre sans désespoir de vivre.",
+    "citation_en": "There is no love of life without despair of life."
   },
   {
     "id": 129,
     "auteur": "Blaise Pascal",
+    "auteur_en": "Blaise Pascal",
     "date_creation": "1670-01-01",
-    "citation": "Le cœur a ses raisons que la raison ne connaît point."
+    "citation": "Le cœur a ses raisons que la raison ne connaît point.",
+    "citation_en": "The heart has its reasons of which reason knows nothing."
   },
   {
     "id": 130,
     "auteur": "Molière",
+    "auteur_en": "Molière",
     "date_creation": "1664-01-01",
-    "citation": "Nous sommes responsables non seulement de ce que nous faisons, mais aussi de ce que nous ne faisons pas."
+    "citation": "Nous sommes responsables non seulement de ce que nous faisons, mais aussi de ce que nous ne faisons pas.",
+    "citation_en": "We are responsible not only for what we do, but also for what we do not do."
   },
   {
     "id": 131,
     "auteur": "Diderot",
+    "auteur_en": "Diderot",
     "date_creation": "1751-01-01",
-    "citation": "Il est très important de ne jamais perdre l’envie d’apprendre."
+    "citation": "Il est très important de ne jamais perdre l’envie d’apprendre.",
+    "citation_en": "It is very important to never lose the desire to learn."
   },
   {
     "id": 132,
     "auteur": "Pierre Corneille",
+    "auteur_en": "Pierre Corneille",
     "date_creation": "1637-01-01",
-    "citation": "À vaincre sans péril, on triomphe sans gloire."
+    "citation": "À vaincre sans péril, on triomphe sans gloire.",
+    "citation_en": "To conquer without risk is to triumph without glory."
   },
   {
     "id": 133,
     "auteur": "Balzac",
+    "auteur_en": "Balzac",
     "date_creation": "1833-01-01",
-    "citation": "La passion est toute l’humanité."
+    "citation": "La passion est toute l’humanité.",
+    "citation_en": "Passion is all of humanity."
   },
   {
     "id": 136,
     "auteur": "Vincent Cassel",
+    "auteur_en": "Vincent Cassel",
     "date_creation": null,
-    "citation": "La beauté, c’est la vérité en mouvement."
+    "citation": "La beauté, c’est la vérité en mouvement.",
+    "citation_en": "Beauty is truth in motion."
   },
   {
     "id": 137,
     "auteur": "Jacques Brel",
+    "auteur_en": "Jacques Brel",
     "date_creation": "1967-01-01",
-    "citation": "Le talent, c’est d’avoir envie de faire quelque chose."
+    "citation": "Le talent, c’est d’avoir envie de faire quelque chose.",
+    "citation_en": "Talent is wanting to do something."
   },
   {
     "id": 138,
     "auteur": "John Green",
+    "auteur_en": "John Green",
     "date_creation": "2012-01-01",
-    "citation": "Les livres sont des miroirs: on n’y voit que ce qu’on porte en soi."
+    "citation": "Les livres sont des miroirs: on n’y voit que ce qu’on porte en soi.",
+    "citation_en": "Books are mirrors: you only see in them what you already have inside you."
   },
   {
     "id": 139,
     "auteur": "Amélie Nothomb",
+    "auteur_en": "Amélie Nothomb",
     "date_creation": "1992-01-01",
-    "citation": "On n’écrit pas un livre, on l’expulse."
+    "citation": "On n’écrit pas un livre, on l’expulse.",
+    "citation_en": "You don't write a book, you expel it."
   },
   {
     "id": 140,
     "auteur": "Romain Gary",
+    "auteur_en": "Romain Gary",
     "date_creation": "1950-01-01",
-    "citation": "On ne peut pas changer l’Histoire mais on peut changer les hommes."
+    "citation": "On ne peut pas changer l’Histoire mais on peut changer les hommes.",
+    "citation_en": "You can't change history, but you can change men."
   },
   {
     "id": 141,
     "auteur": "Frida Kahlo",
+    "auteur_en": "Frida Kahlo",
     "date_creation": "1940-01-01",
-    "citation": "Je peins des fleurs pour qu’elles ne meurent pas."
+    "citation": "Je peins des fleurs pour qu’elles ne meurent pas.",
+    "citation_en": "I paint flowers so they will not die."
   },
   {
     "id": 143,
     "auteur": "Paul Éluard",
+    "auteur_en": "Paul Éluard",
     "date_creation": "1942-01-01",
-    "citation": "Il n’y a pas de hasard, il n’y a que des rendez-vous."
+    "citation": "Il n’y a pas de hasard, il n’y a que des rendez-vous.",
+    "citation_en": "There is no such thing as chance, there are only appointments."
   },
   {
     "id": 144,
     "auteur": "Édith Piaf",
+    "auteur_en": "Édith Piaf",
     "date_creation": "1960-10-11",
-    "citation": "Je ne regrette rien."
+    "citation": "Je ne regrette rien.",
+    "citation_en": "I regret nothing."
   },
   {
     "id": 145,
     "auteur": "Jean de La Fontaine",
+    "auteur_en": "Jean de La Fontaine",
     "date_creation": "1668-01-01",
-    "citation": "On n’a pas d’ami, on a des rendez-vous."
+    "citation": "On n’a pas d’ami, on a des rendez-vous.",
+    "citation_en": "You don't have friends, you have appointments."
   },
   {
     "id": 146,
     "auteur": "Pierre Reverdy",
+    "auteur_en": "Pierre Reverdy",
     "date_creation": "1917-01-01",
-    "citation": "Le poète est celui qui touche les coins des mots pour que de leur bouche s’échappe la poésie."
+    "citation": "Le poète est celui qui touche les coins des mots pour que de leur bouche s’échappe la poésie.",
+    "citation_en": "The poet is the one who touches the corners of words so that poetry escapes from their mouths."
   },
   {
     "id": 147,
     "auteur": "Arthur Rimbaud",
+    "auteur_en": "Arthur Rimbaud",
     "date_creation": "1872-01-01",
-    "citation": "Il faut être absolument moderne."
+    "citation": "Il faut être absolument moderne.",
+    "citation_en": "One must be absolutely modern."
   },
   {
     "id": 148,
     "auteur": "Charles Baudelaire",
+    "auteur_en": "Charles Baudelaire",
     "date_creation": "1857-01-01",
-    "citation": "Le spleen de Paris est une rêverie qui tourne au cauchemar."
+    "citation": "Le spleen de Paris est une rêverie qui tourne au cauchemar.",
+    "citation_en": "The spleen of Paris is a daydream that turns into a nightmare."
   },
   {
     "id": 149,
     "auteur": "Paul Valéry",
+    "auteur_en": "Paul Valéry",
     "date_creation": "1928-01-01",
-    "citation": "La meilleure façon de faire des projets pour demain est de se concentrer sur aujourd’hui."
+    "citation": "La meilleure façon de faire des projets pour demain est de se concentrer sur aujourd’hui.",
+    "citation_en": "The best way to make plans for tomorrow is to focus on today."
   },
   {
     "id": 150,
     "auteur": "Antoine de Saint-Exupéry",
+    "auteur_en": "Antoine de Saint-Exupéry",
     "date_creation": "1943-04-06",
-    "citation": "La grandeur d’un métier est peut-être, avant tout, d’unir des hommes."
+    "citation": "La grandeur d’un métier est peut-être, avant tout, d’unir des hommes.",
+    "citation_en": "The greatness of a profession is perhaps, above all, to unite men."
   },
   {
     "id": 152,
     "auteur": "George Sand",
+    "auteur_en": "George Sand",
     "date_creation": "1833-01-01",
-    "citation": "Il n’y a qu’une façon d’échouer, c’est d’abandonner avant d’avoir réussi."
+    "citation": "Il n’y a qu’une façon d’échouer, c’est d’abandonner avant d’avoir réussi.",
+    "citation_en": "There is only one way to fail, and that is to give up before you have succeeded."
   },
   {
     "id": 153,
     "auteur": "Alexandre Dumas",
+    "auteur_en": "Alexandre Dumas",
     "date_creation": "1844-01-01",
-    "citation": "Rien ne sert de courir, il faut partir à point."
+    "citation": "Rien ne sert de courir, il faut partir à point.",
+    "citation_en": "There is no point in running, you have to leave on time."
   },
   {
     "id": 154,
     "auteur": "Guy de Maupassant",
+    "auteur_en": "Guy de Maupassant",
     "date_creation": "1880-01-01",
-    "citation": "Il n’y a que le premier pas qui coûte."
+    "citation": "Il n’y a que le premier pas qui coûte.",
+    "citation_en": "It is only the first step that is difficult."
   },
   {
     "id": 155,
     "auteur": "Anatole France",
+    "auteur_en": "Anatole France",
     "date_creation": "1890-01-01",
-    "citation": "On ne réussit bien que ce dont on se doute mal."
+    "citation": "On ne réussit bien que ce dont on se doute mal.",
+    "citation_en": "One only succeeds well in what one doubts badly."
   },
   {
     "id": 156,
     "auteur": "Marguerite Duras",
+    "auteur_en": "Marguerite Duras",
     "date_creation": "1954-01-01",
-    "citation": "Écrire, c’est tenter de mettre en mots l’inexprimable."
+    "citation": "Écrire, c’est tenter de mettre en mots l’inexprimable.",
+    "citation_en": "To write is to try to put into words the inexpressible."
   },
   {
     "id": 157,
     "auteur": "J.K. Rowling",
+    "auteur_en": "J.K. Rowling",
     "date_creation": "1997-06-26",
-    "citation": "Nous ne choisissons pas toujours les événements qui nous arrivent, mais nous choisissons toujours la façon dont nous allons y réagir."
+    "citation": "Nous ne choisissons pas toujours les événements qui nous arrivent, mais nous choisissons toujours la façon dont nous allons y réagir.",
+    "citation_en": "We do not always choose the events that happen to us, but we always choose how we will react to them."
   },
   {
     "id": 158,
     "auteur": "George R.R. Martin",
+    "auteur_en": "George R.R. Martin",
     "date_creation": "1996-08-06",
-    "citation": "Un lecteur vit mille vies avant de mourir. Celui qui ne lit pas n’en vit qu’une."
+    "citation": "Un lecteur vit mille vies avant de mourir. Celui qui ne lit pas n’en vit qu’une.",
+    "citation_en": "A reader lives a thousand lives before he dies. The man who never reads lives only one."
   },
   {
     "id": 159,
     "auteur": "Haruki Murakami",
+    "auteur_en": "Haruki Murakami",
     "date_creation": "1985-01-01",
-    "citation": "Si vous frappez le temps, le temps vous frappera en retour."
+    "citation": "Si vous frappez le temps, le temps vous frappera en retour.",
+    "citation_en": "If you hit time, time will hit you back."
   },
   {
     "id": 160,
     "auteur": "Stephen King",
+    "auteur_en": "Stephen King",
     "date_creation": "1974-01-01",
-    "citation": "Un livre est un rêve que vous tenez dans votre main."
+    "citation": "Un livre est un rêve que vous tenez dans votre main.",
+    "citation_en": "A book is a dream that you hold in your hand."
   },
   {
     "id": 161,
     "auteur": "Margaret Atwood",
+    "auteur_en": "Margaret Atwood",
     "date_creation": "1985-01-01",
-    "citation": "Ignorer la guerre n’est pas la paix."
+    "citation": "Ignorer la guerre n’est pas la paix.",
+    "citation_en": "Ignoring war is not peace."
   },
   {
     "id": 162,
     "auteur": "Agatha Christie",
+    "auteur_en": "Agatha Christie",
     "date_creation": "1920-01-01",
-    "citation": "Le crime, c’est la loi qui cherche à se venger elle-même."
+    "citation": "Le crime, c’est la loi qui cherche à se venger elle-même.",
+    "citation_en": "Crime is the law seeking revenge on itself."
   },
   {
     "id": 163,
     "auteur": "Bernard Werber",
+    "auteur_en": "Bernard Werber",
     "date_creation": "1990-01-01",
-    "citation": "Le monde est peuplé d’hommes qui croient qu’ils sont la seule réalité."
+    "citation": "Le monde est peuplé d’hommes qui croient qu’ils sont la seule réalité.",
+    "citation_en": "The world is populated by men who believe they are the only reality."
   },
   {
     "id": 164,
     "auteur": "Terry Pratchett",
+    "auteur_en": "Terry Pratchett",
     "date_creation": "1990-01-01",
-    "citation": "La moindre action est petite face à l’immensité du monde, mais ce n’est pas une raison pour ne pas l’entreprendre."
+    "citation": "La moindre action est petite face à l’immensité du monde, mais ce n’est pas une raison pour ne pas l’entreprendre.",
+    "citation_en": "The smallest action is small in the face of the immensity of the world, but that is no reason not to undertake it."
   },
   {
     "id": 165,
     "auteur": "Isaac Asimov",
+    "auteur_en": "Isaac Asimov",
     "date_creation": "1950-01-01",
-    "citation": "La violence est le dernier refuge de l’incompétence."
+    "citation": "La violence est le dernier refuge de l’incompétence.",
+    "citation_en": "Violence is the last refuge of the incompetent."
   },
   {
     "id": 166,
     "auteur": "Aldous Huxley",
+    "auteur_en": "Aldous Huxley",
     "date_creation": "1932-01-01",
-    "citation": "Il faut encore avoir du chaos en soi pour accoucher d’une étoile qui danse."
+    "citation": "Il faut encore avoir du chaos en soi pour accoucher d’une étoile qui danse.",
+    "citation_en": "One must still have chaos in oneself to be able to give birth to a dancing star."
   },
   {
     "id": 167,
     "auteur": "Jane Austen",
+    "auteur_en": "Jane Austen",
     "date_creation": "1813-01-28",
-    "citation": "Il n’y a pas d’ami si fidèle qu’un livre."
+    "citation": "Il n’y a pas d’ami si fidèle qu’un livre.",
+    "citation_en": "There is no friend so faithful as a book."
   },
   {
     "id": 168,
     "auteur": "Mark Twain",
+    "auteur_en": "Mark Twain",
     "date_creation": "1884-01-01",
-    "citation": "La vérité est plus étrange que la fiction."
+    "citation": "La vérité est plus étrange que la fiction.",
+    "citation_en": "Truth is stranger than fiction."
   },
   {
     "id": 169,
     "auteur": "Victor Hugo",
+    "auteur_en": "Victor Hugo",
     "date_creation": "1850-01-01",
-    "citation": "La mélancolie, c’est le plaisir d’être triste."
+    "citation": "La mélancolie, c’est le plaisir d’être triste.",
+    "citation_en": "Melancholy is the pleasure of being sad."
   },
   {
     "id": 170,
     "auteur": "Francois Mauriac",
+    "auteur_en": "Francois Mauriac",
     "date_creation": "1933-01-01",
-    "citation": "Seulement un cœur amoureux chante."
+    "citation": "Seulement un cœur amoureux chante.",
+    "citation_en": "Only a loving heart sings."
   },
   {
     "id": 171,
     "auteur": "Jean Rostand",
+    "auteur_en": "Jean Rostand",
     "date_creation": "1940-01-01",
-    "citation": "Il vaut mieux une tête bien faite qu’une tête bien pleine."
+    "citation": "Il vaut mieux une tête bien faite qu’une tête bien pleine.",
+    "citation_en": "It is better to have a well-made head than a well-filled one."
   },
   {
     "id": 172,
     "auteur": "Philippe Delerm",
+    "auteur_en": "Philippe Delerm",
     "date_creation": "1998-01-01",
-    "citation": "Le bonheur, c’est simple comme un coup de fil d’un vieil ami."
+    "citation": "Le bonheur, c’est simple comme un coup de fil d’un vieil ami.",
+    "citation_en": "Happiness is as simple as a phone call from an old friend."
   },
   {
     "id": 173,
     "auteur": "Fabrice Luchini",
+    "auteur_en": "Fabrice Luchini",
     "date_creation": "2000-01-01",
-    "citation": "Lire, c’est boire et manger. L’esprit qui ne lit pas maigrit comme le corps qui ne mange pas."
+    "citation": "Lire, c’est boire et manger. L’esprit qui ne lit pas maigrit comme le corps qui ne mange pas.",
+    "citation_en": "To read is to drink and eat. The mind that does not read grows thin like the body that does not eat."
   },
   {
     "id": 174,
     "auteur": "Roland Barthes",
+    "auteur_en": "Roland Barthes",
     "date_creation": "1970-01-01",
-    "citation": "Le langage est une peau : je frotte mon langage contre l’autre."
+    "citation": "Le langage est une peau : je frotte mon langage contre l’autre.",
+    "citation_en": "Language is a skin: I rub my language against the other."
   },
   {
     "id": 175,
     "auteur": "Yannick Noah",
+    "auteur_en": "Yannick Noah",
     "date_creation": "1983-01-01",
-    "citation": "Le plus beau cadeau qu’on puisse offrir à l’autre, c’est d’exister pour lui."
+    "citation": "Le plus beau cadeau qu’on puisse offrir à l’autre, c’est d’exister pour lui.",
+    "citation_en": "The most beautiful gift one can give to another is to exist for them."
   },
   {
     "id": 176,
     "auteur": "Juliette Gréco",
+    "auteur_en": "Juliette Gréco",
     "date_creation": "1960-01-01",
-    "citation": "Il faut toujours viser la lune, car même en cas d’échec, on atterrit dans les étoiles."
+    "citation": "Il faut toujours viser la lune, car même en cas d’échec, on atterrit dans les étoiles.",
+    "citation_en": "You must always aim for the moon, because even if you fail, you will land among the stars."
   },
   {
     "id": 177,
     "auteur": "Serge Gainsbourg",
+    "auteur_en": "Serge Gainsbourg",
     "date_creation": "1968-01-01",
-    "citation": "Chacun porte en soi quelque chose d’unique."
+    "citation": "Chacun porte en soi quelque chose d’unique.",
+    "citation_en": "Everyone carries something unique within them."
   },
   {
     "id": 178,
     "auteur": "Jean-Paul Belmondo",
+    "auteur_en": "Jean-Paul Belmondo",
     "date_creation": "1970-01-01",
-    "citation": "L’important, c’est de donner envie de vivre."
+    "citation": "L’important, c’est de donner envie de vivre.",
+    "citation_en": "The important thing is to make people want to live."
   },
   {
     "id": 179,
     "auteur": "Céline Dion",
+    "auteur_en": "Céline Dion",
     "date_creation": "1990-01-01",
-    "citation": "L’amour est une belle chose, ne le gâche pas."
+    "citation": "L’amour est une belle chose, ne le gâche pas.",
+    "citation_en": "Love is a beautiful thing, don't waste it."
   },
   {
     "id": 180,
     "auteur": "Charles Aznavour",
+    "auteur_en": "Charles Aznavour",
     "date_creation": "1965-01-01",
-    "citation": "Il faut viser la lune, parce qu’au moins, si vous échouez, vous finirez dans les étoiles."
+    "citation": "Il faut viser la lune, parce qu’au moins, si vous échouez, vous finirez dans les étoiles.",
+    "citation_en": "You have to aim for the moon, because at least if you fail, you will end up in the stars."
   },
   {
     "id": 181,
     "auteur": "Serge Lama",
+    "auteur_en": "Serge Lama",
     "date_creation": "1972-01-01",
-    "citation": "L’amour, c’est comme un boomerang, plus on tend la main pour donner, plus on reçoit."
+    "citation": "L’amour, c’est comme un boomerang, plus on tend la main pour donner, plus on reçoit.",
+    "citation_en": "Love is like a boomerang, the more you reach out to give, the more you receive."
   },
   {
     "id": 182,
     "auteur": "Bernard Lavilliers",
+    "auteur_en": "Bernard Lavilliers",
     "date_creation": "1980-01-01",
-    "citation": "Partir, c’est mourir un peu, mais partir, c’est la vie."
+    "citation": "Partir, c’est mourir un peu, mais partir, c’est la vie.",
+    "citation_en": "To leave is to die a little, but to leave is life."
   },
   {
     "id": 183,
     "auteur": "Nicolas Sarkozy",
+    "auteur_en": "Nicolas Sarkozy",
     "date_creation": "2007-05-16",
-    "citation": "Le changement, c’est maintenant."
+    "citation": "Le changement, c’est maintenant.",
+    "citation_en": "Change is now."
   },
   {
     "id": 184,
     "auteur": "François Hollande",
+    "auteur_en": "François Hollande",
     "date_creation": "2012-05-15",
-    "citation": "Mon ennemi, c’est la finance."
+    "citation": "Mon ennemi, c’est la finance.",
+    "citation_en": "My enemy is finance."
   },
   {
     "id": 185,
     "auteur": "Angela Merkel",
+    "auteur_en": "Angela Merkel",
     "date_creation": "2005-11-22",
-    "citation": "Nous réussirons parce que nous sommes un peuple fort."
+    "citation": "Nous réussirons parce que nous sommes un peuple fort.",
+    "citation_en": "We will succeed because we are a strong people."
   },
   {
     "id": 186,
     "auteur": "Barack Obama",
+    "auteur_en": "Barack Obama",
     "date_creation": "2009-01-20",
-    "citation": "Yes we can."
+    "citation": "Yes we can.",
+    "citation_en": "Yes we can."
   },
   {
     "id": 187,
     "auteur": "Jacques Chirac",
+    "auteur_en": "Jacques Chirac",
     "date_creation": "1995-01-01",
-    "citation": "Notre maison brûle et nous regardons ailleurs."
+    "citation": "Notre maison brûle et nous regardons ailleurs.",
+    "citation_en": "Our house is burning and we are looking elsewhere."
   },
   {
     "id": 188,
     "auteur": "François Mitterrand",
+    "auteur_en": "François Mitterrand",
     "date_creation": "1981-05-21",
-    "citation": "La politique, ce n’est pas la guerre des tranchées, c’est la paix."
+    "citation": "La politique, ce n’est pas la guerre des tranchées, c’est la paix.",
+    "citation_en": "Politics is not trench warfare, it is peace."
   },
   {
     "id": 189,
     "auteur": "Édith Cresson",
+    "auteur_en": "Édith Cresson",
     "date_creation": "1991-05-15",
-    "citation": "Le temps n’efface rien, il révèle."
+    "citation": "Le temps n’efface rien, il révèle.",
+    "citation_en": "Time erases nothing, it reveals."
   },
   {
     "id": 190,
     "auteur": "Zinedine Zidane",
+    "auteur_en": "Zinedine Zidane",
     "date_creation": "1998-07-12",
-    "citation": "Quand on veut, on peut."
+    "citation": "Quand on veut, on peut.",
+    "citation_en": "When you want it, you can do it."
   },
   {
     "id": 191,
     "auteur": "Kylian Mbappé",
+    "auteur_en": "Kylian Mbappé",
     "date_creation": "2018-07-15",
-    "citation": "La réussite est une question d’envie."
+    "citation": "La réussite est une question d’envie.",
+    "citation_en": "Success is a matter of desire."
   },
   {
     "id": 194,
     "auteur": "Roger Federer",
+    "auteur_en": "Roger Federer",
     "date_creation": "2003-07-07",
-    "citation": "La pratique sans théorie est aveugle."
+    "citation": "La pratique sans théorie est aveugle.",
+    "citation_en": "Practice without theory is blind."
   },
   {
     "id": 195,
     "auteur": "Serena Williams",
+    "auteur_en": "Serena Williams",
     "date_creation": "2002-09-08",
-    "citation": "La victoire, c’est souvent la persévérance."
+    "citation": "La victoire, c’est souvent la persévérance.",
+    "citation_en": "Victory is often perseverance."
   },
   {
     "id": 197,
     "auteur": "Lionel Messi",
+    "auteur_en": "Lionel Messi",
     "date_creation": "2004-07-05",
-    "citation": "Le football est un jeu simple, mais le plus difficile à jouer simplement."
+    "citation": "Le football est un jeu simple, mais le plus difficile à jouer simplement.",
+    "citation_en": "Football is a simple game, but the hardest thing to do is play it simply."
   },
   {
     "id": 198,
     "auteur": "Michael Jordan",
+    "auteur_en": "Michael Jordan",
     "date_creation": "1996-01-01",
-    "citation": "J’ai manqué plus de 9000 tirs dans ma carrière, j’ai perdu presque 300 matchs, 26 fois on m’a fait confiance pour le dernier tir du match et je l’ai manqué. J’ai échoué encore et encore et encore dans ma vie. Et c’est pourquoi je réussis."
+    "citation": "J’ai manqué plus de 9000 tirs dans ma carrière, j’ai perdu presque 300 matchs, 26 fois on m’a fait confiance pour le dernier tir du match et je l’ai manqué. J’ai échoué encore et encore et encore dans ma vie. Et c’est pourquoi je réussis.",
+    "citation_en": "I've missed more than 9000 shots in my career. I've lost almost 300 games. 26 times, I've been trusted to take the game winning shot and missed. I've failed over and over and over again in my life. And that is why I succeed."
   },
   {
     "id": 199,
     "auteur": "Tom Brady",
+    "auteur_en": "Tom Brady",
     "date_creation": "2001-09-15",
-    "citation": "Le courage, ce n’est pas de ne pas ressentir la peur, c’est d’avancer malgré la peur."
+    "citation": "Le courage, ce n’est pas de ne pas ressentir la peur, c’est d’avancer malgré la peur.",
+    "citation_en": "Courage is not not feeling fear, it's moving forward despite fear."
   },
   {
     "id": 200,
     "auteur": "Muhammad Ali",
+    "auteur_en": "Muhammad Ali",
     "date_creation": "1965-01-01",
-    "citation": "Je suis le plus grand. Je l’ai dit avant même de savoir que je l’étais."
+    "citation": "Je suis le plus grand. Je l’ai dit avant même de savoir que je l’étais.",
+    "citation_en": "I am the greatest. I said that even before I knew I was."
   },
   {
     "id": 201,
     "auteur": "Usain Bolt",
+    "auteur_en": "Usain Bolt",
     "date_creation": "2008-08-16",
-    "citation": "Ce n’est pas la volonté de gagner qui compte, mais la volonté de se préparer à gagner."
+    "citation": "Ce n’est pas la volonté de gagner qui compte, mais la volonté de se préparer à gagner.",
+    "citation_en": "It's not the will to win that matters, but the will to prepare to win."
   },
   {
     "id": 202,
     "auteur": "Pelé",
+    "auteur_en": "Pelé",
     "date_creation": "1958-06-19",
-    "citation": "Le succès n’est pas un accident. C’est le travail, la persévérance, l’apprentissage, l’étude, le sacrifice."
+    "citation": "Le succès n’est pas un accident. C’est le travail, la persévérance, l’apprentissage, l’étude, le sacrifice.",
+    "citation_en": "Success is no accident. It is hard work, perseverance, learning, studying, sacrifice."
   },
   {
     "id": 203,
     "auteur": "David Beckham",
+    "auteur_en": "David Beckham",
     "date_creation": "1999-06-16",
-    "citation": "Ne lâche jamais tes rêves."
+    "citation": "Ne lâche jamais tes rêves.",
+    "citation_en": "Never give up on your dreams."
   },
   {
     "id": 204,
     "auteur": "Roger Federer",
+    "auteur_en": "Roger Federer",
     "date_creation": "2003-07-07",
-    "citation": "J’ai appris que les matchs ne se gagnent pas dans le vestiaire, mais sur le terrain."
+    "citation": "J’ai appris que les matchs ne se gagnent pas dans le vestiaire, mais sur le terrain.",
+    "citation_en": "I've learned that matches are not won in the locker room, but on the court."
   },
   {
     "id": 205,
     "auteur": "Lionel Messi",
+    "auteur_en": "Lionel Messi",
     "date_creation": "2007-01-01",
-    "citation": "Je préfère gagner humbles que perdre arrogants."
+    "citation": "Je préfère gagner humbles que perdre arrogants.",
+    "citation_en": "I prefer to win humble than to lose arrogant."
   },
   {
     "id": 206,
     "auteur": "Cristiano Ronaldo",
+    "auteur_en": "Cristiano Ronaldo",
     "date_creation": "2006-01-01",
-    "citation": "L’entraînement rend la perfection."
+    "citation": "L’entraînement rend la perfection.",
+    "citation_en": "Practice makes perfect."
   },
   {
     "id": 207,
     "auteur": "Michael Jordan",
+    "auteur_en": "Michael Jordan",
     "date_creation": "1996-01-01",
-    "citation": "Le talent gagne des matchs, mais le travail d’équipe et l’intelligence gagnent des championnats."
+    "citation": "Le talent gagne des matchs, mais le travail d’équipe et l’intelligence gagnent des championnats.",
+    "citation_en": "Talent wins games, but teamwork and intelligence win championships."
   },
   {
     "id": 208,
     "auteur": "Diego Maradona",
+    "auteur_en": "Diego Maradona",
     "date_creation": "1986-06-29",
-    "citation": "Les gens pensent que le football est fait avec des pieds, mais c’est fait avec la tête."
+    "citation": "Les gens pensent que le football est fait avec des pieds, mais c’est fait avec la tête.",
+    "citation_en": "People think football is made with feet, but it's made with the head."
   },
   {
     "id": 209,
     "auteur": "Zlatan Ibrahimović",
+    "auteur_en": "Zlatan Ibrahimović",
     "date_creation": "2001-08-15",
-    "citation": "Je ne suis pas une star, je suis une légende."
+    "citation": "Je ne suis pas une star, je suis une légende.",
+    "citation_en": "I'm not a star, I'm a legend."
   },
   {
     "id": 210,
     "auteur": "Lionel Messi",
+    "auteur_en": "Lionel Messi",
     "date_creation": "2007-01-01",
-    "citation": "Sans les rêves, la vie n’a pas de sens."
+    "citation": "Sans les rêves, la vie n’a pas de sens.",
+    "citation_en": "Without dreams, life has no meaning."
   },
   {
     "id": 211,
     "auteur": "Cristiano Ronaldo",
+    "auteur_en": "Cristiano Ronaldo",
     "date_creation": "2006-01-01",
-    "citation": "Beaucoup de gens disent: “C’est impossible.” Je dis: “Regardez-moi.”"
+    "citation": "Beaucoup de gens disent: “C’est impossible.” Je dis: “Regardez-moi.”",
+    "citation_en": "Many people say, 'It's impossible.' I say, 'Watch me.'"
   },
   {
     "id": 212,
     "auteur": "Pelé",
+    "auteur_en": "Pelé",
     "date_creation": "1958-06-19",
-    "citation": "Dans le football comme dans la vie, tout est possible."
+    "citation": "Dans le football comme dans la vie, tout est possible.",
+    "citation_en": "In football as in life, anything is possible."
   },
   {
     "id": 213,
     "auteur": "Michael Jordan",
+    "auteur_en": "Michael Jordan",
     "date_creation": "1996-01-01",
-    "citation": "Certaines personnes veulent que cela arrive, d’autres aimeraient que cela arrive, d’autres font que cela arrive."
+    "citation": "Certaines personnes veulent que cela arrive, d’autres aimeraient que cela arrive, d’autres font que cela arrive.",
+    "citation_en": "Some people want it to happen, some wish it would happen, others make it happen."
   },
   {
     "id": 214,
     "auteur": "Maria Sharapova",
+    "auteur_en": "Maria Sharapova",
     "date_creation": "2004-08-24",
-    "citation": "Le succès n’est pas final, l’échec n’est pas fatal: c’est le courage de continuer qui compte."
+    "citation": "Le succès n’est pas final, l’échec n’est pas fatal: c’est le courage de continuer qui compte.",
+    "citation_en": "Success is not final, failure is not fatal: it is the courage to continue that counts."
   },
   {
     "id": 215,
     "auteur": "Serena Williams",
+    "auteur_en": "Serena Williams",
     "date_creation": "2001-09-08",
-    "citation": "Tout est possible. Vous devez juste y croire."
+    "citation": "Tout est possible. Vous devez juste y croire.",
+    "citation_en": "Anything is possible. You just have to believe."
   },
   {
     "id": 216,
     "auteur": "Roger Federer",
+    "auteur_en": "Roger Federer",
     "date_creation": "2005-07-15",
-    "citation": "Le plus grand obstacle, c’est toujours soi-même."
+    "citation": "Le plus grand obstacle, c’est toujours soi-même.",
+    "citation_en": "The biggest obstacle is always yourself."
   },
   {
     "id": 217,
     "auteur": "Lionel Messi",
+    "auteur_en": "Lionel Messi",
     "date_creation": "2008-01-01",
-    "citation": "Les records sont faits pour être battus."
+    "citation": "Les records sont faits pour être battus.",
+    "citation_en": "Records are made to be broken."
   },
   {
     "id": 218,
     "auteur": "Cristiano Ronaldo",
+    "auteur_en": "Cristiano Ronaldo",
     "date_creation": "2007-01-01",
-    "citation": "La peur de l’échec est votre pire ennemi."
+    "citation": "La peur de l’échec est votre pire ennemi.",
+    "citation_en": "Fear of failure is your worst enemy."
   },
   {
     "id": 219,
     "auteur": "Pelé",
+    "auteur_en": "Pelé",
     "date_creation": "1958-06-19",
-    "citation": "Le plus grand défi, c’est de croire en toi."
+    "citation": "Le plus grand défi, c’est de croire en toi.",
+    "citation_en": "The biggest challenge is to believe in yourself."
   },
   {
     "id": 220,
     "auteur": "Diego Maradona",
+    "auteur_en": "Diego Maradona",
     "date_creation": "1986-06-29",
-    "citation": "J’ai commis beaucoup d’erreurs, j’en parlais, je traînais, j’étais vraiment un sale gamin mais je ne faisais de mal à personne et j’étais triste."
+    "citation": "J’ai commis beaucoup d’erreurs, j’en parlais, je traînais, j’étais vraiment un sale gamin mais je ne faisais de mal à personne et j’étais triste.",
+    "citation_en": "I made a lot of mistakes, I talked about them, I hung out, I was a really dirty kid but I didn't hurt anyone and I was sad."
   },
   {
     "id": 221,
     "auteur": "Usain Bolt",
+    "auteur_en": "Usain Bolt",
     "date_creation": "2008-08-16",
-    "citation": "La vitesse est relative ; seule, elle ne signifie rien."
+    "citation": "La vitesse est relative ; seule, elle ne signifie rien.",
+    "citation_en": "Speed is relative; alone, it means nothing."
   },
   {
     "id": 222,
     "auteur": "Rafael Nadal",
+    "auteur_en": "Rafael Nadal",
     "date_creation": "2005-09-25",
-    "citation": "La douleur est temporaire, l’abandon est définitif."
+    "citation": "La douleur est temporaire, l’abandon est définitif.",
+    "citation_en": "Pain is temporary, quitting is forever."
   },
   {
     "id": 223,
     "auteur": "Roger Federer",
+    "auteur_en": "Roger Federer",
     "date_creation": "2005-07-15",
-    "citation": "La passion est la clé du succès."
+    "citation": "La passion est la clé du succès.",
+    "citation_en": "Passion is the key to success."
   },
   {
     "id": 224,
     "auteur": "Serena Williams",
+    "auteur_en": "Serena Williams",
     "date_creation": "2002-01-01",
-    "citation": "L’échec est juste une opportunité de recommencer plus intelligemment."
+    "citation": "L’échec est juste une opportunité de recommencer plus intelligemment.",
+    "citation_en": "Failure is just an opportunity to start over more intelligently."
   },
   {
     "id": 225,
     "auteur": "Cristiano Ronaldo",
+    "auteur_en": "Cristiano Ronaldo",
     "date_creation": "2007-01-01",
-    "citation": "Sans sacrifice, il n’y a pas de succès."
+    "citation": "Sans sacrifice, il n’y a pas de succès.",
+    "citation_en": "Without sacrifice, there is no success."
   },
   {
     "id": 226,
     "auteur": "Lionel Messi",
+    "auteur_en": "Lionel Messi",
     "date_creation": "2008-01-01",
-    "citation": "Je n’ai jamais perdu, j’ai juste trouvé 10 000 façons qui ne fonctionnent pas."
+    "citation": "Je n’ai jamais perdu, j’ai juste trouvé 10 000 façons qui ne fonctionnent pas.",
+    "citation_en": "I have not failed. I've just found 10,000 ways that won't work."
   },
   {
     "id": 227,
     "auteur": "Jules César",
+    "auteur_en": "Julius Caesar",
     "date_creation": null,
-    "citation": "Veni, vidi, vici."
+    "citation": "Veni, vidi, vici.",
+    "citation_en": "I came, I saw, I conquered."
   },
   {
     "id": 228,
     "auteur": "Cicéron",
+    "auteur_en": "Cicero",
     "date_creation": null,
-    "citation": "Une vie sans études est une mort qui s'ignore."
+    "citation": "Une vie sans études est une mort qui s'ignore.",
+    "citation_en": "A life without study is a death that is ignored."
   },
   {
     "id": 229,
     "auteur": "Platon",
+    "auteur_en": "Plato",
     "date_creation": null,
-    "citation": "La nécessité est la mère de l'invention."
+    "citation": "La nécessité est la mère de l'invention.",
+    "citation_en": "Necessity is the mother of invention."
   },
   {
     "id": 230,
     "auteur": "Cléopâtre",
+    "auteur_en": "Cleopatra",
     "date_creation": null,
-    "citation": "Je ne vivrai pas un instant sans gloire."
+    "citation": "Je ne vivrai pas un instant sans gloire.",
+    "citation_en": "I will not live a moment without glory."
   },
   {
     "id": 231,
     "auteur": "Auguste",
+    "auteur_en": "Augustus",
     "date_creation": null,
-    "citation": "Festina lente."
+    "citation": "Festina lente.",
+    "citation_en": "Make haste slowly."
   },
   {
     "id": 232,
     "auteur": "Sénèque",
+    "auteur_en": "Seneca",
     "date_creation": "0060-01-01",
-    "citation": "La vie, ce n'est pas d'attendre que l'orage passe, c'est d'apprendre à danser sous la pluie."
+    "citation": "La vie, ce n'est pas d'attendre que l'orage passe, c'est d'apprendre à danser sous la pluie.",
+    "citation_en": "Life is not about waiting for the storm to pass, it's about learning to dance in the rain."
   },
   {
     "id": 233,
     "auteur": "Marc Aurèle",
+    "auteur_en": "Marcus Aurelius",
     "date_creation": "0175-01-01",
-    "citation": "Le bonheur de ta vie dépend de la qualité de tes pensées."
+    "citation": "Le bonheur de ta vie dépend de la qualité de tes pensées.",
+    "citation_en": "The happiness of your life depends upon the quality of your thoughts."
   },
   {
     "id": 234,
     "auteur": "Érasme",
+    "auteur_en": "Erasmus",
     "date_creation": "1511-01-01",
-    "citation": "On ne naît pas homme, on le devient."
+    "citation": "On ne naît pas homme, on le devient.",
+    "citation_en": "One is not born a man, one becomes one."
   },
   {
     "id": 235,
     "auteur": "Léonard de Vinci",
+    "auteur_en": "Leonardo da Vinci",
     "date_creation": "1500-01-01",
-    "citation": "La simplicité est la sophistication suprême."
+    "citation": "La simplicité est la sophistication suprême.",
+    "citation_en": "Simplicity is the ultimate sophistication."
   },
   {
     "id": 236,
     "auteur": "Michel de Montaigne",
+    "auteur_en": "Michel de Montaigne",
     "date_creation": "1580-01-01",
-    "citation": "Parce que c'était lui, parce que c'était moi."
+    "citation": "Parce que c'était lui, parce que c'était moi.",
+    "citation_en": "Because it was he, because it was I."
   },
   {
     "id": 237,
     "auteur": "René Descartes",
+    "auteur_en": "René Descartes",
     "date_creation": "1637-01-01",
-    "citation": "Je pense, donc je suis."
+    "citation": "Je pense, donc je suis.",
+    "citation_en": "I think, therefore I am."
   },
   {
     "id": 238,
     "auteur": "Blaise Pascal",
+    "auteur_en": "Blaise Pascal",
     "date_creation": "1670-01-01",
-    "citation": "Le cœur a ses raisons que la raison ignore."
+    "citation": "Le cœur a ses raisons que la raison ignore.",
+    "citation_en": "The heart has its reasons of which reason knows nothing."
   },
   {
     "id": 239,
     "auteur": "Jean de La Bruyère",
+    "auteur_en": "Jean de La Bruyère",
     "date_creation": "1688-01-01",
-    "citation": "La vie est courte, mais les malheurs la rendent longue."
+    "citation": "La vie est courte, mais les malheurs la rendent longue.",
+    "citation_en": "Life is short, but misfortunes make it long."
   },
   {
     "id": 240,
     "auteur": "Voltaire",
+    "auteur_en": "Voltaire",
     "date_creation": "1767-01-01",
-    "citation": "Le doute est un état mental désagréable, mais la certitude est ridicule."
+    "citation": "Le doute est un état mental désagréable, mais la certitude est ridicule.",
+    "citation_en": "Doubt is an unpleasant mental state, but certainty is a ridiculous one."
   },
   {
     "id": 241,
     "auteur": "Denis Diderot",
+    "auteur_en": "Denis Diderot",
     "date_creation": "1763-01-01",
-    "citation": "Il n'y a que le premier pas qui coûte."
+    "citation": "Il n'y a que le premier pas qui coûte.",
+    "citation_en": "It is only the first step that is difficult."
   },
   {
     "id": 242,
     "auteur": "Jean-Jacques Rousseau",
+    "auteur_en": "Jean-Jacques Rousseau",
     "date_creation": "1762-01-01",
-    "citation": "L'homme est né libre, et partout il est dans les fers."
+    "citation": "L'homme est né libre, et partout il est dans les fers.",
+    "citation_en": "Man is born free, and everywhere he is in chains."
   },
   {
     "id": 243,
     "auteur": "Montesquieu",
+    "auteur_en": "Montesquieu",
     "date_creation": "1748-01-01",
-    "citation": "Pour prévenir les abus de pouvoir, il faut que le pouvoir arrête le pouvoir."
+    "citation": "Pour prévenir les abus de pouvoir, il faut que le pouvoir arrête le pouvoir.",
+    "citation_en": "To prevent the abuse of power, it is necessary that by the arrangement of things, power checks power."
   },
   {
     "id": 244,
     "auteur": "Immanuel Kant",
+    "auteur_en": "Immanuel Kant",
     "date_creation": "1784-01-01",
-    "citation": "Ose savoir !"
+    "citation": "Ose savoir !",
+    "citation_en": "Dare to know!"
   },
   {
     "id": 245,
     "auteur": "Benjamin Franklin",
+    "auteur_en": "Benjamin Franklin",
     "date_creation": "1750-01-01",
-    "citation": "Un investissement dans la connaissance paie le meilleur intérêt."
+    "citation": "Un investissement dans la connaissance paie le meilleur intérêt.",
+    "citation_en": "An investment in knowledge pays the best interest."
   },
   {
     "id": 246,
     "auteur": "George Washington",
+    "auteur_en": "George Washington",
     "date_creation": "1780-01-01",
-    "citation": "Il vaut mieux être seul que mal accompagné."
+    "citation": "Il vaut mieux être seul que mal accompagné.",
+    "citation_en": "It is better to be alone than in bad company."
   },
   {
     "id": 247,
     "auteur": "Thomas Jefferson",
+    "auteur_en": "Thomas Jefferson",
     "date_creation": "1820-01-01",
-    "citation": "Je crois beaucoup à la chance, et je constate que plus je travaille, plus elle me sourit."
+    "citation": "Je crois beaucoup à la chance, et je constate que plus je travaille, plus elle me sourit.",
+    "citation_en": "I'm a great believer in luck, and I find the harder I work the more I have of it."
   },
   {
     "id": 248,
     "auteur": "Napoléon Bonaparte",
+    "auteur_en": "Napoleon Bonaparte",
     "date_creation": "1802-01-01",
-    "citation": "La victoire appartient au plus persévérant."
+    "citation": "La victoire appartient au plus persévérant.",
+    "citation_en": "Victory belongs to the most persevering."
   },
   {
     "id": 249,
     "auteur": "Alexander Hamilton",
+    "auteur_en": "Alexander Hamilton",
     "date_creation": "1789-01-01",
-    "citation": "Ceux qui se tiennent pour neutres dans les révolutions méritent la colère de tous."
+    "citation": "Ceux qui se tiennent pour neutres dans les révolutions méritent la colère de tous.",
+    "citation_en": "Those who stand for nothing fall for anything."
   },
   {
     "id": 250,
     "auteur": "Adam Smith",
+    "auteur_en": "Adam Smith",
     "date_creation": "1776-01-01",
-    "citation": "L'opulence du pays doit être mesurée par le revenu et la consommation de ses habitants."
+    "citation": "L'opulence du pays doit être mesurée par le revenu et la consommation de ses habitants.",
+    "citation_en": "The opulence of the country must be measured by the income and consumption of its inhabitants."
   },
   {
     "id": 251,
     "auteur": "Mary Wollstonecraft",
+    "auteur_en": "Mary Wollstonecraft",
     "date_creation": "1792-01-01",
-    "citation": "Je ne souhaite pas que les femmes aient de pouvoir sur les hommes; mais sur elles-mêmes."
+    "citation": "Je ne souhaite pas que les femmes aient de pouvoir sur les hommes; mais sur elles-mêmes.",
+    "citation_en": "I do not wish them [women] to have power over men; but over themselves."
   },
   {
     "id": 252,
     "auteur": "Goethe",
+    "auteur_en": "Goethe",
     "date_creation": "1809-01-01",
-    "citation": "Celui qui ne progresse pas chaque jour recule chaque jour."
+    "citation": "Celui qui ne progresse pas chaque jour recule chaque jour.",
+    "citation_en": "He who does not progress every day, goes backward every day."
   },
   {
     "id": 253,
     "auteur": "Ludwig van Beethoven",
+    "auteur_en": "Ludwig van Beethoven",
     "date_creation": "1810-01-01",
-    "citation": "La musique est la médiatrice entre la vie de l'esprit et des sens."
+    "citation": "La musique est la médiatrice entre la vie de l'esprit et des sens.",
+    "citation_en": "Music is the mediator between the spiritual and the sensual life."
   },
   {
     "id": 254,
     "auteur": "Victor Hugo",
+    "auteur_en": "Victor Hugo",
     "date_creation": "1864-01-01",
-    "citation": "Aimer, c'est agir."
+    "citation": "Aimer, c'est agir.",
+    "citation_en": "To love is to act."
   },
   {
     "id": 255,
     "auteur": "Charles Dickens",
+    "auteur_en": "Charles Dickens",
     "date_creation": "1860-01-01",
-    "citation": "Il n'y a rien de si fort ou de si sûr que la douceur."
+    "citation": "Il n'y a rien de si fort ou de si sûr que la douceur.",
+    "citation_en": "There is nothing so strong or safe as gentleness."
   },
   {
     "id": 256,
     "auteur": "Abraham Lincoln",
+    "auteur_en": "Abraham Lincoln",
     "date_creation": "1861-01-01",
-    "citation": "Le caractère est comme un arbre et la réputation comme son ombre."
+    "citation": "Le caractère est comme un arbre et la réputation comme son ombre.",
+    "citation_en": "Character is like a tree and reputation like its shadow."
   },
   {
     "id": 257,
     "auteur": "Otto von Bismarck",
+    "auteur_en": "Otto von Bismarck",
     "date_creation": "1867-01-01",
-    "citation": "La politique est l'art du possible."
+    "citation": "La politique est l'art du possible.",
+    "citation_en": "Politics is the art of the possible."
   },
   {
     "id": 258,
     "auteur": "Claude Monet",
+    "auteur_en": "Claude Monet",
     "date_creation": "1890-01-01",
-    "citation": "Je veux peindre l'air dans lequel se trouve le pont, la maison, le bateau."
+    "citation": "Je veux peindre l'air dans lequel se trouve le pont, la maison, le bateau.",
+    "citation_en": "I want to paint the air in which the bridge, the house, the boat are."
   },
   {
     "id": 259,
     "auteur": "Émile Zola",
+    "auteur_en": "Émile Zola",
     "date_creation": "1898-01-01",
-    "citation": "La vérité est en marche et rien ne l'arrêtera."
+    "citation": "La vérité est en marche et rien ne l'arrêtera.",
+    "citation_en": "The truth is on the march and nothing will stop it."
   },
   {
     "id": 193,
     "auteur": "Charles de Gaulle",
+    "auteur_en": "Charles de Gaulle",
     "date_creation": null,
-    "citation": "La guerre, c'est comme la chasse, sauf qu'à la guerre les lapins tirent."
+    "citation": "La guerre, c'est comme la chasse, sauf qu'à la guerre les lapins tirent.",
+    "citation_en": "War is like hunting, except that in war the rabbits shoot."
   },
   {
     "id": 260,
     "auteur": "Alfred Nobel",
+    "auteur_en": "Alfred Nobel",
     "date_creation": "1895-01-01",
-    "citation": "Le bonheur est d'être utile aux autres."
+    "citation": "Le bonheur est d'être utile aux autres.",
+    "citation_en": "Happiness is to be useful to others."
   },
   {
     "id": 261,
     "auteur": "Nikola Tesla",
+    "auteur_en": "Nikola Tesla",
     "date_creation": "1900-01-01",
-    "citation": "Le présent est à eux; l'avenir, pour lequel j'ai vraiment travaillé, est à moi."
+    "citation": "Le présent est à eux; l'avenir, pour lequel j'ai vraiment travaillé, est à moi.",
+    "citation_en": "The present is theirs; the future, for which I have really worked, is mine."
   },
   {
     "id": 262,
     "auteur": "Sigmund Freud",
+    "auteur_en": "Sigmund Freud",
     "date_creation": "1905-01-01",
-    "citation": "Être totalement honnête avec soi-même est un bon exercice."
+    "citation": "Être totalement honnête avec soi-même est un bon exercice.",
+    "citation_en": "Being entirely honest with oneself is a good exercise."
   },
   {
     "id": 263,
     "auteur": "Florence Nightingale",
+    "auteur_en": "Florence Nightingale",
     "date_creation": "1863-01-01",
-    "citation": "La première exigence d'un hôpital est de ne pas nuire aux patients."
+    "citation": "La première exigence d'un hôpital est de ne pas nuire aux patients.",
+    "citation_en": "The very first requirement in a hospital is that it should do the sick no harm."
   },
   {
     "id": 264,
     "auteur": "Clara Barton",
+    "auteur_en": "Clara Barton",
     "date_creation": "1870-01-01",
-    "citation": "Je n'ai jamais eu peur, ce n'est pas dans ma nature."
+    "citation": "Je n'ai jamais eu peur, ce n'est pas dans ma nature.",
+    "citation_en": "I have never been afraid, it is not in my nature."
   },
   {
     "id": 265,
     "auteur": "Coco Chanel",
+    "auteur_en": "Coco Chanel",
     "date_creation": "1925-01-01",
-    "citation": "La simplicité est la clé de toute véritable élégance."
+    "citation": "La simplicité est la clé de toute véritable élégance.",
+    "citation_en": "Simplicity is the keynote of all true elegance."
   },
   {
     "id": 266,
     "auteur": "Amelia Earhart",
+    "auteur_en": "Amelia Earhart",
     "date_creation": "1935-01-01",
-    "citation": "Le plus difficile est de décider d'agir, le reste n'est que ténacité."
+    "citation": "Le plus difficile est de décider d'agir, le reste n'est que ténacité.",
+    "citation_en": "The most difficult thing is the decision to act, the rest is merely tenacity."
   },
   {
     "id": 267,
     "auteur": "Charles de Gaulle",
+    "auteur_en": "Charles de Gaulle",
     "date_creation": "1941-01-01",
-    "citation": "La difficulté attire l'homme de caractère, car c'est en l'étreignant qu'il se réalise lui-même."
+    "citation": "La difficulté attire l'homme de caractère, car c'est en l'étreignant qu'il se réalise lui-même.",
+    "citation_en": "Difficulty attracts the man of character, for it is in embracing it that he realizes himself."
   },
   {
     "id": 268,
     "auteur": "George Orwell",
+    "auteur_en": "George Orwell",
     "date_creation": "1948-01-01",
-    "citation": "En ces temps d'imposture universelle, dire la vérité devient un acte révolutionnaire."
+    "citation": "En ces temps d'imposture universelle, dire la vérité devient un acte révolutionnaire.",
+    "citation_en": "In a time of universal deceit, telling the truth is a revolutionary act."
   },
   {
     "id": 269,
     "auteur": "Ernest Hemingway",
+    "auteur_en": "Ernest Hemingway",
     "date_creation": "1940-01-01",
-    "citation": "Le monde brise chacun et, après, beaucoup sont forts aux endroits brisés."
+    "citation": "Le monde brise chacun et, après, beaucoup sont forts aux endroits brisés.",
+    "citation_en": "The world breaks everyone and afterward many are strong at the broken places."
   },
   {
     "id": 270,
     "auteur": "Albert Schweitzer",
+    "auteur_en": "Albert Schweitzer",
     "date_creation": "1952-01-01",
-    "citation": "Le succès n'est pas la clé du bonheur. Le bonheur est la clé du succès."
+    "citation": "Le succès n'est pas la clé du bonheur. Le bonheur est la clé du succès.",
+    "citation_en": "Success is not the key to happiness. Happiness is the key to success."
   },
   {
     "id": 271,
     "auteur": "Dwight D. Eisenhower",
+    "auteur_en": "Dwight D. Eisenhower",
     "date_creation": "1957-01-01",
-    "citation": "Les plans sont inutiles, mais la planification est essentielle."
+    "citation": "Les plans sont inutiles, mais la planification est essentielle.",
+    "citation_en": "Plans are worthless, but planning is everything."
   },
   {
     "id": 272,
     "auteur": "Rosa Parks",
+    "auteur_en": "Rosa Parks",
     "date_creation": "1955-12-01",
-    "citation": "J'ai appris au fil des ans que lorsque la tête est décidée, cela diminue la peur."
+    "citation": "J'ai appris au fil des ans que lorsque la tête est décidée, cela diminue la peur.",
+    "citation_en": "I have learned over the years that when one's mind is made up, this diminishes fear."
   },
   {
     "id": 273,
     "auteur": "Malcolm X",
+    "auteur_en": "Malcolm X",
     "date_creation": "1964-01-01",
-    "citation": "L'éducation est le passeport pour l'avenir, car demain appartient à ceux qui s'y préparent aujourd'hui."
+    "citation": "L'éducation est le passeport pour l'avenir, car demain appartient à ceux qui s'y préparent aujourd'hui.",
+    "citation_en": "Education is the passport to the future, for tomorrow belongs to those who prepare for it today."
   },
   {
     "id": 274,
     "auteur": "Che Guevara",
+    "auteur_en": "Che Guevara",
     "date_creation": "1964-07-01",
-    "citation": "Soyez réalistes, demandez l'impossible."
+    "citation": "Soyez réalistes, demandez l'impossible.",
+    "citation_en": "Be realistic, demand the impossible."
   },
   {
     "id": 275,
     "auteur": "John Lennon",
+    "auteur_en": "John Lennon",
     "date_creation": "1980-01-01",
-    "citation": "La vie, c'est ce qui arrive quand on est occupé à faire d'autres projets."
+    "citation": "La vie, c'est ce qui arrive quand on est occupé à faire d'autres projets.",
+    "citation_en": "Life is what happens when you're busy making other plans."
   },
   {
     "id": 276,
     "auteur": "Bob Marley",
+    "auteur_en": "Bob Marley",
     "date_creation": "1979-01-01",
-    "citation": "Tu ne sais jamais à quel point tu es fort jusqu'au jour où être fort reste ta seule option."
+    "citation": "Tu ne sais jamais à quel point tu es fort jusqu'au jour où être fort reste ta seule option.",
+    "citation_en": "You never know how strong you are until being strong is your only choice."
   },
   {
     "id": 277,
     "auteur": "Margaret Thatcher",
+    "auteur_en": "Margaret Thatcher",
     "date_creation": "1982-01-01",
-    "citation": "Être puissant, c'est comme être une dame : si vous devez dire que vous l'êtes, c'est que vous ne l'êtes pas."
+    "citation": "Être puissant, c'est comme être une dame : si vous devez dire que vous l'êtes, c'est que vous ne l'êtes pas.",
+    "citation_en": "Being powerful is like being a lady. If you have to tell people you are, you aren't."
   },
   {
     "id": 278,
     "auteur": "Ronald Reagan",
+    "auteur_en": "Ronald Reagan",
     "date_creation": "1964-01-01",
-    "citation": "La liberté n'est jamais à plus d'une génération de l'extinction."
+    "citation": "La liberté n'est jamais à plus d'une génération de l'extinction.",
+    "citation_en": "Freedom is never more than one generation away from extinction."
   },
   {
     "id": 279,
     "auteur": "Václav Havel",
+    "auteur_en": "Václav Havel",
     "date_creation": "1990-01-01",
-    "citation": "Espérer, c'est risquer la déception. Mais sans espoir, la vie n'a pas de sens."
+    "citation": "Espérer, c'est risquer la déception. Mais sans espoir, la vie n'a pas de sens.",
+    "citation_en": "To hope is to risk disappointment. But without hope, life has no meaning."
   },
   {
     "id": 280,
     "auteur": "Desmond Tutu",
+    "auteur_en": "Desmond Tutu",
     "date_creation": "1995-01-01",
-    "citation": "Fais bien en tout temps, même si personne ne regarde."
+    "citation": "Fais bien en tout temps, même si personne ne regarde.",
+    "citation_en": "Do good at all times, even if no one is looking."
   },
   {
     "id": 281,
     "auteur": "Aung San Suu Kyi",
+    "auteur_en": "Aung San Suu Kyi",
     "date_creation": "1998-01-01",
-    "citation": "La liberté commence là où finit la peur."
+    "citation": "La liberté commence là où finit la peur.",
+    "citation_en": "Freedom begins where fear ends."
   },
   {
     "id": 282,
     "auteur": "Gabriel García Márquez",
+    "auteur_en": "Gabriel García Márquez",
     "date_creation": "1985-01-01",
-    "citation": "La vie ce n'est pas ce que l'on a vécu, mais ce dont on se souvient et comment on s'en souvient."
+    "citation": "La vie ce n'est pas ce que l'on a vécu, mais ce dont on se souvient et comment on s'en souvient.",
+    "citation_en": "Life is not what one lived, but what one remembers and how one remembers it."
   },
   {
     "id": 283,
     "auteur": "Julio Cortázar",
+    "auteur_en": "Julio Cortázar",
     "date_creation": "1963-01-01",
-    "citation": "Chaque fois que j'aime, j'aime pour la première fois."
+    "citation": "Chaque fois que j'aime, j'aime pour la première fois.",
+    "citation_en": "Every time I love, I love for the first time."
   },
   {
     "id": 284,
     "auteur": "Pablo Neruda",
+    "auteur_en": "Pablo Neruda",
     "date_creation": "1950-01-01",
-    "citation": "Il est interdit de ne pas sourire aux problèmes."
+    "citation": "Il est interdit de ne pas sourire aux problèmes.",
+    "citation_en": "It is forbidden not to smile at problems."
   },
   {
     "id": 285,
     "auteur": "Jorge Luis Borges",
+    "auteur_en": "Jorge Luis Borges",
     "date_creation": "1960-01-01",
-    "citation": "La littérature n'est pas innocente."
+    "citation": "La littérature n'est pas innocente.",
+    "citation_en": "Literature is not innocent."
   },
   {
     "id": 286,
     "auteur": "Simone Veil",
+    "auteur_en": "Simone Veil",
     "date_creation": "1974-01-01",
-    "citation": "La politique doit être le lien entre les hommes."
+    "citation": "La politique doit être le lien entre les hommes.",
+    "citation_en": "Politics must be the link between men."
   },
   {
     "id": 287,
     "auteur": "Jean Monnet",
+    "auteur_en": "Jean Monnet",
     "date_creation": "1952-01-01",
-    "citation": "Rien n'est possible sans les hommes, rien n'est durable sans les institutions."
+    "citation": "Rien n'est possible sans les hommes, rien n'est durable sans les institutions.",
+    "citation_en": "Nothing is possible without men, nothing is durable without institutions."
   },
   {
     "id": 288,
     "auteur": "Alan Turing",
+    "auteur_en": "Alan Turing",
     "date_creation": "1950-01-01",
-    "citation": "Nous ne pouvons voir qu'un peu du futur, mais assez pour réaliser qu'il y a beaucoup à faire."
+    "citation": "Nous ne pouvons voir qu'un peu du futur, mais assez pour réaliser qu'il y a beaucoup à faire.",
+    "citation_en": "We can only see a short distance ahead, but we can see plenty there that needs to be done."
   },
   {
     "id": 289,
     "auteur": "Grace Hopper",
+    "auteur_en": "Grace Hopper",
     "date_creation": "1966-01-01",
-    "citation": "Il est plus facile de demander pardon que la permission."
+    "citation": "Il est plus facile de demander pardon que la permission.",
+    "citation_en": "It's easier to ask forgiveness than it is to get permission."
   },
   {
     "id": 290,
     "auteur": "Ada Lovelace",
+    "auteur_en": "Ada Lovelace",
     "date_creation": "1843-01-01",
-    "citation": "L'imagination est la faculté de découvrir."
+    "citation": "L'imagination est la faculté de découvrir.",
+    "citation_en": "Imagination is the faculty of discovery."
   },
   {
     "id": 291,
     "auteur": "Rosalind Franklin",
+    "auteur_en": "Rosalind Franklin",
     "date_creation": "1952-01-01",
-    "citation": "La science et la vie ne peuvent pas et ne doivent pas être séparées."
+    "citation": "La science et la vie ne peuvent pas et ne doivent pas être séparées.",
+    "citation_en": "Science and everyday life cannot and should not be separated."
   },
   {
     "id": 292,
     "auteur": "Carl Sagan",
+    "auteur_en": "Carl Sagan",
     "date_creation": "1973-01-01",
-    "citation": "Nous sommes faits de poussière d'étoiles."
+    "citation": "Nous sommes faits de poussière d'étoiles.",
+    "citation_en": "We are made of star-stuff."
   },
   {
     "id": 293,
     "auteur": "Richard Feynman",
+    "auteur_en": "Richard Feynman",
     "date_creation": "1965-01-01",
-    "citation": "La nature ne peut être trompée."
+    "citation": "La nature ne peut être trompée.",
+    "citation_en": "Nature cannot be fooled."
   },
   {
     "id": 294,
     "auteur": "Neil deGrasse Tyson",
+    "auteur_en": "Neil deGrasse Tyson",
     "date_creation": "2009-01-01",
-    "citation": "Nous sommes l'univers contemplant lui-même."
+    "citation": "Nous sommes l'univers contemplant lui-même.",
+    "citation_en": "We are the universe contemplating itself."
   },
   {
     "id": 295,
     "auteur": "Elon Musk",
+    "auteur_en": "Elon Musk",
     "date_creation": "2014-01-01",
-    "citation": "L'échec est une option ici. Si les choses n'échouent pas, vous n'innovez pas assez."
+    "citation": "L'échec est une option ici. Si les choses n'échouent pas, vous n'innovez pas assez.",
+    "citation_en": "Failure is an option here. If things are not failing, you are not innovating enough."
   },
   {
     "id": 296,
     "auteur": "Jeff Bezos",
+    "auteur_en": "Jeff Bezos",
     "date_creation": "1998-01-01",
-    "citation": "Notre vision est de devenir l'entreprise la plus centrée client de la Terre."
+    "citation": "Notre vision est de devenir l'entreprise la plus centrée client de la Terre.",
+    "citation_en": "Our vision is to be earth's most customer-centric company."
   },
   {
     "id": 297,
     "auteur": "Bill Gates",
+    "auteur_en": "Bill Gates",
     "date_creation": "1997-01-01",
-    "citation": "La patience est un élément clé de la réussite."
+    "citation": "La patience est un élément clé de la réussite.",
+    "citation_en": "Patience is a key element of success."
   },
   {
     "id": 298,
     "auteur": "Satya Nadella",
+    "auteur_en": "Satya Nadella",
     "date_creation": "2015-01-01",
-    "citation": "Nos industries ne respectent plus les silos."
+    "citation": "Nos industries ne respectent plus les silos.",
+    "citation_en": "Our industries no longer respect silos."
   },
   {
     "id": 299,
     "auteur": "Charles Darwin",
+    "auteur_en": "Charles Darwin",
     "date_creation": "1859-11-24",
-    "citation": "Ce n'est pas la plus forte des espèces qui survit, ni la plus intelligente, mais celle qui s'adapte le mieux au changement."
+    "citation": "Ce n'est pas la plus forte des espèces qui survit, ni la plus intelligente, mais celle qui s'adapte le mieux au changement.",
+    "citation_en": "It is not the strongest of the species that survives, nor the most intelligent that survives. It is the one that is most adaptable to change."
   },
   {
     "id": 300,
     "auteur": "Michael Faraday",
+    "auteur_en": "Michael Faraday",
     "date_creation": "1853-01-01",
-    "citation": "Rien n'est trop merveilleux pour être vrai."
+    "citation": "Rien n'est trop merveilleux pour être vrai.",
+    "citation_en": "Nothing is too wonderful to be true."
   },
   {
     "id": 301,
     "auteur": "James Clerk Maxwell",
+    "auteur_en": "James Clerk Maxwell",
     "date_creation": "1865-01-01",
-    "citation": "Toutes les lois de l'électromagnétisme, j'avais presque peur de les toucher."
+    "citation": "Toutes les lois de l'électromagnétisme, j'avais presque peur de les toucher.",
+    "citation_en": "All the laws of electromagnetism, I was almost afraid to touch them."
   },
   {
     "id": 302,
     "auteur": "Niels Bohr",
+    "auteur_en": "Niels Bohr",
     "date_creation": "1922-01-01",
-    "citation": "Prédire est difficile, surtout l'avenir."
+    "citation": "Prédire est difficile, surtout l'avenir.",
+    "citation_en": "Prediction is very difficult, especially about the future."
   },
   {
     "id": 303,
     "auteur": "Werner Heisenberg",
+    "auteur_en": "Werner Heisenberg",
     "date_creation": "1958-01-01",
-    "citation": "Ce que nous observons n'est pas la nature en soi, mais la nature exposée à notre méthode de questionnement."
+    "citation": "Ce que nous observons n'est pas la nature en soi, mais la nature exposée à notre méthode de questionnement.",
+    "citation_en": "What we observe is not nature itself, but nature exposed to our method of questioning."
   },
   {
     "id": 304,
     "auteur": "Rachel Carson",
+    "auteur_en": "Rachel Carson",
     "date_creation": "1962-06-01",
-    "citation": "Nous sommes responsables de ce que nous faisons à la nature."
+    "citation": "Nous sommes responsables de ce que nous faisons à la nature.",
+    "citation_en": "We are responsible for what we do to nature."
   },
   {
     "id": 305,
     "auteur": "Jane Goodall",
+    "auteur_en": "Jane Goodall",
     "date_creation": "1990-01-01",
-    "citation": "Ce que vous faites fait une différence, et vous devez décider quel genre de différence vous voulez faire."
+    "citation": "Ce que vous faites fait une différence, et vous devez décider quel genre de différence vous voulez faire.",
+    "citation_en": "What you do makes a difference, and you have to decide what kind of difference you want to make."
   },
   {
     "id": 306,
     "auteur": "Jacques Cousteau",
+    "auteur_en": "Jacques Cousteau",
     "date_creation": "1973-01-01",
-    "citation": "Le bonheur est de comprendre et de s'émerveiller."
+    "citation": "Le bonheur est de comprendre et de s'émerveiller.",
+    "citation_en": "Happiness is to understand and to marvel."
   },
   {
     "id": 307,
     "auteur": "Youri Gagarine",
+    "auteur_en": "Yuri Gagarin",
     "date_creation": "1961-04-12",
-    "citation": "Je vois la Terre, elle est bleue."
+    "citation": "Je vois la Terre, elle est bleue.",
+    "citation_en": "I see the Earth, it is blue."
   },
   {
     "id": 308,
     "auteur": "Valentina Terechkova",
+    "auteur_en": "Valentina Tereshkova",
     "date_creation": "1963-06-16",
-    "citation": "Je suis fière d'avoir ouvert la route dans l'espace."
+    "citation": "Je suis fière d'avoir ouvert la route dans l'espace.",
+    "citation_en": "I am proud to have opened the way into space."
   },
   {
     "id": 309,
     "auteur": "Buzz Aldrin",
+    "auteur_en": "Buzz Aldrin",
     "date_creation": "1969-07-21",
-    "citation": "Magnifique désolation."
+    "citation": "Magnifique désolation.",
+    "citation_en": "Magnificent desolation."
   },
   {
     "id": 310,
     "auteur": "Sally Ride",
+    "auteur_en": "Sally Ride",
     "date_creation": "1983-06-18",
-    "citation": "Si tu ne peux pas le voir, tu ne peux pas être."
+    "citation": "Si tu ne peux pas le voir, tu ne peux pas être.",
+    "citation_en": "If you can't see it, you can't be it."
   },
   {
     "id": 311,
     "auteur": "Lech Wałęsa",
+    "auteur_en": "Lech Wałęsa",
     "date_creation": "1983-10-05",
-    "citation": "La liberté ne se donne pas, elle se prend."
+    "citation": "La liberté ne se donne pas, elle se prend.",
+    "citation_en": "Freedom is not given, it is taken."
   },
   {
     "id": 312,
     "auteur": "José Martí",
+    "auteur_en": "José Martí",
     "date_creation": "1895-01-01",
-    "citation": "La liberté coûte très cher et il faut soit se résigner à vivre sans elle, soit décider de l'acheter pour son prix."
+    "citation": "La liberté coûte très cher et il faut soit se résigner à vivre sans elle, soit décider de l'acheter pour son prix.",
+    "citation_en": "Freedom is very expensive and one must either resign oneself to living without it or decide to buy it for its price."
   },
   {
     "id": 313,
     "auteur": "Emiliano Zapata",
+    "auteur_en": "Emiliano Zapata",
     "date_creation": "1914-01-01",
-    "citation": "Mieux vaut mourir debout que vivre à genoux."
+    "citation": "Mieux vaut mourir debout que vivre à genoux.",
+    "citation_en": "It is better to die on your feet than to live on your knees."
   },
   {
     "id": 314,
     "auteur": "Patrice Lumumba",
+    "auteur_en": "Patrice Lumumba",
     "date_creation": "1960-01-01",
-    "citation": "Nous ne sommes ni des sorciers ni des fous, mais des hommes comme vous."
+    "citation": "Nous ne sommes ni des sorciers ni des fous, mais des hommes comme vous.",
+    "citation_en": "We are neither sorcerers nor madmen, but men like you."
   },
   {
     "id": 315,
     "auteur": "Thomas Sankara",
+    "auteur_en": "Thomas Sankara",
     "date_creation": "1984-10-02",
-    "citation": "On ne peut pas libérer un pays si on n'aime pas son peuple."
+    "citation": "On ne peut pas libérer un pays si on n'aime pas son peuple.",
+    "citation_en": "You cannot liberate a country if you do not love its people."
   },
   {
     "id": 316,
     "auteur": "Julius Nyerere",
+    "auteur_en": "Julius Nyerere",
     "date_creation": "1961-12-09",
-    "citation": "Sans éducation, pas de développement."
+    "citation": "Sans éducation, pas de développement.",
+    "citation_en": "Without education, no development."
   },
   {
     "id": 317,
     "auteur": "Kwame Nkrumah",
+    "auteur_en": "Kwame Nkrumah",
     "date_creation": "1957-03-06",
-    "citation": "L'indépendance à tout prix."
+    "citation": "L'indépendance à tout prix.",
+    "citation_en": "Independence at all costs."
   },
   {
     "id": 318,
     "auteur": "Haïlé Sélassié",
+    "auteur_en": "Haile Selassie",
     "date_creation": "1963-10-04",
-    "citation": "Au fil des siècles, la vérité finit toujours par l'emporter."
+    "citation": "Au fil des siècles, la vérité finit toujours par l'emporter.",
+    "citation_en": "Throughout history, it has been the inaction of those who could have acted; the indifference of those who should have known better; the silence of the voice of justice when it mattered most; that has made it possible for evil to triumph."
   },
   {
     "id": 319,
     "auteur": "Golda Meir",
+    "auteur_en": "Golda Meir",
     "date_creation": "1969-01-01",
-    "citation": "Ne soyez pas si modeste, vous n'êtes pas si grand."
+    "citation": "Ne soyez pas si modeste, vous n'êtes pas si grand.",
+    "citation_en": "Don't be so humble, you're not that great."
   },
   {
     "id": 320,
     "auteur": "Indira Gandhi",
+    "auteur_en": "Indira Gandhi",
     "date_creation": "1968-01-01",
-    "citation": "Vous ne pouvez pas secouer des mains avec des poings fermés."
+    "citation": "Vous ne pouvez pas secouer des mains avec des poings fermés.",
+    "citation_en": "You can't shake hands with a clenched fist."
   },
   {
     "id": 321,
     "auteur": "Angela Merkel",
+    "auteur_en": "Angela Merkel",
     "date_creation": "2015-09-05",
-    "citation": "Nous y arriverons."
+    "citation": "Nous y arriverons.",
+    "citation_en": "We can do it."
   },
   {
     "id": 322,
     "auteur": "Emmanuel Macron",
+    "auteur_en": "Emmanuel Macron",
     "date_creation": "2017-06-01",
-    "citation": "Rendons à notre planète sa grandeur."
+    "citation": "Rendons à notre planète sa grandeur.",
+    "citation_en": "Make our planet great again."
   },
   {
     "id": 323,
     "auteur": "Greta Thunberg",
+    "auteur_en": "Greta Thunberg",
     "date_creation": "2019-01-01",
-    "citation": "Je veux que vous paniquiez; je veux que vous agissiez."
+    "citation": "Je veux que vous paniquiez; je veux que vous agissiez.",
+    "citation_en": "I want you to panic; I want you to act."
   },
   {
     "id": 324,
     "auteur": "Malala Yousafzai",
+    "auteur_en": "Malala Yousafzai",
     "date_creation": "2013-07-12",
-    "citation": "Je lève ma voix, non pour crier, mais pour que ceux sans voix puissent être entendus."
+    "citation": "Je lève ma voix, non pour crier, mais pour que ceux sans voix puissent être entendus.",
+    "citation_en": "I raise up my voice—not so that I can shout, but so that those without a voice can be heard."
   },
   {
     "id": 325,
     "auteur": "Jacinda Ardern",
+    "auteur_en": "Jacinda Ardern",
     "date_creation": "2019-03-15",
-    "citation": "Soyez forts, soyez gentils."
+    "citation": "Soyez forts, soyez gentils.",
+    "citation_en": "Be strong, be kind."
   },
   {
     "id": 326,
     "auteur": "Barack Obama",
+    "auteur_en": "Barack Obama",
     "date_creation": "2008-11-04",
-    "citation": "L'espoir est cette chose entêtée à l'intérieur de nous."
+    "citation": "L'espoir est cette chose entêtée à l'intérieur de nous.",
+    "citation_en": "Hope is that stubborn thing inside us."
   },
   {
     "id": 327,
     "auteur": "Joe Biden",
+    "auteur_en": "Joe Biden",
     "date_creation": "2021-01-20",
-    "citation": "Nous menons non par l'exemple de notre pouvoir, mais par le pouvoir de notre exemple."
+    "citation": "Nous menons non par l'exemple de notre pouvoir, mais par le pouvoir de notre exemple.",
+    "citation_en": "We will lead not merely by the example of our power but by the power of our example."
   },
   {
     "id": 328,
     "auteur": "Volodymyr Zelensky",
+    "auteur_en": "Volodymyr Zelenskyy",
     "date_creation": "2022-02-25",
-    "citation": "Je n'ai pas besoin d'un taxi, j'ai besoin de munitions."
+    "citation": "Je n'ai pas besoin d'un taxi, j'ai besoin de munitions.",
+    "citation_en": "I don't need a ride, I need ammunition."
   },
   {
     "id": 329,
     "auteur": "Mark Zuckerberg",
+    "auteur_en": "Mark Zuckerberg",
     "date_creation": "2011-10-01",
-    "citation": "Le plus grand risque est de ne prendre aucun risque."
+    "citation": "Le plus grand risque est de ne prendre aucun risque.",
+    "citation_en": "The biggest risk is not taking any risk."
   },
   {
     "id": 330,
     "auteur": "Tim Berners-Lee",
+    "auteur_en": "Tim Berners-Lee",
     "date_creation": "1997-01-01",
-    "citation": "Le pouvoir du Web réside dans son universalité."
+    "citation": "Le pouvoir du Web réside dans son universalité.",
+    "citation_en": "The power of the Web is in its universality."
   },
   {
     "id": 331,
     "auteur": "Linus Torvalds",
+    "auteur_en": "Linus Torvalds",
     "date_creation": "2000-01-01",
-    "citation": "Parler est bon, mais le code décide."
+    "citation": "Parler est bon, mais le code décide.",
+    "citation_en": "Talk is cheap. Show me the code."
   },
   {
     "id": 332,
     "auteur": "Larry Page",
+    "auteur_en": "Larry Page",
     "date_creation": "2005-01-01",
-    "citation": "Toujours fournir plus que ce que les gens attendent."
+    "citation": "Toujours fournir plus que ce que les gens attendent.",
+    "citation_en": "Always deliver more than expected."
   },
   {
     "id": 333,
     "auteur": "Steve Wozniak",
+    "auteur_en": "Steve Wozniak",
     "date_creation": "1985-01-01",
-    "citation": "Si vous aimez ce que vous faites, il n'y a pas de pression."
+    "citation": "Si vous aimez ce que vous faites, il n'y a pas de pression.",
+    "citation_en": "If you love what you do, there's no pressure."
   },
   {
     "id": 334,
     "auteur": "Sheryl Sandberg",
+    "auteur_en": "Sheryl Sandberg",
     "date_creation": "2013-04-09",
-    "citation": "Ce qui ferait la plus grande différence, c'est plus de femmes dirigeantes."
+    "citation": "Ce qui ferait la plus grande différence, c'est plus de femmes dirigeantes.",
+    "citation_en": "What would make the biggest difference is more women leaders."
   },
   {
     "id": 335,
     "auteur": "Sundar Pichai",
+    "auteur_en": "Sundar Pichai",
     "date_creation": "2016-01-01",
-    "citation": "La technologie doit améliorer la vie de chacun, pas seulement de quelques-uns."
+    "citation": "La technologie doit améliorer la vie de chacun, pas seulement de quelques-uns.",
+    "citation_en": "Technology should improve life for everyone, not just a few."
   },
   {
     "id": 336,
     "auteur": "Oprah Winfrey",
+    "auteur_en": "Oprah Winfrey",
     "date_creation": "2000-01-01",
-    "citation": "Transformez vos blessures en sagesse."
+    "citation": "Transformez vos blessures en sagesse.",
+    "citation_en": "Turn your wounds into wisdom."
   },
   {
     "id": 337,
     "auteur": "Chinua Achebe",
+    "auteur_en": "Chinua Achebe",
     "date_creation": "1987-01-01",
-    "citation": "Les histoires sont notre façon de nous sauver."
+    "citation": "Les histoires sont notre façon de nous sauver.",
+    "citation_en": "Stories are our way of saving ourselves."
   },
   {
     "id": 338,
     "auteur": "Wangari Maathai",
+    "auteur_en": "Wangari Maathai",
     "date_creation": "2004-12-10",
-    "citation": "Il est la responsabilité de chacun de faire de petites actions pour améliorer le monde."
+    "citation": "Il est la responsabilité de chacun de faire de petites actions pour améliorer le monde.",
+    "citation_en": "It is the responsibility of each of us to take small actions to improve the world."
   },
   {
     "id": 339,
     "auteur": "Katherine Johnson",
+    "auteur_en": "Katherine Johnson",
     "date_creation": "1969-07-01",
-    "citation": "Nous sommes tous liés les uns aux autres, et c'est la science qui nous unit."
+    "citation": "Nous sommes tous liés les uns aux autres, et c'est la science qui nous unit.",
+    "citation_en": "We are all connected to each other, and it is science that unites us."
   },
   {
     "id": 340,
     "auteur": "Mae Jemison",
+    "auteur_en": "Mae Jemison",
     "date_creation": "1992-09-12",
-    "citation": "N'accepte jamais les limites des autres."
+    "citation": "N'accepte jamais les limites des autres.",
+    "citation_en": "Never accept the limits of others."
   },
   {
     "id": 341,
     "auteur": "Muhammad Yunus",
+    "auteur_en": "Muhammad Yunus",
     "date_creation": "2006-12-10",
-    "citation": "Créer un monde sans pauvreté est un rêve possible."
+    "citation": "Créer un monde sans pauvreté est un rêve possible.",
+    "citation_en": "Creating a world without poverty is a possible dream."
   },
   {
     "id": 342,
     "auteur": "Ban Ki-moon",
+    "auteur_en": "Ban Ki-moon",
     "date_creation": "2012-01-01",
-    "citation": "Nous avons une obligation morale d'agir contre le changement climatique."
+    "citation": "Nous avons une obligation morale d'agir contre le changement climatique.",
+    "citation_en": "We have a moral obligation to act against climate change."
   },
   {
     "id": 343,
     "auteur": "Kofi Annan",
+    "auteur_en": "Kofi Annan",
     "date_creation": "1997-01-01",
-    "citation": "La connaissance est pouvoir. L'information est libératrice."
+    "citation": "La connaissance est pouvoir. L'information est libératrice.",
+    "citation_en": "Knowledge is power. Information is liberating."
   },
   {
     "id": 344,
     "auteur": "Sun Tzu",
+    "auteur_en": "Sun Tzu",
     "date_creation": null,
-    "citation": "La suprême art de la guerre est de soumettre l'ennemi sans combat."
+    "citation": "La suprême art de la guerre est de soumettre l'ennemi sans combat.",
+    "citation_en": "The supreme art of war is to subdue the enemy without fighting."
   },
   {
     "id": 345,
     "auteur": "Fernand de Magellan",
+    "auteur_en": "Ferdinand Magellan",
     "date_creation": "1520-01-01",
-    "citation": "Le courage n'est pas l'absence de peur, mais la conquête de la peur."
+    "citation": "Le courage n'est pas l'absence de peur, mais la conquête de la peur.",
+    "citation_en": "Courage is not the absence of fear, but the conquest of fear."
   },
   {
     "id": 346,
     "auteur": "Marco Polo",
+    "auteur_en": "Marco Polo",
     "date_creation": "1300-01-01",
-    "citation": "Je n'ai pas écrit la moitié de ce que j'ai vu."
+    "citation": "Je n'ai pas écrit la moitié de ce que j'ai vu.",
+    "citation_en": "I have not told half of what I saw."
   },
   {
     "id": 347,
     "auteur": "Harriet Tubman",
+    "auteur_en": "Harriet Tubman",
     "date_creation": "1865-01-01",
-    "citation": "J'ai sauvé mille esclaves. J'aurais pu en sauver mille de plus s'ils avaient su qu'ils étaient esclaves."
+    "citation": "J'ai sauvé mille esclaves. J'aurais pu en sauver mille de plus s'ils avaient su qu'ils étaient esclaves.",
+    "citation_en": "I freed a thousand slaves. I could have freed a thousand more if only they knew they were slaves."
   },
   {
     "id": 348,
     "auteur": "Frederick Douglass",
+    "auteur_en": "Frederick Douglass",
     "date_creation": "1857-01-01",
-    "citation": "Sans lutte, il n'y a pas de progrès."
+    "citation": "Sans lutte, il n'y a pas de progrès.",
+    "citation_en": "If there is no struggle, there is no progress."
   },
   {
     "id": 349,
     "auteur": "Susan B. Anthony",
+    "auteur_en": "Susan B. Anthony",
     "date_creation": "1900-01-01",
-    "citation": "L'échec est impossible."
+    "citation": "L'échec est impossible.",
+    "citation_en": "Failure is impossible."
   },
   {
     "id": 350,
     "auteur": "Emmeline Pankhurst",
+    "auteur_en": "Emmeline Pankhurst",
     "date_creation": "1913-01-01",
-    "citation": "Nous avons besoin d'actes, pas de mots."
+    "citation": "Nous avons besoin d'actes, pas de mots.",
+    "citation_en": "We need deeds, not words."
   },
   {
     "id": 351,
     "auteur": "Sojourner Truth",
+    "auteur_en": "Sojourner Truth",
     "date_creation": "1851-05-29",
-    "citation": "Ne suis-je pas une femme ?"
+    "citation": "Ne suis-je pas une femme ?",
+    "citation_en": "Ain't I a woman?"
   },
   {
     "id": 352,
     "auteur": "Joséphine Baker",
+    "auteur_en": "Joséphine Baker",
     "date_creation": "1931-01-01",
-    "citation": "J'ai deux amours: mon pays et Paris."
+    "citation": "J'ai deux amours: mon pays et Paris.",
+    "citation_en": "I have two loves: my country and Paris."
   },
   {
     "id": 353,
     "auteur": "Rosa Luxemburg",
+    "auteur_en": "Rosa Luxemburg",
     "date_creation": "1914-01-01",
-    "citation": "Ceux qui ne bougent pas ne sentent pas leurs chaînes."
+    "citation": "Ceux qui ne bougent pas ne sentent pas leurs chaînes.",
+    "citation_en": "Those who do not move, do not notice their chains."
   },
   {
     "id": 354,
     "auteur": "Gustave Eiffel",
+    "auteur_en": "Gustave Eiffel",
     "date_creation": "1889-03-31",
-    "citation": "Je voudrais être jugé par mes œuvres."
+    "citation": "Je voudrais être jugé par mes œuvres.",
+    "citation_en": "I would like to be judged by my works."
   },
   {
     "id": 355,
     "auteur": "Georges Méliès",
+    "auteur_en": "Georges Méliès",
     "date_creation": "1902-01-01",
-    "citation": "Il suffit de fermer les yeux pour voir."
+    "citation": "Il suffit de fermer les yeux pour voir.",
+    "citation_en": "You only have to close your eyes to see."
   },
   {
     "id": 356,
     "auteur": "Louis Pasteur",
+    "auteur_en": "Louis Pasteur",
     "date_creation": "1854-01-01",
-    "citation": "Le hasard ne favorise que les esprits préparés."
+    "citation": "Le hasard ne favorise que les esprits préparés.",
+    "citation_en": "Chance favors only the prepared mind."
   },
   {
     "id": 357,
     "auteur": "Jean Jaurès",
+    "auteur_en": "Jean Jaurès",
     "date_creation": "1903-01-01",
-    "citation": "Le courage, c'est de chercher la vérité et de la dire."
+    "citation": "Le courage, c'est de chercher la vérité et de la dire.",
+    "citation_en": "Courage is to seek the truth and to tell it."
   },
   {
     "id": 358,
     "auteur": "Sœur Emmanuelle",
+    "auteur_en": "Sister Emmanuelle",
     "date_creation": "1986-01-01",
-    "citation": "La seule vraie richesse, c'est le cœur qui aime."
+    "citation": "La seule vraie richesse, c'est le cœur qui aime.",
+    "citation_en": "The only true wealth is the heart that loves."
   },
   {
     "id": 359,
     "auteur": "Victor Schoelcher",
+    "auteur_en": "Victor Schoelcher",
     "date_creation": "1848-04-27",
-    "citation": "La liberté ne se donne pas, elle se conquiert."
+    "citation": "La liberté ne se donne pas, elle se conquiert.",
+    "citation_en": "Freedom is not given, it is conquered."
   },
   {
     "id": 360,
     "auteur": "Aimé Césaire",
+    "auteur_en": "Aimé Césaire",
     "date_creation": "1956-01-01",
-    "citation": "Il n'y a pas de dignité sans révolte."
+    "citation": "Il n'y a pas de dignité sans révolte.",
+    "citation_en": "There is no dignity without revolt."
   },
   {
     "id": 361,
     "auteur": "Léopold Sédar Senghor",
+    "auteur_en": "Léopold Sédar Senghor",
     "date_creation": "1964-01-01",
-    "citation": "La culture, c'est ce qui demeure dans l'homme lorsqu'il a tout oublié."
+    "citation": "La culture, c'est ce qui demeure dans l'homme lorsqu'il a tout oublié.",
+    "citation_en": "Culture is what remains in man when he has forgotten everything."
   },
   {
     "id": 362,
     "auteur": "Antoine Lavoisier",
+    "auteur_en": "Antoine Lavoisier",
     "date_creation": "1789-01-01",
-    "citation": "Rien ne se perd, rien ne se crée, tout se transforme."
+    "citation": "Rien ne se perd, rien ne se crée, tout se transforme.",
+    "citation_en": "Nothing is lost, nothing is created, everything is transformed."
   },
   {
     "id": 363,
     "auteur": "Edmond Rostand",
+    "auteur_en": "Edmond Rostand",
     "date_creation": "1897-01-01",
-    "citation": "C'est la nuit qu'il est beau de croire à la lumière."
+    "citation": "C'est la nuit qu'il est beau de croire à la lumière.",
+    "citation_en": "It is at night that it is beautiful to believe in the light."
   },
   {
     "id": 364,
     "auteur": "Marcel Proust",
+    "auteur_en": "Marcel Proust",
     "date_creation": "1913-01-01",
-    "citation": "Le véritable voyage de découverte ne consiste pas à chercher de nouveaux paysages, mais à avoir de nouveaux yeux."
+    "citation": "Le véritable voyage de découverte ne consiste pas à chercher de nouveaux paysages, mais à avoir de nouveaux yeux.",
+    "citation_en": "The real voyage of discovery consists not in seeking new landscapes, but in having new eyes."
   },
   {
     "id": 151,
     "auteur": "Albert Camus",
+    "auteur_en": "Albert Camus",
     "date_creation": "1951-11-06",
-    "citation": "La vraie générosité envers l’avenir consiste à tout donner au présent."
+    "citation": "La vraie générosité envers l’avenir consiste à tout donner au présent.",
+    "citation_en": "Real generosity toward the future lies in giving all to the present."
   },
   {
     "id": 142,
     "auteur": "Vincent Van Gogh",
+    "auteur_en": "Vincent Van Gogh",
     "date_creation": "1889-09-01",
-    "citation": "Je rêve de peindre et ensuite je peins mon rêve."
+    "citation": "Je rêve de peindre et ensuite je peins mon rêve.",
+    "citation_en": "I dream of painting and then I paint my dream."
   },
   {
     "id": 135,
     "auteur": "Antoine de Saint-Exupéry",
+    "auteur_en": "Antoine de Saint-Exupéry",
     "date_creation": "1939-05-29",
-    "citation": "Fais que ton rêve dévore ta vie, afin que la vie ne dévore pas ton rêve."
+    "citation": "Fais que ton rêve dévore ta vie, afin que la vie ne dévore pas ton rêve.",
+    "citation_en": "Make your dream devour your life, so that life does not devour your dream."
   },
   {
     "id": 134,
     "auteur": "Zinedine Zidane",
+    "auteur_en": "Zinedine Zidane",
     "date_creation": "2001-11-20",
-    "citation": "Le talent, ça ne suffit pas, il faut travailler."
+    "citation": "Le talent, ça ne suffit pas, il faut travailler.",
+    "citation_en": "Talent is not enough, you have to work."
   },
   {
     "id": 365,
     "auteur": "Margaret Mead",
+    "auteur_en": "Margaret Mead",
     "date_creation": "1978-09-15",
-    "citation": "Ne doutez jamais qu’un petit groupe de citoyens réfléchis et engagés puisse changer le monde. En effet, c’est la seule chose qui l’ait jamais fait."
+    "citation": "Ne doutez jamais qu’un petit groupe de citoyens réfléchis et engagés puisse changer le monde. En effet, c’est la seule chose qui l’ait jamais fait.",
+    "citation_en": "Never doubt that a small group of thoughtful, committed citizens can change the world; indeed, it's the only thing that ever has."
   },
   {
     "id": 366,
     "auteur": "Nikola Tesla",
+    "auteur_en": "Nikola Tesla",
     "date_creation": null,
-    "citation": "Si vous voulez trouver les secrets de l'univers, pensez en termes d'énergie, de fréquence et de vibration."
+    "citation": "Si vous voulez trouver les secrets de l'univers, pensez en termes d'énergie, de fréquence et de vibration.",
+    "citation_en": "If you want to find the secrets of the universe, think in terms of energy, frequency and vibration."
   },
   {
     "id": 192,
     "auteur": "Auguste (empereur romain)",
+    "auteur_en": "Augustus (Roman emperor)",
     "date_creation": null,
-    "citation": "J'ai trouvé Rome en briques et l'ai quittée en marbre."
+    "citation": "J'ai trouvé Rome en briques et l'ai quittée en marbre.",
+    "citation_en": "I found Rome a city of bricks and left it a city of marble."
   },
   {
     "id": 196,
     "auteur": "Napoléon Bonaparte",
+    "auteur_en": "Napoleon Bonaparte",
     "date_creation": "1816-01-01",
-    "citation": "Il faut toujours se réserver le droit de rire le lendemain de ses idées de la veille."
+    "citation": "Il faut toujours se réserver le droit de rire le lendemain de ses idées de la veille.",
+    "citation_en": "One must always reserve the right to laugh tomorrow at one's ideas of the day before."
   }
 ]
