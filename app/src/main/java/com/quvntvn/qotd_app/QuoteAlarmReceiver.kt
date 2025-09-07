@@ -36,7 +36,7 @@ class QuoteAlarmReceiver : BroadcastReceiver() {
                         } else {
                             quote.citation
                         }
-                        val translatedQuote = Quote(citationText, quote.auteur, quote.dateCreation)
+                        val translatedQuote = Quote(quote.id, citationText, quote.auteur, quote.dateCreation)
                         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
                             ContextCompat.checkSelfPermission(
                                 context,
