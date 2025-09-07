@@ -24,26 +24,22 @@ class QuoteAlarmReceiver : BroadcastReceiver() {
                 if (response.isSuccessful) {
                     response.body()?.let { quote ->
                         val lang = SharedPrefManager.getLanguage(context)
-                        val citationText = if (lang == "en") {
-                            val translator = TranslationManager(context)
-                            try {
-                                translator.translate(quote.citation, lang)
-                            } catch (_: Exception) {
-                                quote.citation
-                            } finally {
-                                translator.close()
-                            }
+                        val displayQuote = if (lang == "en") {
+                            // The API provides the English translation, so we use it.
+                            // We create a copy of the quote with the English fields swapped into the main fields
+                            // that NotificationHelper will use.
+                            quote.copy(citation = quote.citationEn, auteur = quote.auteurEn)
                         } else {
-                            quote.citation
+                            // The default quote from the API is in French, so we use it as is.
+                            quote
                         }
-                        val translatedQuote = Quote(quote.id, citationText, quote.auteur, quote.dateCreation)
                         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
                             ContextCompat.checkSelfPermission(
                                 context,
                                 Manifest.permission.POST_NOTIFICATIONS
                             ) == PackageManager.PERMISSION_GRANTED
                         ) {
-                            NotificationHelper(context).showNotification(translatedQuote)
+                            NotificationHelper(context).showNotification(displayQuote)
                         }
                     }
                 }
