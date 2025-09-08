@@ -19,32 +19,30 @@ class QuoteAlarmReceiver : BroadcastReceiver() {
         val pendingResult = goAsync()
         CoroutineScope(Dispatchers.IO).launch {
             try {
-                val api = QuoteApi.create()
-                val response = api.getDailyQuote()
-                if (response.isSuccessful) {
-                    response.body()?.let { quote ->
-                        val lang = SharedPrefManager.getLanguage(context)
-                        val displayQuote = if (lang == "en") {
-                            // The API provides the English translation, so we use it.
-                            // We create a copy of the quote with the English fields swapped into the main fields
-                            // that NotificationHelper will use.
-                            quote.copy(citation = quote.citationEn, auteur = quote.auteurEn)
-                        } else {
-                            // The default quote from the API is in French, so we use it as is.
-                            quote
-                        }
-                        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
-                            ContextCompat.checkSelfPermission(
-                                context,
-                                Manifest.permission.POST_NOTIFICATIONS
-                            ) == PackageManager.PERMISSION_GRANTED
-                        ) {
-                            NotificationHelper(context).showNotification(displayQuote)
-                        }
+                val repository = QuoteRepository(context)
+                val quote = repository.getDailyQuote()
+                if (quote != null) {
+                    val lang = SharedPrefManager.getLanguage(context)
+                    val displayQuote = if (lang == "en") {
+                        // The API provides the English translation, so we use it.
+                        // We create a copy of the quote with the English fields swapped into the main fields
+                        // that NotificationHelper will use.
+                        quote.copy(citation = quote.citationEn, auteur = quote.auteurEn)
+                    } else {
+                        // The default quote from the API is in French, so we use it as is.
+                        quote
+                    }
+                    if (Build.VERSION.SDK_INT < Build.VERSION_CODES.TIRAMISU ||
+                        ContextCompat.checkSelfPermission(
+                            context,
+                            Manifest.permission.POST_NOTIFICATIONS
+                        ) == PackageManager.PERMISSION_GRANTED
+                    ) {
+                        NotificationHelper(context).showNotification(displayQuote)
                     }
                 }
             } catch (_: Exception) {
-                // Ignore network or parsing errors
+                // Ignore errors
             } finally {
                 // Re-planifier pour le lendemain si toujours activé
                 val settings = SharedPrefManager.getNotificationSettings(context)
