@@ -42,7 +42,7 @@ android {
 // LE BLOC REPOSITORIES A ÉTÉ SUPPRIMÉ D'ICI
 
 dependencies {
-    implementation("com.github.Dimezis:BlurView:version-2.0.3")
+    implementation("com.github.Dimezis:BlurView:3.1.0")
 
     implementation(platform("androidx.compose:compose-bom:2024.02.02"))
     implementation("androidx.compose.ui:ui")
