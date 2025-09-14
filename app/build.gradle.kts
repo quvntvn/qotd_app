@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.quvntvn.qotd_app"
-    compileSdk = 34
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.quvntvn.qotd_app"
         minSdk = 28
-        targetSdk = 34
+        targetSdk = 36
         versionCode = 11
         versionName = "1.1.9"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
