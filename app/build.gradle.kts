@@ -10,9 +10,9 @@ android {
     defaultConfig {
         applicationId = "com.quvntvn.qotd_app"
         minSdk = 28
-        targetSdk = 36
-        versionCode = 11
-        versionName = "1.1.9"
+        targetSdk = 34
+        versionCode = 14
+        versionName = "1.2.2"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
@@ -43,6 +43,7 @@ android {
 
 dependencies {
     implementation("com.github.Dimezis:BlurView:version-2.0.3")
+    implementation("com.github.Dimezis:BlurView:version-3.1.0")
 
     implementation(platform("androidx.compose:compose-bom:2024.02.02"))
     implementation("androidx.compose.ui:ui")
