@@ -1,21 +1,25 @@
 package com.quvntvn.qotd_app
 
+import android.app.AlarmManager
 import android.content.Context
 import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
+import android.os.Build
 import android.os.Bundle
-import android.view.ViewGroup // Nécessaire pour rootView
+import android.provider.Settings
+import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
 import android.widget.TimePicker
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.SwitchCompat
 import androidx.core.view.WindowCompat
-// import androidx.core.view.WindowInsetsControllerCompat // Non explicitement utilisé dans ce code modifié
-import com.quvntvn.qotd_app.QuoteAlarmReceiver
-import eightbitlab.com.blurview.BlurView // Import pour BlurView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import eightbitlab.com.blurview.BlurView
 import eightbitlab.com.blurview.BlurTarget
 import java.util.Locale
 
@@ -34,47 +38,40 @@ class SettingsActivity : AppCompatActivity() {
         WindowCompat.setDecorFitsSystemWindows(window, false)
         window.statusBarColor = Color.TRANSPARENT
         window.navigationBarColor = Color.TRANSPARENT
-        // Optionnel : ajuster l'apparence des icônes de la barre d'état si nécessaire
-        // WindowCompat.getInsetsController(window, window.decorView)?.isAppearanceLightStatusBars = false
 
-        setContentView(R.layout.activity_settings) // Ceci charge activity_settings.xml ou res/layout-land/activity_settings.xml
+        setContentView(R.layout.activity_settings)
 
-        // Initialisation des BlurViews (maintenant pour portrait ET paysage)
         setupBlurViews()
 
-        // Récupérer les paramètres sauvegardés
         val (notificationsPreviouslyEnabled, savedHour, savedMinute) = SharedPrefManager.getNotificationSettings(this)
         val savedLanguage = SharedPrefManager.getLanguage(this)
 
-        // Initialisation des vues (ces ID doivent être les mêmes dans les deux layouts)
         val switchNotifications = findViewById<SwitchCompat>(R.id.switch_notifications)
         val timePicker = findViewById<TimePicker>(R.id.timePicker)
         val languageSpinner = findViewById<Spinner>(R.id.spinner_language)
 
-        // Configuration du TimePicker
         timePicker.setIs24HourView(true)
         timePicker.hour = savedHour
         timePicker.minute = savedMinute
         timePicker.isEnabled = notificationsPreviouslyEnabled
 
-        // Configuration du Switch pour les notifications
         switchNotifications.isChecked = notificationsPreviouslyEnabled
         switchNotifications.setOnCheckedChangeListener { _, isChecked ->
             timePicker.isEnabled = isChecked
+            if (isChecked) {
+                checkExactAlarmPermission()
+            }
         }
 
-        // Configuration du Spinner pour la langue
-        val languagesArray = resources.getStringArray(R.array.languages) // Assurez-vous que c'est le bon nom d'array
-        // Utiliser les layouts personnalisés pour le Spinner pour le texte blanc
+        val languagesArray = resources.getStringArray(R.array.languages)
         val adapter = ArrayAdapter(
             this,
-            R.layout.spinner_item_layout, // Layout pour l'élément sélectionné
+            R.layout.spinner_item_layout,
             languagesArray
         )
-        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item_layout) // Layout pour les éléments du dropdown
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item_layout)
         languageSpinner.adapter = adapter
 
-        // Sélectionner la langue sauvegardée dans le Spinner
         val languageIndex = when (savedLanguage.lowercase(Locale.ROOT)) {
             "en" -> 1
             "fr" -> 0
@@ -82,12 +79,10 @@ class SettingsActivity : AppCompatActivity() {
         }
         languageSpinner.setSelection(languageIndex)
 
-        // Bouton Retour
         findViewById<Button>(R.id.btn_back).setOnClickListener {
             finish()
         }
 
-        // Bouton Sauvegarder
         findViewById<Button>(R.id.btn_save).setOnClickListener {
             val newHour = timePicker.hour
             val newMinute = timePicker.minute
@@ -112,9 +107,14 @@ class SettingsActivity : AppCompatActivity() {
             QuoteAlarmReceiver.cancelDailyQuote(this.applicationContext)
 
             if (notificationsAreNowEnabled) {
-                QuoteAlarmReceiver.scheduleDailyQuote(this.applicationContext, newHour, newMinute)
-                val message = localizedContext.getString(R.string.notifications_scheduled, newHour, newMinute)
-                Toast.makeText(localizedContext, message, Toast.LENGTH_SHORT).show()
+                val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S && !alarmManager.canScheduleExactAlarms()) {
+                    Toast.makeText(localizedContext, R.string.exact_alarm_permission_toast, Toast.LENGTH_LONG).show()
+                } else {
+                    QuoteAlarmReceiver.scheduleDailyQuote(this.applicationContext, newHour, newMinute)
+                    val message = localizedContext.getString(R.string.notifications_scheduled, newHour, newMinute)
+                    Toast.makeText(localizedContext, message, Toast.LENGTH_SHORT).show()
+                }
             } else {
                 Toast.makeText(localizedContext, localizedContext.getString(R.string.notifications_disabled), Toast.LENGTH_SHORT).show()
             }
@@ -123,6 +123,29 @@ class SettingsActivity : AppCompatActivity() {
             setResult(RESULT_OK, resultIntent)
             finish()
         }
+    }
+
+    private fun checkExactAlarmPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
+            if (!alarmManager.canScheduleExactAlarms()) {
+                showPermissionDialog()
+            }
+        }
+    }
+
+    private fun showPermissionDialog() {
+        MaterialAlertDialogBuilder(this)
+            .setTitle(R.string.exact_alarm_permission_title)
+            .setMessage(R.string.exact_alarm_permission_message)
+            .setPositiveButton(R.string.open_settings) { _, _ ->
+                val intent = Intent(Settings.ACTION_REQUEST_SCHEDULE_EXACT_ALARM).apply {
+                    data = Uri.fromParts("package", packageName, null)
+                }
+                startActivity(intent)
+            }
+            .setNegativeButton(R.string.cancel, null)
+            .show()
     }
 
     // Fonction mise à jour pour configurer toutes les BlurViews (portrait et paysage)

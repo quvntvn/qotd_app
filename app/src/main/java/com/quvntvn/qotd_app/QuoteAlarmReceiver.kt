@@ -59,6 +59,13 @@ class QuoteAlarmReceiver : BroadcastReceiver() {
 
         fun scheduleDailyQuote(context: Context, hour: Int, minute: Int) {
             val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                if (!alarmManager.canScheduleExactAlarms()) {
+                    // The app cannot schedule exact alarms, so we do nothing.
+                    // The user can grant the permission from the settings screen.
+                    return
+                }
+            }
             val pendingIntent = getPendingIntent(context)
             val triggerAt = calculateTriggerTime(hour, minute)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
