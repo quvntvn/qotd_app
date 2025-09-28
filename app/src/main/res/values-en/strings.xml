@@ -25,4 +25,9 @@
     <string name="quote_error">Unable to retrieve quote.</string>
     <string name="widget_description">Displays the quote of the day.</string>
     <string name="loading">Loading...</string>
+    <string name="exact_alarm_permission_title">Permission Required</string>
+    <string name="exact_alarm_permission_message">To ensure daily quote notifications are sent on time, the app needs permission to schedule exact alarms. Please grant this permission in the app settings.</string>
+    <string name="open_settings">Open Settings</string>
+    <string name="cancel">Cancel</string>
+    <string name="exact_alarm_permission_toast">Exact alarm permission is required for daily notifications.</string>
 </resources>

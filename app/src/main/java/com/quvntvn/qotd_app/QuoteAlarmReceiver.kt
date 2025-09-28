@@ -8,6 +8,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
+import android.util.Log
 import androidx.core.content.ContextCompat
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -59,6 +60,13 @@ class QuoteAlarmReceiver : BroadcastReceiver() {
 
         fun scheduleDailyQuote(context: Context, hour: Int, minute: Int) {
             val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                if (!alarmManager.canScheduleExactAlarms()) {
+                    // Log the failure to schedule the alarm for debugging purposes.
+                    Log.w("QuoteAlarmReceiver", "Cannot schedule exact alarm because the permission is not granted.")
+                    return
+                }
+            }
             val pendingIntent = getPendingIntent(context)
             val triggerAt = calculateTriggerTime(hour, minute)
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {

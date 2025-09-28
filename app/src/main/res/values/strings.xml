@@ -27,4 +27,9 @@
     <string name="settings_title">Réglages</string>
     <string name="quote_error">Probléme de récupération de la citation.</string>
     <string name="widget_description">Affiche la citation du jour.</string>
+    <string name="exact_alarm_permission_title">Permission requise</string>
+    <string name="exact_alarm_permission_message">Pour garantir que les notifications de citations quotidiennes soient envoyées à l\'heure, l\'application a besoin de l\'autorisation de programmer des alarmes précises. Veuillez accorder cette permission dans les paramètres de l\'application.</string>
+    <string name="open_settings">Ouvrir les paramètres</string>
+    <string name="cancel">Annuler</string>
+    <string name="exact_alarm_permission_toast">La permission pour les alarmes précises est requise pour les notifications quotidiennes.</string>
 </resources>
