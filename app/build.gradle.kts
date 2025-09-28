@@ -5,13 +5,13 @@ plugins {
 
 android {
     namespace = "com.quvntvn.qotd_app"
-    compileSdk = 36
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.quvntvn.qotd_app"
         minSdk = 28
-        targetSdk = 34
-        versionCode = 14
+        targetSdk = 35
+        versionCode = 15
         versionName = "1.2.2"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
@@ -37,6 +37,12 @@ android {
     composeOptions { kotlinCompilerExtensionVersion = "1.5.4" }
 
     packaging.resources.excludes += "/META-INF/{AL2.0,LGPL2.1}"
+    ndkVersion = "28.0.12433566"
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging = true
+        }
+    }
 }
 
 // LE BLOC REPOSITORIES A ÉTÉ SUPPRIMÉ D'ICI
