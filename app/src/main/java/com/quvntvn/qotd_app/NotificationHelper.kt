@@ -13,15 +13,14 @@ import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.core.content.ContextCompat
-import org.json.JSONObject
 
 /**
  * Construit et affiche la notification de la citation du jour.
  *
- * Trois niveaux de rendu, du plus universel au plus spécifique :
+ * Deux niveaux de rendu :
  *  1. Notification heads-up soignée (haute importance, couleur, grande icône, BigText) — partout.
- *  2. Pastille / Live Update Android 16 (API 36) — `setShortCriticalText` + promotion "ongoing".
- *  3. Island HyperOS (Xiaomi/Poco) — extras MIUI `miui.focus.*` (best-effort, non documenté).
+ *  2. Pastille "Live Update" Android 16 (API 36) — promotion en pastille de la barre de statut
+ *     + AOD/écran verrouillé (fonctionne aussi sur HyperOS qui honore l'API AOSP standard).
  */
 class NotificationHelper(private val context: Context) {
 
@@ -30,6 +29,11 @@ class NotificationHelper(private val context: Context) {
         private const val CHANNEL_ID = "quote_channel"
         private const val NOTIFICATION_ID = 101
         private const val PENDING_INTENT_REQUEST_CODE = 0
+        // Sécurité : une notif "ongoing" (promue) ne doit jamais rester collée indéfiniment.
+        // Elle s'auto-efface après 12 h (et de toute façon celle du lendemain la remplace).
+        private const val LIVE_UPDATE_TIMEOUT_MS = 12L * 60 * 60 * 1000
+        // Notification.EXTRA_REQUEST_PROMOTED_ONGOING (constante @hide en API 36).
+        private const val EXTRA_REQUEST_PROMOTED_ONGOING = "android.requestPromotedOngoing"
     }
 
     init {
@@ -76,6 +80,7 @@ class NotificationHelper(private val context: Context) {
         val content = quote.citation
         val accent = ContextCompat.getColor(context, R.color.colorPrimary)
 
+        // NB : pas de setColorized(true) — une notif colorisée est refusée à la promotion "Live Update".
         val builder = Notification.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_qotd_notif)
             .setContentTitle(title)
@@ -85,7 +90,6 @@ class NotificationHelper(private val context: Context) {
             .setAutoCancel(true)
             .setCategory(Notification.CATEGORY_RECOMMENDATION)
             .setColor(accent)
-            .setColorized(true)
 
         runCatching {
             BitmapFactory.decodeResource(context.resources, R.mipmap.ic_launcher_new_round)
@@ -93,29 +97,24 @@ class NotificationHelper(private val context: Context) {
         }.onFailure { Log.w(TAG, "Grande icône non chargée: ${it.message}") }
 
         applyAndroid16LiveUpdate(builder, quote)
-        applyMiuiFocus(builder, quote)
-
-        val notification = builder.build()
-        // Android 16 : exprime l'intention de promotion en pastille. Le système ne la
-        // conservera que si la notif a des "promotable characteristics" et que l'utilisateur
-        // a autorisé les Live Updates pour l'app.
-        if (Build.VERSION.SDK_INT >= 36) {
-            runCatching { notification.flags = notification.flags or Notification.FLAG_PROMOTED_ONGOING }
-        }
 
         try {
             val nm = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
-            nm.notify(NOTIFICATION_ID, notification)
+            nm.notify(NOTIFICATION_ID, builder.build())
         } catch (e: Exception) {
             Log.e(TAG, "Échec de l'affichage de la notification.", e)
         }
     }
 
     /**
-     * Android 16 (API 36) : demande la promotion en "Live Update" → pastille dans la barre
-     * de statut + affichage sur l'écran de verrouillage/AOD. La promotion exige une
-     * notification "ongoing" (le tap l'ouvre et la referme via autoCancel ; elle est de
-     * toute façon remplacée le lendemain car même NOTIFICATION_ID).
+     * Android 16 (API 36) : demande la promotion de la notif en "Live Update" → pastille dans
+     * la barre de statut + AOD/écran verrouillé.
+     *
+     * Conditions de promotion (vérifiées sur appareil) : ongoing, contentTitle non vide,
+     * style supporté (BigText convient), canal ≥ IMPORTANCE_LOW, NON colorisée, et l'extra
+     * `android.requestPromotedOngoing`. Le `Builder` n'expose pas de setter public en API 36,
+     * d'où l'extra posé à la main. La permission POST_PROMOTED_NOTIFICATIONS est déclarée au
+     * manifeste ; l'utilisateur garde la main via "Mises à jour en direct" dans les réglages.
      *
      * Appels protégés : si l'API n'existe pas sur la ROM, on ignore silencieusement.
      */
@@ -124,40 +123,11 @@ class NotificationHelper(private val context: Context) {
         try {
             builder.setOngoing(true)
             builder.setShortCriticalText(shortChipText(quote))
+            // Filet de sécurité : la notif "ongoing" ne reste pas collée — auto-effacée après 12 h.
+            builder.setTimeoutAfter(LIVE_UPDATE_TIMEOUT_MS)
+            builder.addExtras(Bundle().apply { putBoolean(EXTRA_REQUEST_PROMOTED_ONGOING, true) })
         } catch (t: Throwable) {
             Log.w(TAG, "API Live Update Android 16 indisponible: ${t.message}")
-        }
-    }
-
-    /**
-     * HyperOS (Xiaomi / Redmi / POCO) : tente d'afficher la citation dans l'« Island »
-     * (notification focus) via les extras MIUI non documentés. Best-effort : selon la
-     * version HyperOS, l'utilisateur peut devoir activer « notifications focus » pour l'app,
-     * et le schéma JSON peut varier. Encapsulé dans un try/catch pour ne jamais crasher.
-     */
-    private fun applyMiuiFocus(builder: Notification.Builder, quote: Quote) {
-        val isXiaomi = listOf(Build.MANUFACTURER, Build.BRAND).any {
-            it.equals("Xiaomi", true) || it.equals("Redmi", true) || it.equals("POCO", true)
-        }
-        if (!isXiaomi) return
-
-        try {
-            val param = JSONObject().apply {
-                put("protocol", 1)
-                put("enableFloat", true)
-                put("ticker", quote.auteur)
-                put("title", quote.auteur)
-                put("content", quote.citation)
-                put("updatable", false)
-            }
-            val extras = Bundle().apply {
-                putBoolean("miui.enableFocus", true)
-                putString("miui.focus.ticker", quote.auteur)
-                putString("miui.focus.param.v2", JSONObject().put("param_v2", param).toString())
-            }
-            builder.addExtras(extras)
-        } catch (t: Throwable) {
-            Log.w(TAG, "Notification focus HyperOS indisponible: ${t.message}")
         }
     }
 
