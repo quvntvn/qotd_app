@@ -1,168 +1,170 @@
 package com.quvntvn.qotd_app
 
 import android.Manifest
+import android.app.Notification
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
 import android.os.Build
-import android.util.Log // Import pour Log.e
-import androidx.annotation.RequiresPermission
-import androidx.core.app.NotificationCompat
-import androidx.core.app.NotificationManagerCompat
-import androidx.core.content.ContextCompat.checkSelfPermission
-
-// Assurez-vous que R est correctement importé. Normalement, il l'est automatiquement
-// si le package est correct et que le fichier est dans le bon module.
-// import com.quvntvn.qotd_app.R
-
-// Supposons que ces classes sont définies dans votre projet et correctement importées
-// Si elles sont dans le même package, l'import n'est pas nécessaire.
-// import com.quvntvn.qotd_app.MainActivity
-// import com.quvntvn.qotd_app.Quote
+import android.os.Bundle
+import android.util.Log
+import androidx.core.content.ContextCompat
+import org.json.JSONObject
 
 /**
- * Classe utilitaire pour créer et afficher des notifications de citation.
+ * Construit et affiche la notification de la citation du jour.
  *
- * @param context Le contexte de l'application.
+ * Trois niveaux de rendu, du plus universel au plus spécifique :
+ *  1. Notification heads-up soignée (haute importance, couleur, grande icône, BigText) — partout.
+ *  2. Pastille / Live Update Android 16 (API 36) — `setShortCriticalText` + promotion "ongoing".
+ *  3. Island HyperOS (Xiaomi/Poco) — extras MIUI `miui.focus.*` (best-effort, non documenté).
  */
 class NotificationHelper(private val context: Context) {
 
     companion object {
-        private const val TAG = "NotificationHelper" // Tag pour les logs
-        private const val CHANNEL_ID = "quote_channel" // ID unique pour le canal de notification
-        private const val NOTIFICATION_ID = 101 // ID unique pour cette notification spécifique
-        private const val PENDING_INTENT_REQUEST_CODE = 0 // Code de requête pour le PendingIntent
+        private const val TAG = "NotificationHelper"
+        private const val CHANNEL_ID = "quote_channel"
+        private const val NOTIFICATION_ID = 101
+        private const val PENDING_INTENT_REQUEST_CODE = 0
     }
 
     init {
         createNotificationChannel()
     }
 
-    /**
-     * Crée le canal de notification. Nécessaire pour Android Oreo (API 26) et versions ultérieures.
-     * Pour les versions antérieures, cette méthode ne fait rien.
-     */
+    /** minSdk = 28 → le canal de notification est toujours requis et disponible. */
     private fun createNotificationChannel() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            // Nom du canal visible par l'utilisateur dans les paramètres de l'application
-            val channelName = context.getString(R.string.notification_channel_name)
-            // Description du canal visible par l'utilisateur
-            val channelDescription = context.getString(R.string.notification_channel_description)
-            // Importance du canal. IMPORTANCE_HIGH fait apparaître la notification en mode prioritaire (heads-up)
-            // et émet un son (si non désactivé par l'utilisateur).
-            val importance = NotificationManager.IMPORTANCE_HIGH
+        val channel = NotificationChannel(
+            CHANNEL_ID,
+            context.getString(R.string.notification_channel_name),
+            NotificationManager.IMPORTANCE_HIGH
+        ).apply {
+            description = context.getString(R.string.notification_channel_description)
+        }
+        val nm = context.getSystemService(Context.NOTIFICATION_SERVICE) as? NotificationManager
+        nm?.createNotificationChannel(channel) ?: Log.e(TAG, "NotificationManager indisponible.")
+    }
 
-            val channel = NotificationChannel(
-                CHANNEL_ID,
-                channelName,
-                importance
-            ).apply {
-                description = channelDescription
-                // Options supplémentaires du canal (facultatif) :
-                // setShowBadge(false) // Pour ne pas afficher de badge pour ce canal
-                // enableLights(true) // Activer la LED de notification (si l'appareil en a une)
-                // lightColor = Color.RED // Couleur de la LED
-                // enableVibration(true) // Activer la vibration
-                // vibrationPattern = longArrayOf(100, 200, 300) // Modèle de vibration personnalisé
-            }
+    /**
+     * Affiche la notification pour [quote]. La citation/l'auteur sont supposés déjà
+     * dans la bonne langue (l'appelant a fait le choix FR/EN au préalable).
+     */
+    fun showNotification(quote: Quote) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
+            ContextCompat.checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS)
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            Log.w(TAG, "Permission POST_NOTIFICATIONS non accordée — notification ignorée.")
+            return
+        }
 
-            // Enregistrer le canal auprès du système de notification
-            val notificationManager: NotificationManager? =
-                context.getSystemService(Context.NOTIFICATION_SERVICE) as? NotificationManager
+        val openAppIntent = Intent(context, MainActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        }
+        val pendingIntent = PendingIntent.getActivity(
+            context,
+            PENDING_INTENT_REQUEST_CODE,
+            openAppIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
 
-            notificationManager?.createNotificationChannel(channel)
-                ?: Log.e(TAG, "NotificationManager non disponible.")
+        val title = quote.auteur
+        val content = quote.citation
+        val accent = ContextCompat.getColor(context, R.color.colorPrimary)
+
+        val builder = Notification.Builder(context, CHANNEL_ID)
+            .setSmallIcon(R.drawable.ic_qotd_notif)
+            .setContentTitle(title)
+            .setContentText(content)
+            .setStyle(Notification.BigTextStyle().bigText(content))
+            .setContentIntent(pendingIntent)
+            .setAutoCancel(true)
+            .setCategory(Notification.CATEGORY_RECOMMENDATION)
+            .setColor(accent)
+            .setColorized(true)
+
+        runCatching {
+            BitmapFactory.decodeResource(context.resources, R.mipmap.ic_launcher_new_round)
+                ?.let { builder.setLargeIcon(it) }
+        }.onFailure { Log.w(TAG, "Grande icône non chargée: ${it.message}") }
+
+        applyAndroid16LiveUpdate(builder, quote)
+        applyMiuiFocus(builder, quote)
+
+        val notification = builder.build()
+        // Android 16 : exprime l'intention de promotion en pastille. Le système ne la
+        // conservera que si la notif a des "promotable characteristics" et que l'utilisateur
+        // a autorisé les Live Updates pour l'app.
+        if (Build.VERSION.SDK_INT >= 36) {
+            runCatching { notification.flags = notification.flags or Notification.FLAG_PROMOTED_ONGOING }
+        }
+
+        try {
+            val nm = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+            nm.notify(NOTIFICATION_ID, notification)
+        } catch (e: Exception) {
+            Log.e(TAG, "Échec de l'affichage de la notification.", e)
         }
     }
 
     /**
-     * Affiche une notification avec la citation fournie.
+     * Android 16 (API 36) : demande la promotion en "Live Update" → pastille dans la barre
+     * de statut + affichage sur l'écran de verrouillage/AOD. La promotion exige une
+     * notification "ongoing" (le tap l'ouvre et la referme via autoCancel ; elle est de
+     * toute façon remplacée le lendemain car même NOTIFICATION_ID).
      *
-     * Nécessite la permission Manifest.permission.POST_NOTIFICATIONS pour Android 13 (API 33) et plus.
-     * La vérification de cette permission à l'exécution doit être gérée avant d'appeler cette méthode.
-     *
-     * @param quote L'objet Quote contenant les informations à afficher.
+     * Appels protégés : si l'API n'existe pas sur la ROM, on ignore silencieusement.
      */
-    @RequiresPermission(Manifest.permission.POST_NOTIFICATIONS)
-    fun showNotification(quote: Quote) {
-        // Intent à lancer lorsque l'utilisateur clique sur la notification.
-        // Ouvre MainActivity.
-        val intent = Intent(context, MainActivity::class.java).apply {
-            // Ces flags assurent que si MainActivity est déjà ouverte, elle est ramenée au premier plan,
-            // et une nouvelle instance n'est pas créée au-dessus d'une existante dans la même tâche.
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            // Optionnel : Passer des données supplémentaires à MainActivity.
-            // Assurez-vous que `quote.id` est Parcelable/Serializable ou un type primitif.
-            // Exemple : intent.putExtra("QUOTE_ID_EXTRA", quote.id)
-        }
-
-        // Crée un PendingIntent pour l'action de la notification.
-        // FLAG_UPDATE_CURRENT: si le PendingIntent existe déjà, il est conservé, mais son extra data est remplacé.
-        // FLAG_IMMUTABLE: requis pour Android 12 (API 31)+ si le PendingIntent est passé à une autre application (comme le système ici).
-        val pendingIntentFlags = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
-        } else {
-            PendingIntent.FLAG_UPDATE_CURRENT
-        }
-        val pendingIntent: PendingIntent = PendingIntent.getActivity(
-            context,
-            PENDING_INTENT_REQUEST_CODE,
-            intent,
-            pendingIntentFlags
-        )
-
-        // Récupération des chaînes de caractères. Auteur et citation sont non-nullables dans le modèle Quote.
-        val title = quote.auteur
-        val content = quote.citation
-
-        // Construction de la notification.
-        val notificationBuilder = NotificationCompat.Builder(context, CHANNEL_ID)
-            // Petite icône (obligatoire). Doit être une icône blanche avec des zones transparentes.
-            .setSmallIcon(R.drawable.ic_qotd_notif)
-            // Titre de la notification.
-            .setContentTitle(title)
-            // Texte principal de la notification.
-            .setContentText(content)
-            // Style pour afficher un texte plus long lorsque la notification est étendue.
-            .setStyle(NotificationCompat.BigTextStyle().bigText(content))
-            // Action à exécuter lors du clic sur la notification.
-            .setContentIntent(pendingIntent)
-            // La notification est automatiquement annulée (supprimée) lorsque l'utilisateur clique dessus.
-            .setAutoCancel(true)
-            // Pour ne pas afficher de nombre sur le badge de l'application pour cette notification.
-            .setNumber(0)
-            // Priorité de la notification (pour les versions antérieures à Android Oreo).
-            // Pour Oreo et plus, l'importance est définie sur le canal.
-            // PRIORITY_MAX est utilisé ici pour maximiser la visibilité sur les anciennes versions.
-            .setPriority(NotificationCompat.PRIORITY_MAX) // Valeur par défaut pour les canaux IMPORTANCE_HIGH sur les anciennes versions
+    private fun applyAndroid16LiveUpdate(builder: Notification.Builder, quote: Quote) {
+        if (Build.VERSION.SDK_INT < 36) return
         try {
-            val largeIconBitmap = BitmapFactory.decodeResource(context.resources, R.mipmap.ic_launcher_new_round)
-            if (largeIconBitmap != null) {
-                notificationBuilder.setLargeIcon(largeIconBitmap)
-            } else {
-                Log.w(TAG, "La grande icône (R.mipmap.ic_launcher_new_round) n'a pas pu être décodée ou est nulle.")
-            }
-        } catch (e: Exception) {
-            Log.e(TAG, "Erreur lors du chargement de la grande icône pour la notification.", e)
+            builder.setOngoing(true)
+            builder.setShortCriticalText(shortChipText(quote))
+        } catch (t: Throwable) {
+            Log.w(TAG, "API Live Update Android 16 indisponible: ${t.message}")
         }
+    }
 
-        with(NotificationManagerCompat.from(context)) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                if (checkSelfPermission(context, Manifest.permission.POST_NOTIFICATIONS) != android.content.pm.PackageManager.PERMISSION_GRANTED) {
-                    Log.e(TAG, "La permission POST_NOTIFICATIONS n'a pas été accordée. La notification ne sera pas affichée.")
-                    return // Ne pas afficher la notification si la permission est manquante
-                }
-            }
-            try {
-                notify(NOTIFICATION_ID, notificationBuilder.build())
-            } catch (e: SecurityException) {
-                Log.e(TAG, "SecurityException lors de l'affichage de la notification. Vérifiez les permissions et les restrictions en arrière-plan.", e)
-            } catch (e: Exception) {
-                Log.e(TAG, "Exception inattendue lors de l'affichage de la notification.", e)
-            }
+    /**
+     * HyperOS (Xiaomi / Redmi / POCO) : tente d'afficher la citation dans l'« Island »
+     * (notification focus) via les extras MIUI non documentés. Best-effort : selon la
+     * version HyperOS, l'utilisateur peut devoir activer « notifications focus » pour l'app,
+     * et le schéma JSON peut varier. Encapsulé dans un try/catch pour ne jamais crasher.
+     */
+    private fun applyMiuiFocus(builder: Notification.Builder, quote: Quote) {
+        val isXiaomi = listOf(Build.MANUFACTURER, Build.BRAND).any {
+            it.equals("Xiaomi", true) || it.equals("Redmi", true) || it.equals("POCO", true)
         }
+        if (!isXiaomi) return
+
+        try {
+            val param = JSONObject().apply {
+                put("protocol", 1)
+                put("enableFloat", true)
+                put("ticker", quote.auteur)
+                put("title", quote.auteur)
+                put("content", quote.citation)
+                put("updatable", false)
+            }
+            val extras = Bundle().apply {
+                putBoolean("miui.enableFocus", true)
+                putString("miui.focus.ticker", quote.auteur)
+                putString("miui.focus.param.v2", JSONObject().put("param_v2", param).toString())
+            }
+            builder.addExtras(extras)
+        } catch (t: Throwable) {
+            Log.w(TAG, "Notification focus HyperOS indisponible: ${t.message}")
+        }
+    }
+
+    /** Texte ultra-court affiché dans la pastille de la barre de statut (Android 16). */
+    private fun shortChipText(quote: Quote): String {
+        val author = quote.auteur.trim()
+        val label = author.ifBlank { context.getString(R.string.app_name) }
+        return if (label.length > 20) label.take(19) + "…" else label
     }
 }

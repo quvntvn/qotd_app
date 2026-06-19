@@ -61,10 +61,20 @@ class QuoteAlarmReceiver : BroadcastReceiver() {
             val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
             val pendingIntent = getPendingIntent(context)
             val triggerAt = calculateTriggerTime(hour, minute)
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, triggerAt, pendingIntent)
+
+            // Android 12+ : si la permission « alarmes exactes » n'est pas accordée,
+            // on retombe sur une alarme inexacte (mais qui réveille quand même l'appareil en Doze).
+            val canExact = Build.VERSION.SDK_INT < Build.VERSION_CODES.S ||
+                    alarmManager.canScheduleExactAlarms()
+
+            if (canExact) {
+                alarmManager.setExactAndAllowWhileIdle(
+                    AlarmManager.RTC_WAKEUP, triggerAt, pendingIntent
+                )
             } else {
-                alarmManager.setExact(AlarmManager.RTC_WAKEUP, triggerAt, pendingIntent)
+                alarmManager.setAndAllowWhileIdle(
+                    AlarmManager.RTC_WAKEUP, triggerAt, pendingIntent
+                )
             }
         }
 
