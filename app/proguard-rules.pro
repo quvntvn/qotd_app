@@ -19,3 +19,16 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+# --- Gson : le modèle Quote est désérialisé par réflexion depuis res/raw/quotes.json ---
+-keepattributes Signature
+-keepattributes *Annotation*
+-dontwarn sun.misc.**
+
+# Conserver les champs annotés @SerializedName (sinon R8 les renomme/supprime)
+-keepclassmembers,allowobfuscation class * {
+    @com.google.gson.annotations.SerializedName <fields>;
+}
+
+# Conserver intégralement le modèle de données
+-keep class com.quvntvn.qotd_app.Quote { *; }
