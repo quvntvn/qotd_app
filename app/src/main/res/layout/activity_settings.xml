@@ -35,249 +35,271 @@
         android:paddingEnd="30dp"
         android:paddingTop="40dp"
         android:paddingBottom="40dp"
-    app:layout_constraintTop_toTopOf="parent"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintEnd_toEndOf="parent">
-
-    <eightbitlab.com.blurview.BlurView
-        android:id="@+id/blurSettingsTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:clipToOutline="true"
-        android:background="@drawable/glass_overlay"
-        app:blurOverlayColor="@color/glass_tint"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <TextView
-            android:id="@+id/tvSettingsTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/uicksandedium"
-            android:gravity="center"
-            android:padding="12dp"
-            android:text="@string/settings_title"
-        android:textColor="@color/white"
-        android:textSize="18sp" />
-    </eightbitlab.com.blurview.BlurView>
-
-
-    <!-- Section Notifications -->
-    <eightbitlab.com.blurview.BlurView
-        android:id="@+id/blurNotificationsSection"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:clipToOutline="true"
-        android:background="@drawable/glass_overlay"
-        app:blurOverlayColor="@color/glass_tint"
-        app:layout_constraintTop_toBottomOf="@id/blurSettingsTitle"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <LinearLayout
-            android:id="@+id/layout_notifications_switch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="16dp">
-
-            <TextView
-                android:id="@+id/tv_notifications_label"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="18sp"
-                android:fontFamily="@font/uicksandedium"
-                android:textColor="@color/white"
-            android:text="@string/notifications_enabled"
-            android:textAppearance="?attr/textAppearanceSubtitle1" />
-
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/switch_notifications"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:thumbTint="@color/switch_thumb_selector"
-            app:trackTint="@color/switch_track_selector" />
-        </LinearLayout>
-    </eightbitlab.com.blurview.BlurView>
-
-    <eightbitlab.com.blurview.BlurView
-        android:id="@+id/blurTimePickerSection"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:clipToOutline="true"
-        android:background="@drawable/glass_overlay"
-        app:blurOverlayColor="@color/glass_tint"
-        app:layout_constraintTop_toBottomOf="@id/blurNotificationsSection"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <TextView
-                android:id="@+id/tv_notification_time_label"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/notification_time"
-                android:textSize="18sp"
-                android:fontFamily="@font/uicksandedium"
-                android:textColor="@color/white"
-            android:textAppearance="?attr/textAppearanceSubtitle1"
-            android:layout_marginBottom="8dp"/>
-
-            <TimePicker
-                android:id="@+id/timePicker"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/uicksandedium"
-                android:timePickerMode="spinner"
-                android:theme="@style/SettingsTimePicker"
-                android:layout_marginTop="8dp"/>
-        </LinearLayout>
-    </eightbitlab.com.blurview.BlurView>
-
-    <!-- Section Langue -->
-    <eightbitlab.com.blurview.BlurView
-        android:id="@+id/blurLanguageSection"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:clipToOutline="true"
-        android:background="@drawable/glass_overlay"
-        app:blurOverlayColor="@color/glass_tint"
-        app:layout_constraintTop_toBottomOf="@id/blurTimePickerSection"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <TextView
-                android:id="@+id/tv_language_label"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/language_label"
-                android:textSize="18sp"
-                android:fontFamily="@font/uicksandedium"
-                android:textColor="@color/white"
-            android:textAppearance="?attr/textAppearanceSubtitle1"
-            android:layout_marginBottom="8dp"/>
-
-            <Spinner
-                android:id="@+id/spinner_language"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="48dp"
-                android:fontFamily="@font/uicksandedium"
-                android:entries="@array/languages"
-                android:popupBackground="@color/glass_tint"
-                android:layout_marginTop="8dp"
-                style="@style/SettingsSpinner" />
-
-        </LinearLayout>
-    </eightbitlab.com.blurview.BlurView>
-
-    <!-- Section Pastille / Live Update -->
-    <eightbitlab.com.blurview.BlurView
-        android:id="@+id/blurLiveUpdateSection"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:clipToOutline="true"
-        android:background="@drawable/glass_overlay"
-        app:blurOverlayColor="@color/glass_tint"
-        app:layout_constraintTop_toBottomOf="@id/blurLanguageSection"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="16dp">
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:textSize="18sp"
-                android:fontFamily="@font/uicksandedium"
-                android:textColor="@color/white"
-                android:text="@string/live_update_label"
-                android:textAppearance="?attr/textAppearanceSubtitle1" />
-
-            <androidx.appcompat.widget.SwitchCompat
-                android:id="@+id/switch_live_update"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:thumbTint="@color/switch_thumb_selector"
-                app:trackTint="@color/switch_track_selector" />
-        </LinearLayout>
-    </eightbitlab.com.blurview.BlurView>
-
-
-    <!-- Bouton Retour -->
-    <eightbitlab.com.blurview.BlurView
-        android:id="@+id/blurBtnBack"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:clipToOutline="true"
-        android:background="@drawable/glass_overlay"
-        app:blurOverlayColor="@color/glass_tint"
-        app:layout_constraintBottom_toTopOf="@+id/blurBtnSave"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <Button
-            android:id="@+id/btn_back"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/back"
-            android:textStyle="bold"
-            android:textSize="14sp"
-            android:fontFamily="@font/uicksandemiold"
-            android:textColor="@color/white"
-            android:background="?attr/selectableItemBackground"/>
-    </eightbitlab.com.blurview.BlurView>
-
-    <!-- Bouton Enregistrer -->
-    <eightbitlab.com.blurview.BlurView
-        android:id="@+id/blurBtnSave"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:clipToOutline="true"
-        android:background="@drawable/glass_overlay"
-        app:blurOverlayColor="@color/glass_tint"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <Button
-            android:id="@+id/btn_save"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/save"
-            android:textSize="14sp"
-            android:fontFamily="@font/uicksandemiold"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:background="?attr/selectableItemBackground"/>
-    </eightbitlab.com.blurview.BlurView>
+        <!-- Sections défilantes -->
+        <ScrollView
+            android:id="@+id/settings_scroll"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="16dp"
+            android:clipToPadding="false"
+            android:fillViewport="true"
+            android:scrollbars="none"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/blurBtnBack"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <eightbitlab.com.blurview.BlurView
+                    android:id="@+id/blurSettingsTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clipToOutline="true"
+                    android:background="@drawable/glass_overlay"
+                    app:blurOverlayColor="@color/glass_tint">
+
+                    <TextView
+                        android:id="@+id/tvSettingsTitle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/uicksandedium"
+                        android:gravity="center"
+                        android:padding="12dp"
+                        android:text="@string/settings_title"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+                </eightbitlab.com.blurview.BlurView>
+
+                <!-- Section Notifications -->
+                <eightbitlab.com.blurview.BlurView
+                    android:id="@+id/blurNotificationsSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:clipToOutline="true"
+                    android:background="@drawable/glass_overlay"
+                    app:blurOverlayColor="@color/glass_tint">
+
+                    <LinearLayout
+                        android:id="@+id/layout_notifications_switch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:id="@+id/tv_notifications_label"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:textSize="18sp"
+                            android:fontFamily="@font/uicksandedium"
+                            android:textColor="@color/white"
+                            android:text="@string/notifications_enabled"
+                            android:textAppearance="?attr/textAppearanceSubtitle1" />
+
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/switch_notifications"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:thumbTint="@color/switch_thumb_selector"
+                            app:trackTint="@color/switch_track_selector" />
+                    </LinearLayout>
+                </eightbitlab.com.blurview.BlurView>
+
+                <eightbitlab.com.blurview.BlurView
+                    android:id="@+id/blurTimePickerSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:clipToOutline="true"
+                    android:background="@drawable/glass_overlay"
+                    app:blurOverlayColor="@color/glass_tint">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:id="@+id/tv_notification_time_label"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/notification_time"
+                            android:textSize="18sp"
+                            android:fontFamily="@font/uicksandedium"
+                            android:textColor="@color/white"
+                            android:textAppearance="?attr/textAppearanceSubtitle1"
+                            android:layout_marginBottom="8dp"/>
+
+                        <TimePicker
+                            android:id="@+id/timePicker"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/uicksandedium"
+                            android:timePickerMode="spinner"
+                            android:theme="@style/SettingsTimePicker"
+                            android:layout_marginTop="8dp"/>
+                    </LinearLayout>
+                </eightbitlab.com.blurview.BlurView>
+
+                <!-- Section Langue -->
+                <eightbitlab.com.blurview.BlurView
+                    android:id="@+id/blurLanguageSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:clipToOutline="true"
+                    android:background="@drawable/glass_overlay"
+                    app:blurOverlayColor="@color/glass_tint">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:padding="16dp">
+
+                        <TextView
+                            android:id="@+id/tv_language_label"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/language_label"
+                            android:textSize="18sp"
+                            android:fontFamily="@font/uicksandedium"
+                            android:textColor="@color/white"
+                            android:textAppearance="?attr/textAppearanceSubtitle1"
+                            android:layout_marginBottom="8dp"/>
+
+                        <Spinner
+                            android:id="@+id/spinner_language"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:minHeight="48dp"
+                            android:fontFamily="@font/uicksandedium"
+                            android:entries="@array/languages"
+                            android:popupBackground="@color/glass_tint"
+                            android:layout_marginTop="8dp"
+                            style="@style/SettingsSpinner" />
+
+                    </LinearLayout>
+                </eightbitlab.com.blurview.BlurView>
+
+                <!-- Section Pastille / Live Update -->
+                <eightbitlab.com.blurview.BlurView
+                    android:id="@+id/blurLiveUpdateSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:clipToOutline="true"
+                    android:background="@drawable/glass_overlay"
+                    app:blurOverlayColor="@color/glass_tint">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:padding="16dp">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_marginEnd="12dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:textSize="18sp"
+                                android:fontFamily="@font/uicksandedium"
+                                android:textColor="@color/white"
+                                android:text="@string/live_update_label"
+                                android:textAppearance="?attr/textAppearanceSubtitle1" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:textSize="13sp"
+                                android:lineSpacingMultiplier="1.1"
+                                android:fontFamily="@font/uicksandedium"
+                                android:textColor="@color/white"
+                                android:alpha="0.7"
+                                android:text="@string/live_update_desc" />
+                        </LinearLayout>
+
+                        <androidx.appcompat.widget.SwitchCompat
+                            android:id="@+id/switch_live_update"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:thumbTint="@color/switch_thumb_selector"
+                            app:trackTint="@color/switch_track_selector" />
+                    </LinearLayout>
+                </eightbitlab.com.blurview.BlurView>
+
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- Bouton Retour -->
+        <eightbitlab.com.blurview.BlurView
+            android:id="@+id/blurBtnBack"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:clipToOutline="true"
+            android:background="@drawable/glass_overlay"
+            app:blurOverlayColor="@color/glass_tint"
+            app:layout_constraintBottom_toTopOf="@+id/blurBtnSave"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <Button
+                android:id="@+id/btn_back"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/back"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:fontFamily="@font/uicksandemiold"
+                android:textColor="@color/white"
+                android:background="?attr/selectableItemBackground"/>
+        </eightbitlab.com.blurview.BlurView>
+
+        <!-- Bouton Enregistrer -->
+        <eightbitlab.com.blurview.BlurView
+            android:id="@+id/blurBtnSave"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:clipToOutline="true"
+            android:background="@drawable/glass_overlay"
+            app:blurOverlayColor="@color/glass_tint"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/save"
+                android:textSize="14sp"
+                android:fontFamily="@font/uicksandemiold"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:background="?attr/selectableItemBackground"/>
+        </eightbitlab.com.blurview.BlurView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+</androidx.constraintlayout.widget.ConstraintLayout>

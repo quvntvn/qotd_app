@@ -102,16 +102,16 @@ class NotificationHelper(private val context: Context) {
         )
         val accent = ContextCompat.getColor(context, R.color.colorPrimary)
 
-        // Date (année) de la citation, affichée sous le texte quand la notif est dépliée.
+        // Titre = auteur, suivi de l'année de la citation si dispo (ex. "Jean Rostand - 1940").
         val year = quote.dateCreation?.take(4)?.takeIf { it.isNotBlank() }
-        val expandedText = if (year != null) "${quote.citation}\n\n$year" else quote.citation
+        val title = if (year != null) "${quote.auteur} - $year" else quote.auteur
 
         // NB : pas de setColorized(true) — une notif colorisée est refusée à la promotion.
         val builder = Notification.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_qotd_notif)
-            .setContentTitle(quote.auteur)
+            .setContentTitle(title)
             .setContentText(quote.citation)
-            .setStyle(Notification.BigTextStyle().bigText(expandedText))
+            .setStyle(Notification.BigTextStyle().bigText(quote.citation))
             .setContentIntent(pendingIntent)
             .setAutoCancel(true)
             .setCategory(Notification.CATEGORY_RECOMMENDATION)

@@ -26,5 +26,6 @@
     <string name="widget_description">Displays the quote of the day.</string>
     <string name="loading">Loading...</string>
     <string name="live_update_label">Live Update pill</string>
+    <string name="live_update_desc">Shows the daily quote in the Live Update pill (Dynamic Island / status bar, Android 16+). It stays there for a while, then turns into a regular notification after 10 min. When off, you get a simple, less intrusive notification.</string>
     <string name="close">Close</string>
 </resources>

@@ -48,10 +48,10 @@ object SharedPrefManager {
         return prefs.getString(LANGUAGE, "fr") ?: "fr"
     }
 
-    /** Si vrai (défaut), la notif quotidienne est promue en "Live Update" (pastille). */
+    /** Si vrai, la notif quotidienne est promue en "Live Update" (pastille). Désactivé par défaut. */
     fun isLiveUpdateEnabled(context: Context): Boolean {
         return context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-            .getBoolean(LIVE_UPDATE_ENABLED, true)
+            .getBoolean(LIVE_UPDATE_ENABLED, false)
     }
 
     fun saveLiveUpdate(context: Context, enabled: Boolean) {
