@@ -102,12 +102,16 @@ class NotificationHelper(private val context: Context) {
         )
         val accent = ContextCompat.getColor(context, R.color.colorPrimary)
 
+        // Date (année) de la citation, affichée sous le texte quand la notif est dépliée.
+        val year = quote.dateCreation?.take(4)?.takeIf { it.isNotBlank() }
+        val expandedText = if (year != null) "${quote.citation}\n\n$year" else quote.citation
+
         // NB : pas de setColorized(true) — une notif colorisée est refusée à la promotion.
         val builder = Notification.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.ic_qotd_notif)
             .setContentTitle(quote.auteur)
             .setContentText(quote.citation)
-            .setStyle(Notification.BigTextStyle().bigText(quote.citation))
+            .setStyle(Notification.BigTextStyle().bigText(expandedText))
             .setContentIntent(pendingIntent)
             .setAutoCancel(true)
             .setCategory(Notification.CATEGORY_RECOMMENDATION)
@@ -125,13 +129,14 @@ class NotificationHelper(private val context: Context) {
      * Android 16 (API 36) : demande la promotion en "Live Update" (pastille).
      * Conditions vérifiées sur appareil : ongoing, contentTitle non vide, style supporté
      * (BigText), canal ≥ IMPORTANCE_LOW, NON colorisée, extra `android.requestPromotedOngoing`.
-     * On NE pose PAS de shortCriticalText → la pastille repliée n'affiche que le logo.
-     * On ajoute un bouton "Fermer" (la notif ongoing n'est pas balayable).
+     * shortCriticalText vide → la pastille repliée n'affiche que le logo (sinon HyperOS y
+     * recopie le contentTitle/auteur). On ajoute un bouton "Fermer" (l'ongoing n'est pas balayable).
      */
     private fun applyPromotion(builder: Notification.Builder) {
         try {
             builder.setOngoing(true)
             builder.setTimeoutAfter(FAILSAFE_TIMEOUT_MS)
+            builder.setShortCriticalText(" ")
             builder.addExtras(Bundle().apply { putBoolean(EXTRA_REQUEST_PROMOTED_ONGOING, true) })
             builder.addAction(closeAction())
         } catch (t: Throwable) {
