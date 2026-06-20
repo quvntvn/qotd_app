@@ -136,7 +136,7 @@ class NotificationHelper(private val context: Context) {
         try {
             builder.setOngoing(true)
             builder.setTimeoutAfter(FAILSAFE_TIMEOUT_MS)
-            builder.setShortCriticalText(" ")
+            builder.setShortCriticalText("📅")
             builder.addExtras(Bundle().apply { putBoolean(EXTRA_REQUEST_PROMOTED_ONGOING, true) })
             builder.addAction(closeAction())
         } catch (t: Throwable) {
