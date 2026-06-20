@@ -50,6 +50,9 @@ class SettingsActivity : AppCompatActivity() {
         val switchNotifications = findViewById<SwitchCompat>(R.id.switch_notifications)
         val timePicker = findViewById<TimePicker>(R.id.timePicker)
         val languageSpinner = findViewById<Spinner>(R.id.spinner_language)
+        // Interrupteur de la pastille "Live Update" (présent en portrait ; null en paysage)
+        val switchLiveUpdate: SwitchCompat? = findViewById(R.id.switch_live_update)
+        switchLiveUpdate?.isChecked = SharedPrefManager.isLiveUpdateEnabled(this)
 
         // Configuration du TimePicker
         timePicker.setIs24HourView(true)
@@ -108,6 +111,7 @@ class SettingsActivity : AppCompatActivity() {
             val localizedContext = LocaleHelper.wrapContext(this)
 
             SharedPrefManager.saveSettings(this, notificationsAreNowEnabled, newHour, newMinute)
+            switchLiveUpdate?.let { SharedPrefManager.saveLiveUpdate(this, it.isChecked) }
 
             QuoteAlarmReceiver.cancelDailyQuote(this.applicationContext)
 
@@ -147,6 +151,10 @@ class SettingsActivity : AppCompatActivity() {
             ?.setBlurRadius(blurRadius)
             ?.setBlurAutoUpdate(true)
 
+        findViewById<BlurView>(R.id.blurLiveUpdateSection)?.setupWith(blurTarget)
+            ?.setBlurRadius(blurRadius)
+            ?.setBlurAutoUpdate(true)
+
         findViewById<BlurView>(R.id.blurBtnBack)?.setupWith(blurTarget)
             ?.setBlurRadius(blurRadius)
             ?.setBlurAutoUpdate(true)
@@ -170,6 +178,10 @@ class SettingsActivity : AppCompatActivity() {
             ?.setBlurAutoUpdate(true)
 
         findViewById<BlurView>(R.id.blurLanguageSectionLand)?.setupWith(blurTarget)
+            ?.setBlurRadius(blurRadius)
+            ?.setBlurAutoUpdate(true)
+
+        findViewById<BlurView>(R.id.blurLiveUpdateSectionLand)?.setupWith(blurTarget)
             ?.setBlurRadius(blurRadius)
             ?.setBlurAutoUpdate(true)
 

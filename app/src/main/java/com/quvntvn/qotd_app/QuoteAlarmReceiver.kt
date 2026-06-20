@@ -41,8 +41,8 @@ class QuoteAlarmReceiver : BroadcastReceiver() {
                         NotificationHelper(context).showNotification(displayQuote)
                     }
                 }
-            } catch (_: Exception) {
-                // Ignore errors
+            } catch (e: Exception) {
+                android.util.Log.e("QuoteAlarmReceiver", "showNotification failed", e)
             } finally {
                 // Re-planifier pour le lendemain si toujours activé
                 val settings = SharedPrefManager.getNotificationSettings(context)

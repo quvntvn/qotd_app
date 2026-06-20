@@ -60,6 +60,10 @@
         <receiver
             android:name=".QuoteAlarmReceiver"
             android:exported="false" />
+        <!-- Actions de la notif Live Update : bouton "Fermer" + rétrogradation après 10 min -->
+        <receiver
+            android:name=".QuoteNotificationReceiver"
+            android:exported="false" />
         <!-- Re-arms the daily alarm after reboot / app update -->
         <receiver
             android:name=".BootReceiver"
