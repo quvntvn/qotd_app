@@ -194,6 +194,65 @@ app:layout_constraintEnd_toEndOf="parent">
 </eightbitlab.com.blurview.BlurView>
 
 
+<!-- Section Pastille / Live Update (colonne droite) -->
+<eightbitlab.com.blurview.BlurView
+    android:id="@+id/blurLiveUpdateSectionLand"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    android:layout_marginStart="12dp"
+    android:clipToOutline="true"
+    android:background="@drawable/glass_overlay"
+    app:blurOverlayColor="@color/glass_tint"
+    app:layout_constraintTop_toBottomOf="@id/blurLanguageSectionLand"
+    app:layout_constraintStart_toEndOf="@id/guideline_vertical_center"
+    app:layout_constraintEnd_toEndOf="parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="12dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:fontFamily="@font/uicksandedium"
+                android:textColor="@color/white"
+                android:text="@string/live_update_label"
+                android:textAppearance="?attr/textAppearanceSubtitle1" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:textSize="13sp"
+                android:lineSpacingMultiplier="1.1"
+                android:fontFamily="@font/uicksandedium"
+                android:textColor="@color/white"
+                android:alpha="0.7"
+                android:text="@string/live_update_desc" />
+        </LinearLayout>
+
+        <androidx.appcompat.widget.SwitchCompat
+            android:id="@+id/switch_live_update"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:thumbTint="@color/switch_thumb_selector"
+            app:trackTint="@color/switch_track_selector" />
+    </LinearLayout>
+</eightbitlab.com.blurview.BlurView>
+
+
 
 <eightbitlab.com.blurview.BlurView
 android:id="@+id/blurBtnBackLand"

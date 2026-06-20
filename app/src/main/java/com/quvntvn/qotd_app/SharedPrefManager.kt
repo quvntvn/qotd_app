@@ -9,6 +9,7 @@ object SharedPrefManager {
     private const val NOTIFICATION_HOUR = "notif_hour"
     private const val NOTIFICATION_MINUTE = "notif_minute" // Nouvelle clé
     private const val LANGUAGE = "language"
+    private const val LIVE_UPDATE_ENABLED = "live_update_enabled"
 
     // Sauvegarde les paramètres de notification
     fun saveSettings(context: Context, enabled: Boolean, hour: Int, minute: Int) {
@@ -45,6 +46,19 @@ object SharedPrefManager {
     fun getLanguage(context: Context): String {
         val prefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
         return prefs.getString(LANGUAGE, "fr") ?: "fr"
+    }
+
+    /** Si vrai, la notif quotidienne est promue en "Live Update" (pastille). Désactivé par défaut. */
+    fun isLiveUpdateEnabled(context: Context): Boolean {
+        return context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+            .getBoolean(LIVE_UPDATE_ENABLED, false)
+    }
+
+    fun saveLiveUpdate(context: Context, enabled: Boolean) {
+        context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+            .edit()
+            .putBoolean(LIVE_UPDATE_ENABLED, enabled)
+            .apply()
     }
 }
 

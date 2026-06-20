@@ -27,4 +27,7 @@
     <string name="settings_title">Réglages</string>
     <string name="quote_error">Probléme de récupération de la citation.</string>
     <string name="widget_description">Affiche la citation du jour.</string>
+    <string name="live_update_label">Pastille (mise à jour en direct)</string>
+    <string name="live_update_desc">Affiche la citation du jour dans la pastille « Mise à jour en direct » (Dynamic Island / barre de statut, Android 16+). Elle y reste un moment puis redevient une notification classique au bout de 10 min. Désactivé, tu reçois une simple notification, moins intrusive.</string>
+    <string name="close">Fermer</string>
 </resources>
